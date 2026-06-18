@@ -22,3 +22,7 @@ YYYY-MM-DD_W周数_内容_调性_速度.ext
 - [Blues1.band](../工程/Blues1.band)：GarageBand 工程，A 调 90 BPM；包含 1 个 chorus 的 shuffle 伴奏、自由即兴 3 chorus，以及只用 A、C、D 的限制即兴 3 chorus。
 
 工程内的 WAV 素材使用 Git LFS 追踪，导出的练习 MP3 继续保存在本目录。
+
+## 完整曲目基线
+
+- [《和你在一起》](./2026-06-18_W01_D1_baseline-song-和你在一起_E_74bpm.mp3)：2 分 48 秒；E 调、约 74 BPM 为音频估计，待用户确认。
