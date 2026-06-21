@@ -2,16 +2,24 @@
 
 ## 1. 标准 12 小节
 
-以 A 调为例：
+以 A 调为例，最直接的常规版本是：
 
 ```text
-| A7 | D7 | A7 | A7 |
+| A7 | A7 | A7 | A7 |
 | D7 | D7 | A7 | A7 |
 | E7 | D7 | A7 | E7 |
    I    IV   I    I
    IV   IV   I    I
    V    IV   I    V
 ```
+
+常见的 **quick change** 会把第 2 小节提前换到 IV：
+
+```text
+| A7 | D7 | A7 | A7 |
+```
+
+两种都是真实 Blues 语法。用户当前自录的 A 调 shuffle 前四小节保持 A7，属于常规版本；进入具体曲目时以锁定录音为准，不把 quick change 当成唯一标准。
 
 最后一小节的 `E7` 是 turnaround；歌曲结束时通常改为 `A7` 或设计好的 ending。
 
