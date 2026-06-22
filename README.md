@@ -18,7 +18,7 @@
 
 ## 下一次 45–60 分钟任务
 
-1. 完整听《Before You Accuse Me》`Unplugged` 版本一遍，只标 intro、每轮 12 小节、solo 入口与 ending。
+1. 完整听《[Before You Accuse Me](https://open.spotify.com/track/6nLYM1bjWTeMOLmBN666V3)》`Unplugged` / Live 版本一遍，只标 intro、每轮 12 小节、solo 入口与 ending。
 2. 跟原曲完成至少两个连续 chorus 的节奏角色，不复制全部装饰。
 3. 从人声后选一条 `1–2` 小节吉他回答句，直接在琴上复制。
 4. 一次录下“节奏 1 chorus + 原句所在段落”，中途不停。
