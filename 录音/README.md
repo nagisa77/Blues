@@ -19,7 +19,7 @@ YYYY-MM-DD_W周数_D天数_内容_调性_速度.ext
 
 ## 现有工程
 
-- [Blues1.band](../工程/Blues1.band)：A 调 90 BPM；含 shuffle 伴奏、自由即兴和三音限制基线。
+- [A调_90BPM_shuffle.band](../工程/A调_90BPM_shuffle.band)：A 调 90 BPM；含 shuffle 伴奏、自由即兴和三音限制基线。
 
 工程内 WAV 使用 Git LFS。导出的练习 MP3 保存在本目录；下载的参考曲目保存在 `曲目/参考素材/`，不混入个人录音。
 

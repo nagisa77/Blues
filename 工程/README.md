@@ -1,8 +1,9 @@
 # 可编辑工程
 
-## Blues1.band
+## A调_90BPM_shuffle.band
 
 - 调性 / 速度：A 调，90 BPM
+- 工程：[A 调 `90 BPM` shuffle](./A调_90BPM_shuffle.band)
 - 节奏：1 个 chorus 的 shuffle 伴奏，可循环使用
 - 即兴 1：自由音符，3 chorus
 - 即兴 2：只用 A、C、D，3 chorus
