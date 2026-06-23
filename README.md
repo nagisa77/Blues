@@ -15,12 +15,13 @@
 - 今日入口：[2026-06-23 D2 练习日志](./日志/2026-06-23_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
+本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 
 > 当前唯一重点：《Before You Accuse Me》中和弦一换，lead 的关键落点随之改变。
 
 ## 下一次 25–30 分钟任务
 
-1. 完整听《[Before You Accuse Me](https://open.spotify.com/track/6nLYM1bjWTeMOLmBN666V3)》`Unplugged` / Live 版本一遍，只标 intro、每轮 12 小节、solo 入口与 ending。
+1. 完整听本地素材《[Before You Accuse Me](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)》`Unplugged` / Live 版本一遍，只标 intro、每轮 12 小节、solo 入口与 ending。
 2. 跟原曲完成至少两个连续 chorus 的节奏角色，不复制全部装饰。
 3. 从人声后选一条 `1–2` 小节吉他回答句，直接在琴上复制。
 4. 一次录下“节奏 1 chorus + 原句所在段落”，中途不停。
