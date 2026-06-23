@@ -12,12 +12,13 @@
 - 当前可复用伴奏工程：[A 调 `65 BPM` shuffle](./工程/A调_65BPM_shuffle.band)，内含 shuffle 背景和 3 条 solo。
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus`限制任务每周最多一次。
 - 现在进入[第二周详细计划](./计划/第二周详细计划.md)，主攻 Eric Clapton《Before You Accuse Me》`Unplugged` 版本。
+- 今日入口：[2026-06-23 D2 练习日志](./日志/2026-06-23_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 
 > 当前唯一重点：《Before You Accuse Me》中和弦一换，lead 的关键落点随之改变。
 
-## 下一次 45–60 分钟任务
+## 下一次 25–30 分钟任务
 
 1. 完整听《[Before You Accuse Me](https://open.spotify.com/track/6nLYM1bjWTeMOLmBN666V3)》`Unplugged` / Live 版本一遍，只标 intro、每轮 12 小节、solo 入口与 ending。
 2. 跟原曲完成至少两个连续 chorus 的节奏角色，不复制全部装饰。
