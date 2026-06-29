@@ -40,6 +40,7 @@ YYYY-MM-DD_W周数_D天数_内容_调性_速度.ext
 | 2026-06-29 | 《Before You Accuse Me》E7 / A7 / B7 回答变化 | 练习成品 | `0:38.69` | [录音](./2026-06-29_W27_D1_BeforeYouAccuseMe回答变化_E_原速.mp3) | [W27 D1 日志](../日志/2026-06-29_D1.md) |
 | 2026-06-29 | 《Before You Accuse Me》E 调 `90 BPM` 语气修正版 | 练习成品 | `1:39.63` | [录音](./2026-06-29_W27_D1_BeforeYouAccuseMe语气修正版_E_90BPM.mp3) | [W27 D1 日志](../日志/2026-06-29_D1.md) |
 | 2026-06-29 | 《Before You Accuse Me》E 调 `90 BPM` 伴奏 3 chorus 加鼓 + 2 chorus solo | 练习成品 | `1:41.04` | [录音](./2026-06-29_W27_D1_BeforeYouAccuseMe伴奏3chorus加鼓Solo2chorus_E_90BPM.mp3) | [W27 D1 日志](../日志/2026-06-29_D1.md) |
+| 2026-06-30 | 《Before You Accuse Me》第一段 turnaround 跟原曲 | 练习成品 | `0:26.80` | [录音](./2026-06-30_W27_D2_BeforeYouAccuseMeTurnaround_E_原速.mp3) | [W27 D2 日志](../日志/2026-06-30_D2.md) |
 
 ## 现有工程
 
