@@ -18,7 +18,7 @@
 - 6 月 29 日已归档 [E 调 `90 BPM` 3 chorus（三轮 12 小节）背景与 solo（主音独奏）工程](./工程/E调_90BPM_3chorus背景与solo.band)；用户自评使用了《Before You Accuse Me》句子，但部分机械、部分节奏不准；记录为“完成，尚待稳定”，未实际回听评价。
 - 6 月 29 日已归档 [《Before You Accuse Me》E 调 `90 BPM` 语气修正版](./录音/2026-06-29_W27_D1_BeforeYouAccuseMe语气修正版_E_90BPM.mp3)；用户自评 `1 chorus（一轮 12 小节）` solo（主音独奏）听起来舒服多了，尚未实际回听评价。
 - 6 月 29 日已归档 [《Before You Accuse Me》E 调 `90 BPM` 伴奏 3 chorus（三轮 12 小节）加鼓 + 2 chorus solo](./录音/2026-06-29_W27_D1_BeforeYouAccuseMe伴奏3chorus加鼓Solo2chorus_E_90BPM.mp3)；用户自评“整体听起来可以”，尚未实际回听评价。
-- 今日入口：[2026-06-29 D1 练习日志](./日志/2026-06-29_D1.md)。
+- 今日入口：[2026-06-30 D2 练习日志](./日志/2026-06-30_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
