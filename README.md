@@ -18,22 +18,22 @@
 - 6 月 29 日已归档 [E 调 `90 BPM` 3 chorus（三轮 12 小节）背景与 solo（主音独奏）工程](./工程/E调_90BPM_3chorus背景与solo.band)；用户自评使用了《Before You Accuse Me》句子，但部分机械、部分节奏不准；记录为“完成，尚待稳定”，未实际回听评价。
 - 6 月 29 日已归档 [《Before You Accuse Me》E 调 `90 BPM` 语气修正版](./录音/2026-06-29_W27_D1_BeforeYouAccuseMe语气修正版_E_90BPM.mp3)；用户自评 `1 chorus（一轮 12 小节）` solo（主音独奏）听起来舒服多了，尚未实际回听评价。
 - 6 月 29 日已归档 [《Before You Accuse Me》E 调 `90 BPM` 伴奏 3 chorus（三轮 12 小节）加鼓 + 2 chorus solo](./录音/2026-06-29_W27_D1_BeforeYouAccuseMe伴奏3chorus加鼓Solo2chorus_E_90BPM.mp3)；用户自评“整体听起来可以”，尚未实际回听评价。
-- 6 月 30 日已归档 [《Before You Accuse Me》第一段 turnaround（回转句）跟原曲练习成品](./录音/2026-06-30_W27_D2_BeforeYouAccuseMeTurnaround_E_原速.mp3)；用户自评“完美弹出，并接到下一段”，尚未实际回听评价，guide tone（导向音）说明待补。
+- 6 月 30 日已归档 [《Before You Accuse Me》第一段 turnaround（回转句）跟原曲练习成品](./录音/2026-06-30_W27_D2_BeforeYouAccuseMeTurnaround_E_原速.mp3)；用户自评“完美弹出，并接到下一段”，随后明确反馈“觉得完美就是完美，继续教程”，本条按用户自评过关推进，尚未实际回听评价。
 - 今日入口：[2026-06-30 D2 练习日志](./日志/2026-06-30_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 
-> 当前唯一重点：不用重录这条 turnaround；先说清尾音落在 B7 或 E7 的哪个 guide tone（导向音），再进入 rhythm fill（节奏填句）不间断应用。
+> 当前唯一重点：不用重录这条 turnaround（回转句）；进入 rhythm fill（节奏填句）和人声空隙，把一句原曲 fill 放回当前 E 调工程。
 
 ## 下一次 25–30 分钟任务
 
-1. 不重录：补一句句子卡事实，说明 6 月 30 日这条 turnaround 的尾音落在 B7 或 E7 的哪个 guide tone。
-2. 说清后，从原曲选一个 `1–2` 小节 rhythm fill，不扒整首。
-3. 放回 [E 调 `90 BPM` 3 chorus（三轮 12 小节）背景与 solo（主音独奏）工程](./工程/E调_90BPM_3chorus背景与solo.band)：两个小节 rhythm（节奏/伴奏），两个小节 fill（填句），连续 3 次。
-4. 如果第 3 步稳，再录一条 `5 分钟` rhythm / fill 不间断片段。
+1. 从原曲选一个人声后或节奏空隙里的 `1–2` 小节 rhythm fill，不扒整首。
+2. 先复制进入拍点、重音和停顿；音符少错一点可以，节奏身份不能丢。
+3. 放回 [E 调 `90 BPM` 3 chorus（三轮 12 小节）背景与 solo（主音独奏）工程](./工程/E调_90BPM_3chorus背景与solo.band)：两个小节 rhythm（节奏/伴奏）-> 原曲 fill（填句）-> 两个小节 rhythm -> 一个个人变化。
+4. 如果回 rhythm 的第一拍稳定，再扩展到一条 `5 分钟` rhythm / fill 不间断片段。
 
-过关只看：guide tone 能说清；fill 后回 rhythm 的第一拍稳；不为了填满空隙而增加音符。
+过关只看：fill 后回 rhythm 的第一拍稳；不为了填满空隙而增加音符；听起来仍然是在伴奏里回答，而不是突然开始 solo。
 
 ## 常用入口
 
