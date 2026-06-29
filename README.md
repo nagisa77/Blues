@@ -16,21 +16,22 @@
 - 6 月 29 日已归档《Before You Accuse Me》E7 / A7 / B7 回答变化练习成品；用户自评个人觉得还行，尚未实际回听演奏质量，是否一次录完待确认。
 - 新增可复用工程：[BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，含 E 伴奏和两条 solo，可作为后续 E 调 solo 资源。
 - 6 月 29 日已归档 [E 调 `90 BPM` 3 chorus 背景与 solo 工程](./工程/E调_90BPM_3chorus背景与solo.band)；用户自评使用了《Before You Accuse Me》句子，但部分机械、部分节奏不准；记录为“完成，尚待稳定”，未实际回听评价。
+- 6 月 29 日已归档 [《Before You Accuse Me》E 调 `90 BPM` 语气修正版](./录音/2026-06-29_W27_D1_BeforeYouAccuseMe语气修正版_E_90BPM.mp3)；用户自评 `1 chorus` solo 听起来舒服多了，尚未实际回听评价。
 - 今日入口：[2026-06-29 D1 练习日志](./日志/2026-06-29_D1.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 
-> 当前唯一重点：让《Before You Accuse Me》的回答句从“小节格子”里出来，靠进入拍点、留白和尾音长度形成接话感。
+> 当前唯一重点：保留修正版里更自然的接话感，把它放回完整曲目骨架；lead 之后回到 rhythm 时 pulse 不断。
 
 ## 下一次 25–30 分钟任务
 
-1. 打开 [E 调 `90 BPM` 3 chorus 背景与 solo 工程](./工程/E调_90BPM_3chorus背景与solo.band)，先听自己最机械的一处，不改音高。
-2. 只重录 `1 chorus` 修正版：每个回答句前至少留半拍或一拍空气；每个句尾至少有一个音拉长或提前停住。
-3. 允许引用《Before You Accuse Me》句子，但每个 chorus 最多放 2 个引用；其余用节奏呼吸连接，不用新快句填满。
-4. 正式录音一遍，中途不停；如果有一处节奏不准，下一句用留白找回 pulse。
+1. 打开 [E 调 `90 BPM` 3 chorus 背景与 solo 工程](./工程/E调_90BPM_3chorus背景与solo.band)，保留语气修正版中更舒服的进入拍点和句尾处理。
+2. 录《Before You Accuse Me》第一次完整曲目骨架：前奏 / 节奏 `1 chorus` -> solo `1 chorus` -> 回节奏 `1 chorus` -> ending。
+3. solo 只用今天已经舒服的材料；每个 12 小节最多 2 个 Clapton 引用，其余用短回答和留白连接。
+4. 正式录音一遍，中途不停；solo 回节奏的第一个小节是本次唯一重点。
 
-过关只看：回答句不再都从强拍硬进；至少 2 处尾音像“说完一句话”而不是戛然而止；丢一次节奏后能在下一句找回 pulse。
+过关只看：完整结构不丢；solo 后第一个 rhythm 小节不塌；ending 有明确收束。
 
 ## 常用入口
 

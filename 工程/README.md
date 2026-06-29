@@ -32,6 +32,6 @@
 
 - 工程：[E 调 `90 BPM` 3 chorus 背景与 solo](./E调_90BPM_3chorus背景与solo.band)
 - 用途：E 调 `90 BPM` 连续 chorus 练习；用于把《Before You Accuse Me》回答句放进完整 solo 上下文，并继续修正机械感和落拍。
-- 当前内容：GarageBand 10.4.11 工程；包内 2 条 WAV，均为 `101.33s`，标记 `90.0 BPM`。
-- 用户自评：`3 chorus` 的 E 调 background 后录 solo，运用了《Before You Accuse Me》里的句子；部分听起来机械化，部分不太对节奏。
-- 对应导出：暂无独立 MP3 / WAV 导出；当前只登记为可编辑工程。
+- 当前内容：GarageBand 10.4.11 工程；包内 2 条 `101.33s` WAV 和 1 条 `37.33s` solo WAV，均标记 `90.0 BPM`。
+- 用户自评：第一版 `3 chorus` 的 E 调 background 后录 solo，运用了《Before You Accuse Me》里的句子；部分听起来机械化，部分不太对节奏。随后完成 `1 chorus` 语气修正版，听起来舒服多了。
+- 对应导出：[E 调 `90 BPM` 语气修正版](../录音/2026-06-29_W27_D1_BeforeYouAccuseMe语气修正版_E_90BPM.mp3)。
