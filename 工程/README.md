@@ -27,3 +27,11 @@
 - 用途：《Before You Accuse Me》E 调回答句与后续 solo 资源，可继续在同一 E 伴奏上增加和弦跟随 solo。
 - 当前内容：E 伴奏 + 2 条 solo；用户说明其中一条已静音，为三句原曲回答；另一条为 E7 原回答句 -> A7 尾音版本 -> B7 尾音版本。
 - 对应导出：[E7 / A7 / B7 回答变化](../录音/2026-06-29_W27_D1_BeforeYouAccuseMe回答变化_E_原速.mp3)。
+
+## E调_90BPM_3chorus背景与solo.band
+
+- 工程：[E 调 `90 BPM` 3 chorus 背景与 solo](./E调_90BPM_3chorus背景与solo.band)
+- 用途：E 调 `90 BPM` 连续 chorus 练习；用于把《Before You Accuse Me》回答句放进完整 solo 上下文，并继续修正机械感和落拍。
+- 当前内容：GarageBand 10.4.11 工程；包内 2 条 WAV，均为 `101.33s`，标记 `90.0 BPM`。
+- 用户自评：`3 chorus` 的 E 调 background 后录 solo，运用了《Before You Accuse Me》里的句子；部分听起来机械化，部分不太对节奏。
+- 对应导出：暂无独立 MP3 / WAV 导出；当前只登记为可编辑工程。
