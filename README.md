@@ -13,21 +13,23 @@
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus`限制任务每周最多一次。
 - 当前进入 [2026-W27 第三周](./日志/2026-W27.md)，仍沿用[第二周详细计划](./计划/第二周详细计划.md)的 Clapton 主线；先把新句子及变化做成可复现结果，再进入第三周节奏 / fill 不间断录音。
 - 6 月 29 日已归档《Before You Accuse Me》前奏与 E 回答 1-3 练习录音；三个快速句子基本跟原曲一致来自用户自评，尚未实际回听演奏质量。
+- 6 月 29 日已归档《Before You Accuse Me》E7 / A7 / B7 回答变化练习成品；用户自评个人觉得还行，尚未实际回听演奏质量，是否一次录完待确认。
+- 新增可复用工程：[BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，含 E 伴奏和两条 solo，可作为后续 E 调 solo 资源。
 - 今日入口：[2026-06-29 D1 练习日志](./日志/2026-06-29_D1.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 
-> 当前唯一重点：《Before You Accuse Me》中回答句的尾音说明所在和弦，回到节奏时 pulse 不断。
+> 当前唯一重点：把同一个回答动机放进连续 `3 chorus`，换和弦处用三度或降七度说明当前位置，回到节奏时 pulse 不断。
 
 ## 下一次 25–30 分钟任务
 
-1. 从 6 月 29 日已经录下的 E 回答 1-3 里，只选一条最稳的句子。
-2. 保留进入拍点和节奏轮廓；做两个尾音版本：A7 版落 `C# / G`，B7 版落 `D# / A`。
-3. 不新增快句，不再扒第四句；每个版本只改尾音或最后 `2–4` 个音。
-4. 一次录下“节奏 1 chorus -> E 回答原句 -> A7 尾音版本 -> B7 尾音版本 -> 回到节奏 4 小节”，中途不停。
+1. 打开 [BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，保留 E 伴奏，把已录的三种回答当作素材库。
+2. 连续录 `3 chorus` E 调 solo；每轮至少引用一次今天的回答动机，不新增快句。
+3. 第 5 小节 A7 优先落 `C# / G`，第 9 小节 B7 优先落 `D# / A`，第 11 小节 E7 优先落 `G# / D`。
+4. 失误继续走；正式录音只看完整形式，不为单个音重启。
 
-过关只看：三个版本像同一句话的三个和弦位置；A7 / B7 的尾音能听出换了落点；回到节奏时不丢下一小节。
+过关只看：第 5、9、11 小节能听出有意图的和弦落点；三轮不丢位置；lead 之后能回到节奏。
 
 ## 常用入口
 

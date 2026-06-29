@@ -37,10 +37,12 @@ YYYY-MM-DD_W周数_D天数_内容_调性_速度.ext
 | 2026-06-21 | B.B. King 移调原句 + 个人变化 | 练习成品 | `0:44.64` | [录音](./2026-06-21_W01_D3_BBKing移调与个人变化_A_65bpm.mp3) | [D3 日志](../日志/2026-06-21_D3.md) |
 | 2026-06-22 | A 调 `65 BPM`：节奏 2 chorus + solo 3 chorus + ending | 考试录音 | `3:45.93` | [录音](./2026-06-22_W02_D1_完整表演_A_65bpm.mp3) | [W02 D1 日志](../日志/2026-06-22_D1.md) |
 | 2026-06-29 | 《Before You Accuse Me》前奏与 E 回答 1-3 | 练习记录 | `3:59.31` | [录音](./2026-06-29_W27_D1_BeforeYouAccuseMe前奏E回答_E_原速.mp3) | [W27 D1 日志](../日志/2026-06-29_D1.md) |
+| 2026-06-29 | 《Before You Accuse Me》E7 / A7 / B7 回答变化 | 练习成品 | `0:38.69` | [录音](./2026-06-29_W27_D1_BeforeYouAccuseMe回答变化_E_原速.mp3) | [W27 D1 日志](../日志/2026-06-29_D1.md) |
 
 ## 现有工程
 
 - [A调_90BPM_shuffle.band](../工程/A调_90BPM_shuffle.band)：A 调 90 BPM；含 shuffle 伴奏、自由即兴和三音限制基线。
 - [A调_65BPM_shuffle.band](../工程/A调_65BPM_shuffle.band)：A 调 65 BPM；含 shuffle 背景和 3 条 solo，可继续增加新 solo。
+- [BeforeYouAccuseMe_E调回答变化.band](../工程/BeforeYouAccuseMe_E调回答变化.band)：E 调《Before You Accuse Me》回答变化资源；含 E 伴奏和两条 solo，用户说明一条静音为三句原曲回答，另一条为 E7 / A7 / B7 三个回答版本。
 
 工程内 WAV 使用 Git LFS。导出的练习 MP3 保存在本目录；下载的参考曲目保存在 `曲目/参考素材/`，不混入个人录音。

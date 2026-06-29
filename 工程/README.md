@@ -20,3 +20,10 @@
 - 当前内容：shuffle 背景 + 3 条 solo；其中 2 条录于 2026-06-21，1 条录于 2026-06-22（用户说明）。
 - 对应完整导出：[A 调“节奏 2 chorus + solo 3 chorus + ending”](../录音/2026-06-22_W02_D1_完整表演_A_65bpm.mp3)。
 - 归档时已核对源包与仓库副本的 15 个文件；包内 8 个 WAV 由 Git LFS 追踪。
+
+## BeforeYouAccuseMe_E调回答变化.band
+
+- 工程：[BeforeYouAccuseMe_E调回答变化](./BeforeYouAccuseMe_E调回答变化.band)
+- 用途：《Before You Accuse Me》E 调回答句与后续 solo 资源，可继续在同一 E 伴奏上增加和弦跟随 solo。
+- 当前内容：E 伴奏 + 2 条 solo；用户说明其中一条已静音，为三句原曲回答；另一条为 E7 原回答句 -> A7 尾音版本 -> B7 尾音版本。
+- 对应导出：[E7 / A7 / B7 回答变化](../录音/2026-06-29_W27_D1_BeforeYouAccuseMe回答变化_E_原速.mp3)。
