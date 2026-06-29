@@ -11,22 +11,22 @@
 - 第 1 周 A 调完整表演已于 6 月 22 日过关：从头到尾一次录完、未剪辑，五轮不丢位置，ending 符合预期（用户自评）。演奏听感尚未实际回听，不因此重录。
 - 当前可复用伴奏工程：[A 调 `65 BPM` shuffle](./工程/A调_65BPM_shuffle.band)，内含 shuffle 背景和 3 条 solo。
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus`限制任务每周最多一次。
-- 现在进入[第二周详细计划](./计划/第二周详细计划.md)，主攻 Eric Clapton《Before You Accuse Me》`Unplugged` 版本。
-- 今日入口：[2026-06-23 D2 练习日志](./日志/2026-06-23_D2.md)。
+- 当前进入 [2026-W27 第三周](./日志/2026-W27.md)，仍沿用[第二周详细计划](./计划/第二周详细计划.md)的 Clapton 主线；先把新句子及变化做成可复现结果，再进入第三周节奏 / fill 不间断录音。
+- 今日入口：[2026-06-29 D1 练习日志](./日志/2026-06-29_D1.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 
-> 当前唯一重点：《Before You Accuse Me》中和弦一换，lead 的关键落点随之改变。
+> 当前唯一重点：《Before You Accuse Me》中回答句的尾音说明所在和弦，回到节奏时 pulse 不断。
 
 ## 下一次 25–30 分钟任务
 
-1. 完整听本地素材《[Before You Accuse Me](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)》`Unplugged` / Live 版本一遍，只标 intro、每轮 12 小节、solo 入口与 ending。
-2. 跟原曲完成至少两个连续 chorus 的节奏角色，不复制全部装饰。
-3. 从人声后选一条 `1–2` 小节吉他回答句，直接在琴上复制。
-4. 一次录下“节奏 1 chorus + 原句所在段落”，中途不停。
+1. 从本地素材《[Before You Accuse Me](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)》`Unplugged` / Live 版本里，选一条人声后的 `1–2` 小节吉他回答句。
+2. 原句弹一次；随后做两个变化，每次只改尾音或最后 `2–4` 个音。
+3. 至少一个变化要落到所在和弦的三度或降七度：E7 = `G# / D`，A7 = `C# / G`，B7 = `D# / A`。
+4. 一次录下“节奏 1 chorus -> 原句 -> 两个变化 -> 回到节奏 4 小节”，中途不停。
 
-过关只看：跟住完整形式，回答句有清楚进入和结束，并能指出它发生在 E7、A7 还是 B7 上。
+过关只看：原句和两个变化可辨认但不相同；能指出原句发生在 E7、A7 还是 B7 上；回到节奏时不丢下一小节。
 
 ## 常用入口
 
