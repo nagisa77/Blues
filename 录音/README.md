@@ -42,6 +42,7 @@ YYYY-MM-DD_W周数_D天数_内容_调性_速度.ext
 | 2026-06-29 | 《Before You Accuse Me》E 调 `90 BPM` 伴奏 3 chorus 加鼓 + 2 chorus solo | 练习成品 | `1:41.04` | [录音](./2026-06-29_W27_D1_BeforeYouAccuseMe伴奏3chorus加鼓Solo2chorus_E_90BPM.mp3) | [W27 D1 日志](../日志/2026-06-29_D1.md) |
 | 2026-06-30 | 《Before You Accuse Me》第一段 turnaround 跟原曲 | 练习成品 | `0:26.80` | [录音](./2026-06-30_W27_D2_BeforeYouAccuseMeTurnaround_E_原速.mp3) | [W27 D2 日志](../日志/2026-06-30_D2.md) |
 | 2026-07-01 | 《Hide Away》前 `1 chorus` 扒谱跟原曲 | 练习成品 | `0:29.78` | [录音](./2026-07-01_W27_D3_HideAway前1chorus_E_原速.mp3) | [W27 D3 日志](../日志/2026-07-01_D3.md) |
+| 2026-07-01 | 《Hide Away》E 调 `110 BPM` 伴奏 3 chorus 加变化 solo | 练习成品 | `1:29.16` | [录音](./2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3) | [W27 D3 日志](../日志/2026-07-01_D3.md) |
 
 ## 现有工程
 
@@ -49,5 +50,6 @@ YYYY-MM-DD_W周数_D天数_内容_调性_速度.ext
 - [A调_65BPM_shuffle.band](../工程/A调_65BPM_shuffle.band)：A 调 65 BPM；含 shuffle 背景和 3 条 solo，可继续增加新 solo。
 - [BeforeYouAccuseMe_E调回答变化.band](../工程/BeforeYouAccuseMe_E调回答变化.band)：E 调《Before You Accuse Me》回答变化资源；含 E 伴奏和两条 solo，用户说明一条静音为三句原曲回答，另一条为 E7 / A7 / B7 三个回答版本。
 - [E调_90BPM_3chorus背景与solo.band](../工程/E调_90BPM_3chorus背景与solo.band)：E 调 90 BPM；含 3 chorus 背景、前一版 solo、`1 chorus` 语气修正版 solo，以及加鼓后的 3 chorus 伴奏 + 2 chorus solo 练习内容。
+- [E调_110BPM_HideAway伴奏3chorus加变化solo.band](../工程/E调_110BPM_HideAway伴奏3chorus加变化solo.band)：E 调 110 BPM；含鼓 + 伴奏 3 chorus + 一条 solo，可静音当前 solo 后继续录其他 solo。
 
 工程内 WAV 使用 Git LFS。导出的练习 MP3 保存在本目录；下载的参考曲目保存在 `曲目/参考素材/`，不混入个人录音。

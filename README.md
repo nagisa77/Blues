@@ -22,22 +22,24 @@
 - 用户指出 rhythm fill（节奏填句）类任务此前已经做过；下一步跳出《Before You Accuse Me》的相似短回答，预备 Freddie King《Hide Away》`4` 小节器乐主题。
 - 6 月 30 日已下载本地学习参考：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)。
 - 7 月 1 日已归档 [《Hide Away》前 `1 chorus（一轮 12 小节）` 扒谱练习成品](./录音/2026-07-01_W27_D3_HideAway前1chorus_E_原速.mp3)；用户自评“跟原曲一致”，尚未实际回听评价，是否一次录完待确认。
+- 7 月 1 日已归档可复用工程 [E 调 `110 BPM` Hide Away 伴奏 3 chorus 加变化 solo](./工程/E调_110BPM_HideAway伴奏3chorus加变化solo.band)；用户说明含鼓 + 伴奏 `3 chorus（三轮 12 小节）` + 一条 solo（主音独奏），后续可静音 solo 继续练其他 solo。
+- 7 月 1 日已归档 [《Hide Away》E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](./录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)；第 1 chorus 为原曲前 `1 chorus`，第 2 chorus 改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回原主题；用户自评整体感觉不错，尚未实际回听评价。
 - 今日入口：[2026-07-01 D3 练习日志](./日志/2026-07-01_D3.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 下一首预备素材：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)
 
-> 当前唯一重点：把 Freddie King《Hide Away》前 `1 chorus（一轮 12 小节）` 从“复制成功”变成可复用的结构和一个个人变化。
+> 当前唯一重点：用 E 调 `110 BPM`《Hide Away》工程复用 backing（伴奏），让个人变化保留原主题身份，不急着升到原曲 `130 BPM`。
 
 ## 下一次 25–30 分钟任务
 
-1. 听 [Freddie King《Hide Away》](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3) 与自己的前 `1 chorus` 录音，只标出 `1–4 / 5–8 / 9–12` 小节各自的功能。
-2. 写一张结构卡：主题从哪一拍进入、最高点、重复动机、第 `9–12` 小节怎样回到 I7。
-3. 只做一个变化：保留前 `4` 小节主题节奏，改最后 `2–3` 个音或尾音长度。
-4. 录“原主题 `4` 小节 -> 个人变化 `4` 小节 -> 原曲第 `5–12` 小节”。
+1. 打开 [E 调 `110 BPM` Hide Away 工程](./工程/E调_110BPM_HideAway伴奏3chorus加变化solo.band)，静音当前 solo，只保留鼓 + backing。
+2. 第 1 chorus 弹原主题；第 2 chorus 只做一个新的 `4` 小节变化；第 3 chorus 回原主题。
+3. 变化只改最后 `2–3` 个音、尾音长度或一次小滑音，不改主题节奏身份。
+4. 导出一条新的 `110 BPM` 练习成品。
 
-过关只看：变化后仍听得出来自《Hide Away》；第 `5` 小节和第 `9` 小节位置不丢；不是自由 blues scale（布鲁斯音阶）跑动。
+过关只看：变化后仍听得出来自《Hide Away》；第 `5` 小节和第 `9` 小节位置不丢；`110 BPM` 的 feel（律动感觉）不松。
 
 ## 常用入口
 

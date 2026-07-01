@@ -35,3 +35,11 @@
 - 当前内容：GarageBand 10.4.11 工程；包内 7 条 WAV：2 条 `101.33s`，1 条 `37.33s`，以及新增 `16.00s`、`64.00s`、`18.67s`、`69.33s` 片段，均为 44.1 kHz 单声道 WAV。
 - 用户自评：第一版 `3 chorus` 的 E 调 background 后录 solo，运用了《Before You Accuse Me》里的句子；部分听起来机械化，部分不太对节奏。随后完成 `1 chorus` 语气修正版，听起来舒服多了。最新版本为三个 chorus 伴奏、两个 chorus solo，加了鼓，整体听起来可以。
 - 对应导出：[E 调 `90 BPM` 语气修正版](../录音/2026-06-29_W27_D1_BeforeYouAccuseMe语气修正版_E_90BPM.mp3)、[伴奏 3 chorus 加鼓 + 2 chorus solo](../录音/2026-06-29_W27_D1_BeforeYouAccuseMe伴奏3chorus加鼓Solo2chorus_E_90BPM.mp3)。
+
+## E调_110BPM_HideAway伴奏3chorus加变化solo.band
+
+- 工程：[E 调 `110 BPM` Hide Away 伴奏 3 chorus 加变化 solo](./E调_110BPM_HideAway伴奏3chorus加变化solo.band)
+- 用途：《Hide Away》主题与个人变化练习容器；以后练其他 solo 时可将当前 solo 静音，复用鼓 + backing（伴奏）。
+- 当前内容：用户说明为鼓 + 伴奏 `3 chorus（三轮 12 小节）` + 一条 solo。工程包内 2 条 WAV，均为 `85.09s`，44.1 kHz，24-bit 单声道。
+- 用户自评：导出 MP3 第 1 chorus 弹原曲前 `1 chorus`，第 2 chorus 只改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回到原主题；整体感觉不错。
+- 对应导出：[Hide Away E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](../录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)。
