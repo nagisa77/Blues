@@ -21,22 +21,23 @@
 - 6 月 30 日已归档 [《Before You Accuse Me》第一段 turnaround（回转句）跟原曲练习成品](./录音/2026-06-30_W27_D2_BeforeYouAccuseMeTurnaround_E_原速.mp3)；用户自评“完美弹出，并接到下一段”，随后明确反馈“觉得完美就是完美，继续教程”，本条按用户自评过关推进，尚未实际回听评价。
 - 用户指出 rhythm fill（节奏填句）类任务此前已经做过；下一步跳出《Before You Accuse Me》的相似短回答，预备 Freddie King《Hide Away》`4` 小节器乐主题。
 - 6 月 30 日已下载本地学习参考：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)。
-- 今日入口：[2026-06-30 D2 练习日志](./日志/2026-06-30_D2.md)。
+- 7 月 1 日已归档 [《Hide Away》前 `1 chorus（一轮 12 小节）` 扒谱练习成品](./录音/2026-07-01_W27_D3_HideAway前1chorus_E_原速.mp3)；用户自评“跟原曲一致”，尚未实际回听评价，是否一次录完待确认。
+- 今日入口：[2026-07-01 D3 练习日志](./日志/2026-07-01_D3.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 下一首预备素材：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)
 
-> 当前唯一重点：停止重复《Before You Accuse Me》的短回答任务；进入 Freddie King《Hide Away》`4` 小节器乐主题，准备第 4 周完整 chorus（一轮 12 小节）。
+> 当前唯一重点：把 Freddie King《Hide Away》前 `1 chorus（一轮 12 小节）` 从“复制成功”变成可复用的结构和一个个人变化。
 
 ## 下一次 25–30 分钟任务
 
-1. 听 [Freddie King《Hide Away》](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，只找开头最核心的 `4` 小节器乐主题。
-2. 在琴上复制主题的节奏轮廓和最高点；暂时不追求全曲速度。
-3. 写一张曲目 / 句子卡：调性、feel（律动感觉）、主题从哪一拍进入、最像“钩子”的重复动机。
-4. 只做一个变化：保留主题节奏，改最后 `2–3` 个音；录“原主题 `4` 小节 -> 变化 `4` 小节”。
+1. 听 [Freddie King《Hide Away》](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3) 与自己的前 `1 chorus` 录音，只标出 `1–4 / 5–8 / 9–12` 小节各自的功能。
+2. 写一张结构卡：主题从哪一拍进入、最高点、重复动机、第 `9–12` 小节怎样回到 I7。
+3. 只做一个变化：保留前 `4` 小节主题节奏，改最后 `2–3` 个音或尾音长度。
+4. 录“原主题 `4` 小节 -> 个人变化 `4` 小节 -> 原曲第 `5–12` 小节”。
 
-过关只看：不用唱名也能记住主题；变化后仍听得出来自《Hide Away》；不是自由 blues scale（布鲁斯音阶）跑动。
+过关只看：变化后仍听得出来自《Hide Away》；第 `5` 小节和第 `9` 小节位置不丢；不是自由 blues scale（布鲁斯音阶）跑动。
 
 ## 常用入口
 
