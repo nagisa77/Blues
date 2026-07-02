@@ -24,7 +24,7 @@
 - 7 月 1 日已归档 [《Hide Away》前 `1 chorus（一轮 12 小节）` 扒谱练习成品](./录音/2026-07-01_W27_D3_HideAway前1chorus_E_原速.mp3)；用户自评“跟原曲一致”，尚未实际回听评价，是否一次录完待确认。
 - 7 月 1 日已归档可复用工程 [E 调 `110 BPM` Hide Away 伴奏 3 chorus 加变化 solo](./工程/E调_110BPM_HideAway伴奏3chorus加变化solo.band)；用户说明含鼓 + 伴奏 `3 chorus（三轮 12 小节）` + 一条 solo（主音独奏），后续可静音 solo 继续练其他 solo。
 - 7 月 1 日已归档 [《Hide Away》E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](./录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)；第 1 chorus 为原曲前 `1 chorus`，第 2 chorus 改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回原主题；用户自评整体感觉不错，尚未实际回听评价。
-- 今日入口：[2026-07-01 D3 练习日志](./日志/2026-07-01_D3.md)。
+- 今日入口：[2026-07-02 D4 练习日志](./日志/2026-07-02_D4.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)

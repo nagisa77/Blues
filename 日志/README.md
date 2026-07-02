@@ -4,6 +4,9 @@
 
 - [2026-W27：第三周 Clapton 主线与课程优化](./2026-W27.md)
 - [2026-06-29：W27 D1 Before You Accuse Me](./2026-06-29_D1.md)
+- [2026-06-30：W27 D2 Before You Accuse Me turnaround](./2026-06-30_D2.md)
+- [2026-07-01：W27 D3 Hide Away 预备](./2026-07-01_D3.md)
+- [2026-07-02：W27 D4 Hide Away 变化验证](./2026-07-02_D4.md)
 
 ## 历史记录
 
