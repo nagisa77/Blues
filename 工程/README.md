@@ -40,6 +40,6 @@
 
 - 工程：[E 调 `110 BPM` Hide Away 伴奏 3 chorus 加变化 solo](./E调_110BPM_HideAway伴奏3chorus加变化solo.band)
 - 用途：《Hide Away》主题与个人变化练习容器；以后练其他 solo 时可将当前 solo 静音，复用鼓 + backing（伴奏）。
-- 当前内容：用户说明为鼓 + 伴奏 `3 chorus（三轮 12 小节）` + 一条 solo。工程包内 2 条 WAV，均为 `85.09s`，44.1 kHz，24-bit 单声道。
-- 用户自评：导出 MP3 第 1 chorus 弹原曲前 `1 chorus`，第 2 chorus 只改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回到原主题；整体感觉不错。
-- 对应导出：[Hide Away E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](../录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)。
+- 当前内容：用户说明为鼓 + 伴奏 `3 chorus（三轮 12 小节）` + 至少两条 solo。工程包内现有 6 条 WAV：两条 `85.09s` 原始片段，以及本次新增约 `82.91s`、`4.36s`、`82.91s`、`85.09s` 片段，均为 44.1 kHz、24-bit、单声道。
+- 用户自评：7 月 1 日导出 MP3 第 1 chorus 弹原曲前 `1 chorus`，第 2 chorus 只改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回到原主题，整体感觉不错。7 月 2 日第二条变化 solo 自评“非常还原原主题”。
+- 对应导出：[Hide Away E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](../录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)、[第二条变化 solo](../录音/2026-07-02_W27_D4_HideAway第二条变化Solo_E_110BPM.mp3)。
