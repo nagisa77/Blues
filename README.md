@@ -26,9 +26,11 @@
 - 7 月 1 日已归档 [《Hide Away》E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](./录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)；第 1 chorus 为原曲前 `1 chorus`，第 2 chorus 改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回原主题；用户自评整体感觉不错，尚未实际回听评价。
 - 7 月 2 日已归档 [《Hide Away》E 调 `110 BPM` 第二条变化 solo](./录音/2026-07-02_W27_D4_HideAway第二条变化Solo_E_110BPM.mp3)；用户自评“非常还原原主题”；工程已修改并新增 `4` 条 WAV，尚未实际回听评价，是否一次录完待确认。
 - 7 月 2 日用户反馈“intro（前奏）+ ending（收尾）短表演”与上一条练习重复；下一步停止围绕同一 backing（伴奏）包装《Hide Away》，改做 B.B. King 真实回答句：原句、一个乐理原因、一个变化、一次曲目应用。
+- 7 月 2 日已下载本地学习参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)。
 - 今日入口：[2026-07-02 D4 练习日志](./日志/2026-07-02_D4.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
+新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 下一首预备素材：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)
 
@@ -36,7 +38,7 @@
 
 ## 下一次 25–30 分钟任务
 
-1. 打开 [B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)，只选第一段人声后的一条 `1–2` 小节 guitar answer（吉他回答句）。
+1. 打开 [B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，只选第一段人声后的一条 `1–2` 小节 guitar answer（吉他回答句）。
 2. 原句跟弹 `3–5` 遍，只抓弯音 / vibrato（揉弦）/ 尾音长度，不扒整段 solo。
 3. 写一句乐理原因：这句为什么像“回答”而不是跑音阶，只说一个点，例如 target note（目标音）、留白或 blue note（蓝调音）。
 4. 做一个变化：只改最后 `2–3` 个音或尾音节奏，开头像原句。
