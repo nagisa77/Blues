@@ -25,22 +25,24 @@
 - 7 月 1 日已归档可复用工程 [E 调 `110 BPM` Hide Away 伴奏 3 chorus 加变化 solo](./工程/E调_110BPM_HideAway伴奏3chorus加变化solo.band)；用户说明含鼓 + 伴奏 `3 chorus（三轮 12 小节）` + 一条 solo（主音独奏），后续可静音 solo 继续练其他 solo。
 - 7 月 1 日已归档 [《Hide Away》E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](./录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)；第 1 chorus 为原曲前 `1 chorus`，第 2 chorus 改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回原主题；用户自评整体感觉不错，尚未实际回听评价。
 - 7 月 2 日已归档 [《Hide Away》E 调 `110 BPM` 第二条变化 solo](./录音/2026-07-02_W27_D4_HideAway第二条变化Solo_E_110BPM.mp3)；用户自评“非常还原原主题”；工程已修改并新增 `4` 条 WAV，尚未实际回听评价，是否一次录完待确认。
+- 7 月 2 日用户反馈“intro（前奏）+ ending（收尾）短表演”与上一条练习重复；下一步停止围绕同一 backing（伴奏）包装《Hide Away》，改做 B.B. King 真实回答句：原句、一个乐理原因、一个变化、一次曲目应用。
 - 今日入口：[2026-07-02 D4 练习日志](./日志/2026-07-02_D4.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 下一首预备素材：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)
 
-> 当前唯一重点：停止继续堆同类 `3 chorus（三轮 12 小节）` solo（主音独奏），把《Hide Away》主题推进成带 intro（前奏）和 ending（收尾）的可演出小段。
+> 当前唯一重点：停止围绕同一 backing（伴奏）继续包装 solo（主音独奏），从 B.B. King《How Blue Can You Get?》里拿一条真实回答句，做成可迁移的 fill（填句）语言。
 
 ## 下一次 25–30 分钟任务
 
-1. 打开 [E 调 `110 BPM` Hide Away 工程](./工程/E调_110BPM_HideAway伴奏3chorus加变化solo.band)，复用鼓 + backing。
-2. 做一个 `4` 小节 intro，可以直接来自前 `4` 小节主题，不新增花活。
-3. 接前 `1 chorus` 原主题，再接 `2–4` 小节 ending；不要再加新的变化 chorus。
-4. 导出一条新的短表演成品。
+1. 打开 [B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)，只选第一段人声后的一条 `1–2` 小节 guitar answer（吉他回答句）。
+2. 原句跟弹 `3–5` 遍，只抓弯音 / vibrato（揉弦）/ 尾音长度，不扒整段 solo。
+3. 写一句乐理原因：这句为什么像“回答”而不是跑音阶，只说一个点，例如 target note（目标音）、留白或 blue note（蓝调音）。
+4. 做一个变化：只改最后 `2–3` 个音或尾音节奏，开头像原句。
+5. 把原句或变化放进 E 调 shuffle 的一个空档里，只用一次，然后立刻留白。
 
-过关只看：开头像一首曲子，不像练习从半路开始；ending 落地干净；`110 BPM` 的 feel（律动感觉）不松。
+过关只看：原句语气像 B.B.，变化仍听得出来源；放进 E 调时像 fill（填句），不是又开始一轮 solo。
 
 ## 常用入口
 
