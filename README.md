@@ -28,6 +28,7 @@
 - 7 月 2 日用户反馈“intro（前奏）+ ending（收尾）短表演”与上一条练习重复；下一步停止围绕同一 backing（伴奏）包装《Hide Away》，改做 B.B. King 真实回答句：原句、一个乐理原因、一个变化、一次曲目应用。
 - 7 月 2 日已下载本地学习参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)。
 - 7 月 7 日已创建 [2026-W28 第四周周记](./日志/2026-W28.md) 与 [2026-07-07 D1 练习日志](./日志/2026-07-07_D1.md)；今天只做 B.B. King《How Blue Can You Get?（Live at Farm Aid 1985）》一条真实 guitar answer（吉他回答句）的原句、一个变化和一次 E 调应用。
+- 7 月 7 日已归档 [B.B. King《How Blue Can You Get?》C# 调 `95 BPM` `6/8` 回答句应用录音](./录音/2026-07-07_W28_D1_HowBlueCanYouGet回答句3chorus_CSharp_95BPM.mp3) 与 [GarageBand 工程](./工程/HowBlueCanYouGet_FarmAid1985_CSharp_95BPM_6-8.band)；用户自评原句有 B.B. 回答语气，变化听得出来源，放进乐队语境像 fill（填句）而不是新 solo（主音独奏）。尚未实际回听，是否一次录完待确认；未转 E 调不作为重做理由。
 - 今日入口：[2026-07-07 D1 练习日志](./日志/2026-07-07_D1.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
@@ -35,17 +36,17 @@
 本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 下一首预备素材：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)
 
-> 当前唯一重点：停止围绕同一 backing（伴奏）继续包装 solo（主音独奏），从 B.B. King《How Blue Can You Get?》里拿一条真实回答句，做成可迁移的 fill（填句）语言。
+> 当前唯一重点：B.B. King 回答句闭环已按用户自评过关；下一步不扩大这条句子，回到《Hide Away》完整 chorus（一轮 12 小节）的结构叙事。
 
-## 现在做 25–30 分钟任务
+## 下一次 25–30 分钟任务
 
-1. 打开 [B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，只选第一段人声后的一条 `1–2` 小节 guitar answer（吉他回答句）。
-2. 原句跟弹 `3–5` 遍，只抓弯音 / vibrato（揉弦）/ 尾音长度，不扒整段 solo。
-3. 写一句乐理原因：这句为什么像“回答”而不是跑音阶，只说一个点，例如 target note（目标音）、留白或 blue note（蓝调音）。
-4. 做一个变化：只改最后 `2–3` 个音或尾音节奏，开头像原句。
-5. 把原句或变化放进 E 调 shuffle 的一个空档里，只用一次，然后立刻留白。
+1. 打开 [Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3) 和你已归档的 [前 `1 chorus（一轮 12 小节）` 录音](./录音/2026-07-01_W27_D3_HideAway前1chorus_E_原速.mp3)。
+2. 不录新 solo（主音独奏），先把前 `12` 小节分成三个功能块：开头 `1–4` 小节、发展 `5–8` 小节、收束 / turnaround（回转句）`9–12` 小节。
+3. 每个功能块只写一句：它靠什么成立，例如重复、音区变化、双音、节奏密度、尾音或留白。
+4. 拿起琴完整弹一遍这个 `chorus`，但只盯结构，不追求新变化。
+5. 如要录音，只录一条不剪辑 `1 chorus`，不要再扩成 `3 chorus` 验证。
 
-过关只看：原句语气像 B.B.，变化仍听得出来源；放进 E 调时像 fill（填句），不是又开始一轮 solo。
+过关只看：你能不靠临场 lick（短句素材）堆叠，把 `12` 小节听成一个有开头、发展和收束的段落。
 
 ## 常用入口
 

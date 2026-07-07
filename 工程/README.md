@@ -43,3 +43,11 @@
 - 当前内容：用户说明为鼓 + 伴奏 `3 chorus（三轮 12 小节）` + 至少两条 solo。工程包内现有 6 条 WAV：两条 `85.09s` 原始片段，以及本次新增约 `82.91s`、`4.36s`、`82.91s`、`85.09s` 片段，均为 44.1 kHz、24-bit、单声道。
 - 用户自评：7 月 1 日导出 MP3 第 1 chorus 弹原曲前 `1 chorus`，第 2 chorus 只改前 `4` 小节最后 `2–3` 个音，第 3 chorus 回到原主题，整体感觉不错。7 月 2 日第二条变化 solo 自评“非常还原原主题”。
 - 对应导出：[Hide Away E 调 `110 BPM` 伴奏 3 chorus 加变化 solo](../录音/2026-07-01_W27_D3_HideAway伴奏3chorus加变化Solo_E_110BPM.mp3)、[第二条变化 solo](../录音/2026-07-02_W27_D4_HideAway第二条变化Solo_E_110BPM.mp3)。
+
+## HowBlueCanYouGet_FarmAid1985_CSharp_95BPM_6-8.band
+
+- 工程：[How Blue Can You Get? Farm Aid 1985 C# 调 `95 BPM` `6/8`](./HowBlueCanYouGet_FarmAid1985_CSharp_95BPM_6-8.band)
+- 用途：B.B. King《How Blue Can You Get?（Live at Farm Aid 1985）》回答句、变化和乐队语境应用工程。
+- 当前内容：用户说明工程内有原版音轨、自己弹的伴奏、鼓点 `95 BPM`、`6/8`，并 solo 了 `3 chorus（三轮 12 小节）`。工程包内有 3 条 WAV：原版音轨约 `354.34s`，个人录音片段约 `144.00s` 与 `53.05s`。
+- 用户自评：能做到“原句有 B.B. 的回答语气；变化还能听出来源；放进乐队语境时像 fill（填句），不是又开始一轮 solo（主音独奏）”。本次仍在 C# 调，不是 E 调；因目标是回答句功能与语气，按用户自评过关推进。
+- 对应导出：[How Blue Can You Get? 回答句 3 chorus](../录音/2026-07-07_W28_D1_HowBlueCanYouGet回答句3chorus_CSharp_95BPM.mp3)。
