@@ -11,7 +11,7 @@
 - 第 1 周 A 调完整表演已于 6 月 22 日过关：从头到尾一次录完、未剪辑，五轮不丢位置，ending（收尾）符合预期（用户自评）。演奏听感尚未实际回听，不因此重录。
 - 当前可复用伴奏工程：[A 调 `65 BPM` shuffle](./工程/A调_65BPM_shuffle.band)，内含 shuffle（摇摆节奏）背景和 3 条 solo（主音独奏）。
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus（三轮 12 小节）`限制任务每周最多一次。
-- 当前进入 [2026-W27 第三周](./日志/2026-W27.md)，使用[第三周详细计划](./计划/第三周详细计划.md)；课程已调成“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”，不再连续堆同类 backing（伴奏）solo（主音独奏）。
+- 当前进入 [2026-W28 第四周](./日志/2026-W28.md)；课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo（主音独奏）。
 - 6 月 29 日已归档《Before You Accuse Me》前奏与 E 回答 1-3 练习录音；三个快速句子基本跟原曲一致来自用户自评，尚未实际回听演奏质量。
 - 6 月 29 日已归档《Before You Accuse Me》E7 / A7 / B7 回答变化练习成品；用户自评个人觉得还行，尚未实际回听演奏质量，是否一次录完待确认。
 - 新增可复用工程：[BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，含 E 伴奏和两条 solo（主音独奏），可作为后续 E 调 solo 资源。
@@ -27,7 +27,8 @@
 - 7 月 2 日已归档 [《Hide Away》E 调 `110 BPM` 第二条变化 solo](./录音/2026-07-02_W27_D4_HideAway第二条变化Solo_E_110BPM.mp3)；用户自评“非常还原原主题”；工程已修改并新增 `4` 条 WAV，尚未实际回听评价，是否一次录完待确认。
 - 7 月 2 日用户反馈“intro（前奏）+ ending（收尾）短表演”与上一条练习重复；下一步停止围绕同一 backing（伴奏）包装《Hide Away》，改做 B.B. King 真实回答句：原句、一个乐理原因、一个变化、一次曲目应用。
 - 7 月 2 日已下载本地学习参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)。
-- 今日入口：[2026-07-02 D4 练习日志](./日志/2026-07-02_D4.md)。
+- 7 月 7 日已创建 [2026-W28 第四周周记](./日志/2026-W28.md) 与 [2026-07-07 D1 练习日志](./日志/2026-07-07_D1.md)；今天只做 B.B. King《How Blue Can You Get?（Live at Farm Aid 1985）》一条真实 guitar answer（吉他回答句）的原句、一个变化和一次 E 调应用。
+- 今日入口：[2026-07-07 D1 练习日志](./日志/2026-07-07_D1.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
@@ -36,7 +37,7 @@
 
 > 当前唯一重点：停止围绕同一 backing（伴奏）继续包装 solo（主音独奏），从 B.B. King《How Blue Can You Get?》里拿一条真实回答句，做成可迁移的 fill（填句）语言。
 
-## 下一次 25–30 分钟任务
+## 现在做 25–30 分钟任务
 
 1. 打开 [B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，只选第一段人声后的一条 `1–2` 小节 guitar answer（吉他回答句）。
 2. 原句跟弹 `3–5` 遍，只抓弯音 / vibrato（揉弦）/ 尾音长度，不扒整段 solo。

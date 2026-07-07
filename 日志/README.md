@@ -2,6 +2,11 @@
 
 ## 当前周
 
+- [2026-W28：第四周 B.B. King 回答句与 Hide Away 完整 chorus](./2026-W28.md)
+- [2026-07-07：W28 D1 B.B. King 真实回答句](./2026-07-07_D1.md)
+
+## 上周
+
 - [2026-W27：第三周 Clapton 主线与课程优化](./2026-W27.md)
 - [2026-06-29：W27 D1 Before You Accuse Me](./2026-06-29_D1.md)
 - [2026-06-30：W27 D2 Before You Accuse Me turnaround](./2026-06-30_D2.md)
