@@ -29,32 +29,33 @@
 - 7 月 2 日已下载本地学习参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)。
 - 7 月 7 日已创建 [2026-W28 第四周周记](./日志/2026-W28.md) 与 [2026-07-07 D1 练习日志](./日志/2026-07-07_D1.md)；今天只做 B.B. King《How Blue Can You Get?（Live at Farm Aid 1985）》一条真实 guitar answer（吉他回答句）的原句、一个变化和一次 E 调应用。
 - 7 月 7 日已归档 [B.B. King《How Blue Can You Get?》C# 调 `95 BPM` `6/8` 回答句应用录音](./录音/2026-07-07_W28_D1_HowBlueCanYouGet回答句3chorus_CSharp_95BPM.mp3) 与 [GarageBand 工程](./工程/HowBlueCanYouGet_FarmAid1985_CSharp_95BPM_6-8.band)；用户自评原句有 B.B. 回答语气，变化听得出来源，放进乐队语境像 fill（填句）而不是新 solo（主音独奏）。尚未实际回听，是否一次录完待确认；未转 E 调不作为重做理由。
-- 7 月 8 日已创建 [2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md)；今天回到 Freddie King《Hide Away》前 `1 chorus（一轮 12 小节）`，只做开头、发展、收束三个功能块的结构叙事。
+- 7 月 8 日用户指出再次安排 Freddie King《Hide Away》属于重复；已更新教学系统：完成“原句 -> 原理 -> 变化 -> 应用”的素材默认退役，下一课必须进入更深知识层级。
+- 7 月 8 日 [2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md) 已改为课程系统修正 + B.B. King《The Thrill Is Gone》slow minor Blues（慢速小调布鲁斯）下一步。
 - 今日入口：[2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
-本周主攻素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
-下一首预备素材：[Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=oDQQlyCpcIw)
+维护素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
+下一首主攻素材：B.B. King《The Thrill Is Gone》录音室版本，待固定本地参考。
 
-> 当前唯一重点：B.B. King 回答句闭环已按用户自评过关；下一步不扩大这条句子，回到《Hide Away》完整 chorus（一轮 12 小节）的结构叙事。
+> 当前唯一重点：不再回到已完成的《Hide Away》补结构；下一步进入 slow minor Blues 的长音、音准、揉弦中心和句后空间。
 
 ## 今日 25–30 分钟任务
 
-1. 打开 [Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3) 和你已归档的 [前 `1 chorus（一轮 12 小节）` 录音](./录音/2026-07-01_W27_D3_HideAway前1chorus_E_原速.mp3)。
-2. 不录新 solo（主音独奏），先把前 `12` 小节分成三个功能块：开头 `1–4` 小节、发展 `5–8` 小节、收束 / turnaround（回转句）`9–12` 小节。
-3. 每个功能块只写一句：它靠什么成立，例如重复、音区变化、双音、节奏密度、尾音或留白。
-4. 拿起琴完整弹一遍这个 `chorus`，但只盯结构，不追求新变化。
-5. 如要录音，只录一条不剪辑 `1 chorus`，不要再扩成 `3 chorus` 验证。
+1. 打开 B.B. King《The Thrill Is Gone》录音室版本，固定同一个版本；今天先不追求整曲。
+2. 选一个 `2–4` 小节 guitar answer（吉他回答句），只抓三件事：从哪一拍进、最高音在哪里、尾音停多久。
+3. 乐理只想一个问题：在 slow minor Blues（慢速小调布鲁斯）里，小三度可以是稳定落点，不必像 E7 shuffle（摇摆节奏）里那样急着解决到大三度。
+4. 弹原句一次，再做一个变化：只改尾音长度、揉弦宽度或最后 `1` 个音。
+5. 放进一个慢速 minor backing（小调伴奏）里，只用一次，然后留白。
 
-过关只看：你能不靠临场 lick（短句素材）堆叠，把 `12` 小节听成一个有开头、发展和收束的段落。
+过关只看：它像一句回答人声的慢 Blues 话，而不是又开始跑一轮 solo（主音独奏）。
 
 ## 常用入口
 
 | 目的 | 文件 |
 |---|---|
 | 看 8 周方向 | [8 周 Blues 大师课](./计划/8周高效路线.md) |
-| 看当前周主任务 | [第三周详细计划](./计划/第三周详细计划.md) |
+| 看当前周主任务 | [2026-W28 第四周周记](./日志/2026-W28.md) |
 | 理解当周乐理与句法 | [Blues 乐理与句法](./学习/Blues乐理与句法.md) |
 | 了解高密度训练方式 | [练习系统](./学习/练习系统.md) |
 | 让我继续带练 | [老师带练协议](./学习/老师带练协议.md) |
