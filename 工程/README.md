@@ -51,3 +51,10 @@
 - 当前内容：用户说明工程内有原版音轨、自己弹的伴奏、鼓点 `95 BPM`、`6/8`，并 solo 了 `3 chorus（三轮 12 小节）`。工程包内有 3 条 WAV：原版音轨约 `354.34s`，个人录音片段约 `144.00s` 与 `53.05s`。
 - 用户自评：能做到“原句有 B.B. 的回答语气；变化还能听出来源；放进乐队语境时像 fill（填句），不是又开始一轮 solo（主音独奏）”。本次仍在 C# 调，不是 E 调；因目标是回答句功能与语气，按用户自评过关推进。
 - 对应导出：[How Blue Can You Get? 回答句 3 chorus](../录音/2026-07-07_W28_D1_HowBlueCanYouGet回答句3chorus_CSharp_95BPM.mp3)。
+
+## TheThrillIsGone_Bm_Funk伴奏3chorus.band
+
+- 工程：[The Thrill Is Gone B 小调 funk 伴奏 3 chorus](./TheThrillIsGone_Bm_Funk伴奏3chorus.band)
+- 用途：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）slow minor Blues（慢速小调布鲁斯）solo（主音独奏）跟弹和变体练习容器。
+- 当前内容：用户说明为根据《The Thrill Is Gone》自己做的 funk 类型 backing（伴奏），含鼓 + bass + `3 chorus（三轮 12 小节）`；工程内有两段第一个 chorus solo，跟原曲几乎一致。工程包约 `36 MB`，包内 `12` 条 WAV，均为 44.1 kHz、24-bit、单声道。
+- 对应导出：[The Thrill Is Gone 第一个 chorus 跟原曲 solo](../录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3)。

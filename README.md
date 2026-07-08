@@ -31,24 +31,22 @@
 - 7 月 7 日已归档 [B.B. King《How Blue Can You Get?》C# 调 `95 BPM` `6/8` 回答句应用录音](./录音/2026-07-07_W28_D1_HowBlueCanYouGet回答句3chorus_CSharp_95BPM.mp3) 与 [GarageBand 工程](./工程/HowBlueCanYouGet_FarmAid1985_CSharp_95BPM_6-8.band)；用户自评原句有 B.B. 回答语气，变化听得出来源，放进乐队语境像 fill（填句）而不是新 solo（主音独奏）。尚未实际回听，是否一次录完待确认；未转 E 调不作为重做理由。
 - 7 月 8 日用户指出再次安排 Freddie King《Hide Away》属于重复；已更新教学系统：完成“原句 -> 原理 -> 变化 -> 应用”的素材默认退役，下一课必须进入更深知识层级。
 - 7 月 8 日 [2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md) 已改为课程系统修正 + B.B. King《The Thrill Is Gone》slow minor Blues（慢速小调布鲁斯）下一步。
+- 7 月 8 日已下载本地学习参考：[B.B. King - The Thrill Is Gone. New York 1971](./曲目/参考素材/BB_King-The_Thrill_Is_Gone-New_York_1971_yt_dvRwZga4hAE.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=dvRwZga4hAE)；这是现场参考版本，不写作录音室版。
+- 7 月 8 日已归档 [《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）跟原曲 solo（主音独奏）练习成品](./录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3) 与 [B 小调 funk backing（伴奏）3 chorus 工程](./工程/TheThrillIsGone_Bm_Funk伴奏3chorus.band)；用户说明工程含鼓 + bass + 3 chorus，并有两段第一个 chorus solo，跟原曲几乎一致。尚未实际回听评价，是否一次录完待确认。
 - 今日入口：[2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
 维护素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
-下一首主攻素材：B.B. King《The Thrill Is Gone》录音室版本，待固定本地参考。
+当前主攻素材：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）solo（主音独奏）；辅助参考：[New York 1971 现场版](./曲目/参考素材/BB_King-The_Thrill_Is_Gone-New_York_1971_yt_dvRwZga4hAE.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=dvRwZga4hAE)
 
 > 当前唯一重点：不再回到已完成的《Hide Away》补结构；下一步进入 slow minor Blues 的长音、音准、揉弦中心和句后空间。
 
-## 今日 25–30 分钟任务
+## 今日结果与下一步
 
-1. 打开 B.B. King《The Thrill Is Gone》录音室版本，固定同一个版本；今天先不追求整曲。
-2. 选一个 `2–4` 小节 guitar answer（吉他回答句），只抓三件事：从哪一拍进、最高音在哪里、尾音停多久。
-3. 乐理只想一个问题：在 slow minor Blues（慢速小调布鲁斯）里，小三度可以是稳定落点，不必像 E7 shuffle（摇摆节奏）里那样急着解决到大三度。
-4. 弹原句一次，再做一个变化：只改尾音长度、揉弦宽度或最后 `1` 个音。
-5. 放进一个慢速 minor backing（小调伴奏）里，只用一次，然后留白。
+已完成：录音室版第一个 chorus（一轮 12 小节）solo（主音独奏）跟原曲练习，并建立 B 小调 funk backing（伴奏）工程。
 
-过关只看：它像一句回答人声的慢 Blues 话，而不是又开始跑一轮 solo（主音独奏）。
+下一步只改一件事：从第一个 chorus 里选一个 `2–4` 小节长音句，在自制 funk backing 里保留原句轮廓，只改尾音长度或揉弦中心。
 
 ## 常用入口
 
