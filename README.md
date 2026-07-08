@@ -29,7 +29,8 @@
 - 7 月 2 日已下载本地学习参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)。
 - 7 月 7 日已创建 [2026-W28 第四周周记](./日志/2026-W28.md) 与 [2026-07-07 D1 练习日志](./日志/2026-07-07_D1.md)；今天只做 B.B. King《How Blue Can You Get?（Live at Farm Aid 1985）》一条真实 guitar answer（吉他回答句）的原句、一个变化和一次 E 调应用。
 - 7 月 7 日已归档 [B.B. King《How Blue Can You Get?》C# 调 `95 BPM` `6/8` 回答句应用录音](./录音/2026-07-07_W28_D1_HowBlueCanYouGet回答句3chorus_CSharp_95BPM.mp3) 与 [GarageBand 工程](./工程/HowBlueCanYouGet_FarmAid1985_CSharp_95BPM_6-8.band)；用户自评原句有 B.B. 回答语气，变化听得出来源，放进乐队语境像 fill（填句）而不是新 solo（主音独奏）。尚未实际回听，是否一次录完待确认；未转 E 调不作为重做理由。
-- 今日入口：[2026-07-07 D1 练习日志](./日志/2026-07-07_D1.md)。
+- 7 月 8 日已创建 [2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md)；今天回到 Freddie King《Hide Away》前 `1 chorus（一轮 12 小节）`，只做开头、发展、收束三个功能块的结构叙事。
+- 今日入口：[2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
@@ -38,7 +39,7 @@
 
 > 当前唯一重点：B.B. King 回答句闭环已按用户自评过关；下一步不扩大这条句子，回到《Hide Away》完整 chorus（一轮 12 小节）的结构叙事。
 
-## 下一次 25–30 分钟任务
+## 今日 25–30 分钟任务
 
 1. 打开 [Freddie King - Hide Away](./曲目/参考素材/Freddie_King-Hide_Away_yt_oDQQlyCpcIw.mp3) 和你已归档的 [前 `1 chorus（一轮 12 小节）` 录音](./录音/2026-07-01_W27_D3_HideAway前1chorus_E_原速.mp3)。
 2. 不录新 solo（主音独奏），先把前 `12` 小节分成三个功能块：开头 `1–4` 小节、发展 `5–8` 小节、收束 / turnaround（回转句）`9–12` 小节。
