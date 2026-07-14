@@ -48,6 +48,7 @@
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
 维护素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 维护素材：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）solo（主音独奏）；辅助参考：[New York 1971 现场版](./曲目/参考素材/BB_King-The_Thrill_Is_Gone-New_York_1971_yt_dvRwZga4hAE.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=dvRwZga4hAE)
+当前参考：[Albert King - Born Under a Bad Sign（Official Lyric Video）](./曲目/参考素材/Albert_King-Born_Under_A_Bad_Sign-Official_Lyric_Video_yt_uIPGhI7Gl_0.mp3)，来源：[YouTube / Stax Records](https://www.youtube.com/watch?v=uIPGhI7Gl_0)
 
 > 当前唯一重点：Albert King《Born Under a Bad Sign》的强落点和 riff-based（基于重复动机）张力；力量只集中到目标音，不把整句都弹重。
 
