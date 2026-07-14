@@ -41,20 +41,21 @@
 - 7 月 8 日已归档 [《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）跟原曲 solo（主音独奏）练习成品](./录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3) 与 [B 小调 funk backing（伴奏）3 chorus 工程](./工程/TheThrillIsGone_Bm_Funk伴奏3chorus.band)；用户说明工程含鼓 + bass + 3 chorus，并有两段第一个 chorus solo，跟原曲几乎一致。尚未实际回听评价，是否一次录完待确认。
 - 7 月 14 日进入长音句个人化：不再重复跟原曲，也不扩成新的多 chorus solo；只在自制 B 小调 funk backing 中完成一个不剪辑 chorus，验证尾音长度、延迟揉弦和句后空间。
 - 7 月 14 日已归档 [《The Thrill Is Gone》B 小调 `88 BPM` 三轮变化与自编 solo](./录音/2026-07-14_W29_D1_TheThrillIsGone三轮变化与自Solo_Bm_88BPM.mp3) 并更新 [GarageBand 工程](./工程/TheThrillIsGone_Bm_Funk伴奏3chorus.band)；用户说明第 1、3 chorus 基于原曲做微小变化，第 2 chorus 为自编 solo。结构来自用户自评，尚未实际回听演奏质量，是否一次录完待确认。
-- 今日入口：[2026-07-14 D1 练习日志](./日志/2026-07-14_D1.md)。
+- 7 月 14 日已快进到 [D2 Albert King《Born Under a Bad Sign》强落点任务](./日志/2026-07-14_D2.md)：取第一段主歌中第一条起止清楚的 guitar answer（吉他回答句），比较原力度与“弱起强收”，不再追加同类 backing solo。
+- 今日入口：[2026-07-14 D2 练习日志](./日志/2026-07-14_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
 维护素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 维护素材：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）solo（主音独奏）；辅助参考：[New York 1971 现场版](./曲目/参考素材/BB_King-The_Thrill_Is_Gone-New_York_1971_yt_dvRwZga4hAE.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=dvRwZga4hAE)
 
-> 当前唯一重点：《The Thrill Is Gone》本轮素材已完成，不继续追加同类 backing solo；下一课进入 Albert King《Born Under a Bad Sign》的强落点和 riff-based（基于重复动机）张力。
+> 当前唯一重点：Albert King《Born Under a Bad Sign》的强落点和 riff-based（基于重复动机）张力；力量只集中到目标音，不把整句都弹重。
 
 ## 今日结果与下一步
 
 已完成：录音室版第一个 chorus（一轮 12 小节）跟原曲练习，以及 B 小调 `88 BPM` 三轮应用；第 1、3 chorus 基于原曲微小变化，第 2 chorus 为自编 solo（用户自评）。
 
-下一步只改一件事：换到 Albert King 的强落点语言；不再加工同一条长音句。
+现在做：连续两个完整主歌语境；第一遍保留原力度，第二遍只做“弱起强收”。任务结果待回报。
 
 ## 常用入口
 
