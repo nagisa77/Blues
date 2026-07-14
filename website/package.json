@@ -1,0 +1,28 @@
+{
+  "name": "tim-blues-practice-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/generate-content.mjs",
+    "dev": "nuxt dev",
+    "prebuild": "node scripts/generate-content.mjs",
+    "build": "nuxt build",
+    "pregenerate": "node scripts/generate-content.mjs",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typecheck": "node scripts/generate-content.mjs && nuxi typecheck"
+  },
+  "dependencies": {
+    "nuxt": "4.4.8",
+    "vue": "3.5.39",
+    "vue-router": "5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "typescript": "5.9.3",
+    "vue-tsc": "3.3.7"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
