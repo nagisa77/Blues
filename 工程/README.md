@@ -56,5 +56,5 @@
 
 - 工程：[The Thrill Is Gone B 小调 funk 伴奏 3 chorus](./TheThrillIsGone_Bm_Funk伴奏3chorus.band)
 - 用途：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）slow minor Blues（慢速小调布鲁斯）solo（主音独奏）跟弹和变体练习容器。
-- 当前内容：用户说明为根据《The Thrill Is Gone》自己做的 funk 类型 backing（伴奏），含鼓 + bass + `3 chorus（三轮 12 小节）`；工程内有两段第一个 chorus solo，跟原曲几乎一致。工程包约 `36 MB`，包内 `12` 条 WAV，均为 44.1 kHz、24-bit、单声道。
-- 对应导出：[The Thrill Is Gone 第一个 chorus 跟原曲 solo](../录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3)。
+- 当前内容：B 小调，`88 BPM`；用户说明含鼓 + bass + `3 chorus（三轮 12 小节）`。7 月 14 日更新后，第 1、3 chorus 基于原曲做微小变化，第 2 chorus 为自编 solo。工程包约 `124 MB`；`Media/Audio Files` 内有 `31` 条 WAV，另有 `1` 条 WAV 位于 undo trash。新增活动媒体 WAV 共 `19` 条，均为 44.1 kHz、24-bit、单声道，并保存了 GarageBand autosave 数据。
+- 对应导出：[第一个 chorus 跟原曲 solo](../录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3)、[三轮变化与自编 solo](../录音/2026-07-14_W29_D1_TheThrillIsGone三轮变化与自Solo_Bm_88BPM.mp3)。
