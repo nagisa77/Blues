@@ -11,7 +11,7 @@
 - 第 1 周 A 调完整表演已于 6 月 22 日过关：从头到尾一次录完、未剪辑，五轮不丢位置，ending（收尾）符合预期（用户自评）。演奏听感尚未实际回听，不因此重录。
 - 当前可复用伴奏工程：[A 调 `65 BPM` shuffle](./工程/A调_65BPM_shuffle.band)，内含 shuffle（摇摆节奏）背景和 3 条 solo（主音独奏）。
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus（三轮 12 小节）`限制任务每周最多一次。
-- 当前进入 [2026-W28 第四周](./日志/2026-W28.md)；课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo（主音独奏）。
+- 当前进入 [2026-W29 第五周](./日志/2026-W29.md)；课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo（主音独奏）。
 - 6 月 29 日已归档《Before You Accuse Me》前奏与 E 回答 1-3 练习录音；三个快速句子基本跟原曲一致来自用户自评，尚未实际回听演奏质量。
 - 6 月 29 日已归档《Before You Accuse Me》E7 / A7 / B7 回答变化练习成品；用户自评个人觉得还行，尚未实际回听演奏质量，是否一次录完待确认。
 - 新增可复用工程：[BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，含 E 伴奏和两条 solo（主音独奏），可作为后续 E 调 solo 资源。
@@ -33,7 +33,8 @@
 - 7 月 8 日 [2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md) 已改为课程系统修正 + B.B. King《The Thrill Is Gone》slow minor Blues（慢速小调布鲁斯）下一步。
 - 7 月 8 日已下载本地学习参考：[B.B. King - The Thrill Is Gone. New York 1971](./曲目/参考素材/BB_King-The_Thrill_Is_Gone-New_York_1971_yt_dvRwZga4hAE.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=dvRwZga4hAE)；这是现场参考版本，不写作录音室版。
 - 7 月 8 日已归档 [《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）跟原曲 solo（主音独奏）练习成品](./录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3) 与 [B 小调 funk backing（伴奏）3 chorus 工程](./工程/TheThrillIsGone_Bm_Funk伴奏3chorus.band)；用户说明工程含鼓 + bass + 3 chorus，并有两段第一个 chorus solo，跟原曲几乎一致。尚未实际回听评价，是否一次录完待确认。
-- 今日入口：[2026-07-08 D2 练习日志](./日志/2026-07-08_D2.md)。
+- 7 月 14 日进入长音句个人化：不再重复跟原曲，也不扩成新的多 chorus solo；只在自制 B 小调 funk backing 中完成一个不剪辑 chorus，验证尾音长度、延迟揉弦和句后空间。
+- 今日入口：[2026-07-14 D1 练习日志](./日志/2026-07-14_D1.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
@@ -53,7 +54,7 @@
 | 目的 | 文件 |
 |---|---|
 | 看 8 周方向 | [8 周 Blues 大师课](./计划/8周高效路线.md) |
-| 看当前周主任务 | [2026-W28 第四周周记](./日志/2026-W28.md) |
+| 看当前周主任务 | [2026-W29 第五周周记](./日志/2026-W29.md) |
 | 理解当周乐理与句法 | [Blues 乐理与句法](./学习/Blues乐理与句法.md) |
 | 了解高密度训练方式 | [练习系统](./学习/练习系统.md) |
 | 让我继续带练 | [老师带练协议](./学习/老师带练协议.md) |
