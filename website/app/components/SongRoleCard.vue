@@ -10,6 +10,7 @@ const roleShort: Record<SongArchiveItem['role'], string> = {
   focus: 'NOW',
   maintenance: 'KEEP',
   retired_reference: 'REF',
+  baseline: 'BASE',
   unknown: '—',
 }
 </script>
@@ -23,7 +24,7 @@ const roleShort: Record<SongArchiveItem['role'], string> = {
     </div>
 
     <div class="song-card-body">
-      <p class="song-artist">{{ song.artist || 'Blues repertoire' }}</p>
+      <p class="song-artist">{{ song.artist || '曲目档案' }}</p>
       <h3>{{ song.title }}</h3>
       <p v-if="song.version" class="song-version">{{ song.version }}</p>
       <p class="song-capability">{{ song.capabilities }}</p>

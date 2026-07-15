@@ -6,7 +6,7 @@ const recordingsForSong = (songId: string) =>
 
 useSeoMeta({
   title: '曲目看板 · Tim / Blues',
-  description: '三首 Blues 主线曲目的主攻、维护与退役对照状态。',
+  description: 'Tim 已学曲目的主攻、维护、退役对照与基线状态。',
 })
 </script>
 
@@ -16,10 +16,10 @@ useSeoMeta({
       <div class="container page-hero-grid">
         <div>
           <p class="eyebrow"><span /> REPERTOIRE / 曲目看板</p>
-          <h1>不追更多歌。<br><em>让三首歌真正进入身体。</em></h1>
+          <h1>学过的每首歌，<br><em>都有位置。</em></h1>
         </div>
         <p class="page-hero-statement">
-          一个主攻位、一个维护位、一个退役 / 对照位。完成的素材不消失，只是不再伪装成下一课。
+          看板收录所有已经进入训练或留下演奏证据的曲目；当前只主攻一首，完成的素材转入维护、对照或基线档案。
         </p>
       </div>
     </section>

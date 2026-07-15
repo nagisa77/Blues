@@ -1126,6 +1126,10 @@
     background: var(--brass);
   }
 
+  .role-baseline .song-role i {
+    background: rgba(255, 255, 255, 0.42);
+  }
+
   .song-role-en {
     color: var(--muted-dark);
     letter-spacing: 0.1em;

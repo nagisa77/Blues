@@ -100,7 +100,12 @@ export interface PracticeLogItem {
   evidence: EvidenceBoundary
 }
 
-export type SongRole = 'focus' | 'maintenance' | 'retired_reference' | 'unknown'
+export type SongRole =
+  | 'focus'
+  | 'maintenance'
+  | 'retired_reference'
+  | 'baseline'
+  | 'unknown'
 
 export interface SongArchiveItem {
   id: string

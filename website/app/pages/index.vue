@@ -22,8 +22,8 @@ const heroStats = [
   },
   {
     value: archive.stats.songCount.toString().padStart(2, '0'),
-    label: '主线曲目',
-    detail: '主攻 / 维护 / 对照',
+    label: '已学曲目',
+    detail: '全部保留 · 当前主攻 1',
   },
   {
     value: archive.stats.projectCount.toString().padStart(2, '0'),
@@ -135,7 +135,7 @@ useSeoMeta({
       <div class="container section-heading-inline">
         <div>
           <p class="section-kicker">REPERTOIRE / 曲目路线</p>
-          <h2 class="section-title">三首歌，三个角色。</h2>
+          <h2 class="section-title">学过的曲目，都留在这里。</h2>
         </div>
         <NuxtLink to="/repertoire" class="text-link">查看完整曲目看板 <AppIcon name="arrow" :size="17" /></NuxtLink>
       </div>

@@ -18,6 +18,12 @@ const SOURCE_PATHS = {
 
 const KNOWN_SONGS = [
   {
+    id: 'he-ni-zai-yi-qi',
+    artist: null,
+    title: '和你在一起',
+    matches: [/和你在一起/],
+  },
+  {
     id: 'born-under-a-bad-sign',
     artist: 'Albert King',
     title: 'Born Under a Bad Sign',
@@ -343,6 +349,7 @@ function normalizeSongRole(label) {
   if (label === '主攻') return 'focus'
   if (label === '维护') return 'maintenance'
   if (/退役|对照/.test(label)) return 'retired_reference'
+  if (/基线/.test(label)) return 'baseline'
   return 'unknown'
 }
 
