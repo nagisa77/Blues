@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - codex/blues-practice-site
+      - main
     paths:
       - 'website/**'
       - '日志/**'

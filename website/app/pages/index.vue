@@ -3,6 +3,10 @@ const archive = useArchive()
 const latestRecording = archive.recordings[0]
 const recentLogs = archive.logs.slice(0, 4)
 const latestRecordings = archive.recordings.slice(0, 3)
+const currentSong = archive.songs.find(song => song.id === archive.currentFocus.songId)
+const currentSongDetail = [currentSong?.version, currentSong?.capabilities]
+  .filter(Boolean)
+  .join(' · ')
 const { play } = useAudioPlayer()
 
 const heroStats = [
@@ -69,16 +73,16 @@ useSeoMeta({
 
           <div class="focus-record" aria-hidden="true">
             <div class="record-label">
-              <span>BM</span>
+              <span>W{{ archive.currentFocus.programWeek?.toString().padStart(2, '0') || '—' }}</span>
               <i />
-              <small>SLOW<br>BLUES</small>
+              <small>CURRENT<br>FOCUS</small>
             </div>
           </div>
 
           <div class="focus-panel-copy">
-            <p>B.B. KING</p>
-            <h2>{{ archive.currentFocus.title }}</h2>
-            <span>录音室版 · B 小调 · slow minor Blues</span>
+            <p>{{ currentSong?.artist || 'CURRENT SONG' }}</p>
+            <h2>{{ currentSong?.title || archive.currentFocus.title }}</h2>
+            <span>{{ currentSongDetail || '当前训练素材' }}</span>
           </div>
 
           <div class="focus-next">
@@ -103,9 +107,7 @@ useSeoMeta({
           <p class="section-kicker">CURRENT FOCUS / 当前重点</p>
           <h2 class="section-title">一次只改变<br>最影响听感的事。</h2>
         </div>
-        <p class="section-summary">
-          当前已经从重复的 backing solo 推进到 slow minor Blues：更少的音符、更长的声音、更清楚的空间。
-        </p>
+        <p class="section-summary">{{ archive.currentFocus.currentCapability }}</p>
       </div>
 
       <div class="container current-grid">

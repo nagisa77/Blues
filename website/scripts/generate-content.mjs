@@ -18,6 +18,12 @@ const SOURCE_PATHS = {
 
 const KNOWN_SONGS = [
   {
+    id: 'born-under-a-bad-sign',
+    artist: 'Albert King',
+    title: 'Born Under a Bad Sign',
+    matches: [/Born Under a Bad Sign/i, /Born_Under_A_Bad_Sign/i],
+  },
+  {
     id: 'the-thrill-is-gone',
     artist: 'B.B. King',
     title: 'The Thrill Is Gone',
@@ -210,15 +216,21 @@ function evidenceBoundary(text, { fileFact = false } = {}) {
   const value = text ?? ''
   const sources = []
   const notes = []
+  const hasConfirmedSelfReport = value.split(/\r?\n/).some(line => {
+    if (!/用户自评|自评/.test(line)) return false
+    return !/待(?:用户)?自评|结果待[^。；\n]*自评|用户自评达标即可|自评或(?:录音)?回听/.test(
+      line,
+    )
+  })
 
   if (fileFact || /文件事实|文件已归档|已归档一条|时长\s*[`\d]/.test(value)) {
     sources.push('file_fact')
   }
-  if (/用户自评|自评/.test(value)) sources.push('self_report')
+  if (hasConfirmedSelfReport) sources.push('self_report')
   if (/老师实际回听|已实际回听/.test(value)) sources.push('teacher_review')
   if (sources.length === 0) sources.push('unknown')
 
-  const selfReport = /用户自评|自评/.test(value) ? 'yes' : 'unknown'
+  const selfReport = hasConfirmedSelfReport ? 'yes' : 'unknown'
   let performanceReview = 'unknown'
   if (/(?:尚未|未|待)(?:实际)?回听|待回听|未收到录音/.test(value)) {
     performanceReview = 'unreviewed'
