@@ -19,6 +19,7 @@ export const formatArchiveDate = (date: string, withYear = false) => {
   const parsed = new Date(`${date}T00:00:00+08:00`)
   if (Number.isNaN(parsed.getTime())) return date
   return new Intl.DateTimeFormat('zh-CN', {
+    timeZone: 'Asia/Shanghai',
     month: 'short',
     day: 'numeric',
     ...(withYear ? { year: 'numeric' } : {}),
