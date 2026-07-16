@@ -2,19 +2,25 @@
 
 ## 当前周
 
-- [2026-W28：第四周 B.B. King 回答句与 Hide Away 完整 chorus](./2026-W28.md)
-- [2026-07-07：W28 D1 B.B. King 真实回答句](./2026-07-07_D1.md)
+- [2026-W29：第五周交付与第六周能力快进](./2026-W29.md)
+- [2026-07-14：W29 D1 The Thrill Is Gone 三轮应用](./2026-07-14_D1.md)
+- [2026-07-14：W29 D2 Born Under a Bad Sign 任务布置](./2026-07-14_D2.md)
+- [2026-07-15：W29 D3 Born Under a Bad Sign 实际开练](./2026-07-15_D3.md)
+- [2026-07-16：W29 D4 Born Under a Bad Sign 跟原曲 cover](./2026-07-16_D4.md)
 
 ## 上周
+
+- [2026-W28：第四周 B.B. King 回答句与 slow minor Blues](./2026-W28.md)
+- [2026-07-07：W28 D1 B.B. King 真实回答句](./2026-07-07_D1.md)
+- [2026-07-08：W28 D2 The Thrill Is Gone 第一个 chorus](./2026-07-08_D2.md)
+
+## 历史记录
 
 - [2026-W27：第三周 Clapton 主线与课程优化](./2026-W27.md)
 - [2026-06-29：W27 D1 Before You Accuse Me](./2026-06-29_D1.md)
 - [2026-06-30：W27 D2 Before You Accuse Me turnaround](./2026-06-30_D2.md)
 - [2026-07-01：W27 D3 Hide Away 预备](./2026-07-01_D3.md)
 - [2026-07-02：W27 D4 Hide Away 变化验证](./2026-07-02_D4.md)
-
-## 历史记录
-
 - [2026-W25：第一周校准](./2026-W25.md)
 - [2026-W26：第二周 Clapton 主线](./2026-W26.md)
 - [2026-06-18：D1 基线](./2026-06-18_D2.md)

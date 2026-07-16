@@ -17,7 +17,7 @@
 - 第 1 周 A 调完整表演已于 6 月 22 日过关：从头到尾一次录完、未剪辑，五轮不丢位置，ending（收尾）符合预期（用户自评）。演奏听感尚未实际回听，不因此重录。
 - 当前可复用伴奏工程：[A 调 `65 BPM` shuffle](./工程/A调_65BPM_shuffle.band)，内含 shuffle（摇摆节奏）背景和 3 条 solo（主音独奏）。
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus（三轮 12 小节）`限制任务每周最多一次。
-- 当前日历周为 [2026-W29 第五周](./日志/2026-W29.md)，第五周交付已完成；训练能力层级已快进到第 6 周，课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo（主音独奏）。
+- 当前日历周为 [2026-W29 第五周](./日志/2026-W29.md)，第五周交付已完成；第 6 周能力层级的《Born Under a Bad Sign》跟原曲 cover 也已按用户自评基本过关。课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo（主音独奏）。
 - 6 月 29 日已归档《Before You Accuse Me》前奏与 E 回答 1-3 练习录音；三个快速句子基本跟原曲一致来自用户自评，尚未实际回听演奏质量。
 - 6 月 29 日已归档《Before You Accuse Me》E7 / A7 / B7 回答变化练习成品；用户自评个人觉得还行，尚未实际回听演奏质量，是否一次录完待确认。
 - 新增可复用工程：[BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，含 E 伴奏和两条 solo（主音独奏），可作为后续 E 调 solo 资源。
@@ -41,22 +41,22 @@
 - 7 月 8 日已归档 [《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）跟原曲 solo（主音独奏）练习成品](./录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3) 与 [B 小调 funk backing（伴奏）3 chorus 工程](./工程/TheThrillIsGone_Bm_Funk伴奏3chorus.band)；用户说明工程含鼓 + bass + 3 chorus，并有两段第一个 chorus solo，跟原曲几乎一致。尚未实际回听评价，是否一次录完待确认。
 - 7 月 14 日进入长音句个人化：不再重复跟原曲，也不扩成新的多 chorus solo；只在自制 B 小调 funk backing 中完成一个不剪辑 chorus，验证尾音长度、延迟揉弦和句后空间。
 - 7 月 14 日已归档 [《The Thrill Is Gone》B 小调 `88 BPM` 三轮变化与自编 solo](./录音/2026-07-14_W29_D1_TheThrillIsGone三轮变化与自Solo_Bm_88BPM.mp3) 并更新 [GarageBand 工程](./工程/TheThrillIsGone_Bm_Funk伴奏3chorus.band)；用户说明第 1、3 chorus 基于原曲做微小变化，第 2 chorus 为自编 solo。结构来自用户自评，尚未实际回听演奏质量，是否一次录完待确认。
-- 7 月 15 日从 [D3 Albert King《Born Under a Bad Sign》强落点任务](./日志/2026-07-15_D3.md) 实际开练：这是 7 月 14 日已布置任务的继续，不算新作业；取第一段主歌中第一条起止清楚的 guitar answer（吉他回答句），比较原力度与“弱起强收”，不追加同类 backing solo。
-- 今日入口：[2026-07-15 D3 练习日志](./日志/2026-07-15_D3.md)。
+- 7 月 16 日已归档 [《Born Under a Bad Sign》C# 调原速跟原曲吉他 cover](./录音/2026-07-16_W29_D4_BornUnderABadSign跟原曲Cover_CSharp_原速.mp3) 与 [GarageBand 工程](./工程/BornUnderABadSign_CSharp_原速_跟原曲Cover.band)；用户自评大部分准确、少部分 timing（时值 / 落拍）不稳，整体基本 OK。本曲转为维护曲目，不再深挖。
+- 今日入口：[2026-07-16 D4 练习日志](./日志/2026-07-16_D4.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
 维护素材：[Eric Clapton - Before You Accuse Me `Unplugged`](./曲目/参考素材/Eric_Clapton-Before_You_Accuse_Me-Unplugged_yt_416wa6CHs04.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=416wa6CHs04)
 维护素材：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）solo（主音独奏）；辅助参考：[New York 1971 现场版](./曲目/参考素材/BB_King-The_Thrill_Is_Gone-New_York_1971_yt_dvRwZga4hAE.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=dvRwZga4hAE)
-当前参考：[Albert King - Born Under a Bad Sign（Official Lyric Video）](./曲目/参考素材/Albert_King-Born_Under_A_Bad_Sign-Official_Lyric_Video_yt_uIPGhI7Gl_0.mp3)，来源：[YouTube / Stax Records](https://www.youtube.com/watch?v=uIPGhI7Gl_0)
+维护素材：[Albert King - Born Under a Bad Sign（Official Lyric Video）](./曲目/参考素材/Albert_King-Born_Under_A_Bad_Sign-Official_Lyric_Video_yt_uIPGhI7Gl_0.mp3)，来源：[YouTube / Stax Records](https://www.youtube.com/watch?v=uIPGhI7Gl_0)
 
-> 当前唯一重点：Albert King《Born Under a Bad Sign》的强落点和 riff-based（基于重复动机）张力；力量只集中到目标音，不把整句都弹重。
+> 当前课程决策：《Born Under a Bad Sign》已基本过关并转为维护；下一课换新素材，进入扩展和弦 voice leading（声部连接）层级。
 
 ## 今日结果与下一步
 
-已完成：录音室版第一个 chorus（一轮 12 小节）跟原曲练习，以及 B 小调 `88 BPM` 三轮应用；第 1、3 chorus 基于原曲微小变化，第 2 chorus 为自编 solo（用户自评）。
+已完成：跟随原曲完成《Born Under a Bad Sign》的整首吉他 cover；用户自评大部分准确，少部分不在拍上，整体基本 OK。尚未实际回听演奏质量。
 
-现在做：连续两个完整主歌语境；第一遍保留原力度，第二遍只做“弱起强收”。任务结果待回报。
+现在做：本曲结束，不重录、不补考。下次开始时直接换新素材和新和声层级。
 
 ## 常用入口
 

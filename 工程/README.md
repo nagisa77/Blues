@@ -58,3 +58,12 @@
 - 用途：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）slow minor Blues（慢速小调布鲁斯）solo（主音独奏）跟弹和变体练习容器。
 - 当前内容：B 小调，`88 BPM`；用户说明含鼓 + bass + `3 chorus（三轮 12 小节）`。7 月 14 日更新后，第 1、3 chorus 基于原曲做微小变化，第 2 chorus 为自编 solo。工程包约 `124 MB`；`Media/Audio Files` 内有 `31` 条 WAV，另有 `1` 条 WAV 位于 undo trash。新增活动媒体 WAV 共 `19` 条，均为 44.1 kHz、24-bit、单声道，并保存了 GarageBand autosave 数据。
 - 对应导出：[第一个 chorus 跟原曲 solo](../录音/2026-07-08_W28_D2_TheThrillIsGone第一Chorus跟原曲Solo_Bm_原速.mp3)、[三轮变化与自编 solo](../录音/2026-07-14_W29_D1_TheThrillIsGone三轮变化与自Solo_Bm_88BPM.mp3)。
+
+## BornUnderABadSign_CSharp_原速_跟原曲Cover.band
+
+- 工程：[Born Under a Bad Sign C# 调原速跟原曲 cover](./BornUnderABadSign_CSharp_原速_跟原曲Cover.band)
+- 用途：Albert King《Born Under a Bad Sign》1967 年录音的整首吉他跟弹与 guitar answer（吉他回答句）归档。
+- 当前内容：GarageBand 10.4.11 工程，约 `50 MB`、2 轨；原曲 WAV 约 `168.11s`，个人吉他 WAV 约 `162.00s`，均为 44.1 kHz。
+- 速度记录：工程 MetaData 中的默认网格为 `120 BPM / C`，但本次演奏实际跟随原曲，因此训练档案按 C# 调原速登记，不把默认网格当作演奏速度。
+- 用户自评：大部分准确，少部分 timing（时值 / 落拍）不稳，整体基本 OK；尚未实际回听演奏质量。
+- 对应导出：[跟原曲吉他 cover](../录音/2026-07-16_W29_D4_BornUnderABadSign跟原曲Cover_CSharp_原速.mp3)。
