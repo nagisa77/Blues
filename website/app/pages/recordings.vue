@@ -23,7 +23,7 @@ const filteredRecordings = computed(() => {
 
 useSeoMeta({
   title: '曲目录音 · Tim / Blues',
-  description: 'Tim 的 19 条个人 Blues 练习录音，直接从 GitHub 资源播放。',
+  description: `Tim 的 ${archive.stats.recordingCount} 条个人 Blues 练习录音，直接从 GitHub 资源播放。`,
 })
 </script>
 

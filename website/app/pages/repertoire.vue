@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const archive = useArchive()
+const hasActiveFocus = archive.songs.some(song => song.role === 'focus')
 
 const recordingsForSong = (songId: string) =>
   archive.recordings.filter((recording) => recording.songId === songId).slice(0, 3)
@@ -19,7 +20,7 @@ useSeoMeta({
           <h1>学过的每首歌，<br><em>都有位置。</em></h1>
         </div>
         <p class="page-hero-statement">
-          看板收录所有已经进入训练或留下演奏证据的曲目；当前只主攻一首，完成的素材转入维护、对照或基线档案。
+          看板收录所有已经进入训练或留下演奏证据的曲目；{{ hasActiveFocus ? '当前只主攻一首' : '当前暂无主攻位，下一课选新素材时再设立' }}，完成的素材转入维护、对照或基线档案。
         </p>
       </div>
     </section>

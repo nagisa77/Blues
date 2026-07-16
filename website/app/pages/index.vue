@@ -3,7 +3,10 @@ const archive = useArchive()
 const latestRecording = archive.recordings[0]
 const recentLogs = archive.logs.slice(0, 4)
 const latestRecordings = archive.recordings.slice(0, 3)
-const currentSong = archive.songs.find(song => song.id === archive.currentFocus.songId)
+const activeSong = archive.songs.find(song => song.role === 'focus')
+const latestSong = archive.songs.find(song => song.id === latestRecording?.songId)
+const currentSong = activeSong ?? latestSong
+const hasActiveFocus = Boolean(activeSong)
 const currentSongDetail = [currentSong?.version, currentSong?.capabilities]
   .filter(Boolean)
   .join(' · ')
@@ -23,7 +26,7 @@ const heroStats = [
   {
     value: archive.stats.songCount.toString().padStart(2, '0'),
     label: '已学曲目',
-    detail: '全部保留 · 当前主攻 1',
+    detail: hasActiveFocus ? '全部保留 · 当前主攻 1' : '全部保留 · 待选新素材',
   },
   {
     value: archive.stats.projectCount.toString().padStart(2, '0'),
@@ -67,7 +70,7 @@ useSeoMeta({
 
         <aside class="focus-panel">
           <div class="focus-panel-head">
-            <span>NOW / 当前主攻</span>
+            <span>{{ hasActiveFocus ? 'NOW / 当前主攻' : 'LATEST / 最新进度' }}</span>
             <span class="live-pill"><i /> {{ archive.currentFocus.calendarWeekId || '2026-W28' }}</span>
           </div>
 
@@ -75,7 +78,7 @@ useSeoMeta({
             <div class="record-label">
               <span>W{{ archive.currentFocus.programWeek?.toString().padStart(2, '0') || '—' }}</span>
               <i />
-              <small>CURRENT<br>FOCUS</small>
+              <small>{{ hasActiveFocus ? 'CURRENT' : 'LATEST' }}<br>{{ hasActiveFocus ? 'FOCUS' : 'RESULT' }}</small>
             </div>
           </div>
 
@@ -86,7 +89,7 @@ useSeoMeta({
           </div>
 
           <div class="focus-next">
-            <span>下一条音乐产出</span>
+            <span>{{ hasActiveFocus ? '下一条音乐产出' : '接下来' }}</span>
             <p>{{ archive.currentFocus.nextStep }}</p>
           </div>
         </aside>
@@ -104,17 +107,19 @@ useSeoMeta({
     <section class="section current-section">
       <div class="container split-heading">
         <div>
-          <p class="section-kicker">CURRENT FOCUS / 当前重点</p>
-          <h2 class="section-title">一次只改变<br>最影响听感的事。</h2>
+          <p class="section-kicker">{{ hasActiveFocus ? 'CURRENT FOCUS / 当前重点' : 'LATEST RESULT / 最新成果' }}</p>
+          <h2 class="section-title">{{ hasActiveFocus ? '一次只改变' : '完成一层，' }}<br>{{ hasActiveFocus ? '最影响听感的事。' : '再进入下一层。' }}</h2>
         </div>
-        <p class="section-summary">{{ archive.currentFocus.currentCapability }}</p>
+        <p class="section-summary">
+          {{ archive.currentFocus.currentCapability || archive.logs[0]?.result.effectiveEvidence }}
+        </p>
       </div>
 
       <div class="container current-grid">
         <article class="current-task-card">
           <div class="task-card-index">01</div>
           <div class="task-card-copy">
-            <p>ONLY LISTEN FOR / 只盯</p>
+            <p>{{ hasActiveFocus ? 'ONLY LISTEN FOR / 只盯' : 'LAST FOCUS / 上次只盯' }}</p>
             <h3>{{ archive.currentFocus.focus }}</h3>
           </div>
           <div class="task-card-next">
