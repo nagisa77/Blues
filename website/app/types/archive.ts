@@ -102,6 +102,7 @@ export interface PracticeLogItem {
 
 export type SongRole =
   | 'focus'
+  | 'paused'
   | 'maintenance'
   | 'retired_reference'
   | 'baseline'

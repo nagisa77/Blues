@@ -8,6 +8,7 @@ defineProps<{
 
 const roleShort: Record<SongArchiveItem['role'], string> = {
   focus: 'NOW',
+  paused: 'PAUSE',
   maintenance: 'KEEP',
   retired_reference: 'REF',
   baseline: 'BASE',

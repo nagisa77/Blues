@@ -18,6 +18,18 @@ const SOURCE_PATHS = {
 
 const KNOWN_SONGS = [
   {
+    id: 'key-to-the-highway',
+    artist: 'Derek and the Dominos',
+    title: 'Key to the Highway',
+    matches: [/Key to the Highway/i, /KeyToTheHighway/i],
+  },
+  {
+    id: 'call-it-stormy-monday',
+    artist: 'T-Bone Walker',
+    title: 'Call It Stormy Monday',
+    matches: [/Call It Stormy Monday/i, /CallItStormyMonday/i],
+  },
+  {
     id: 'he-ni-zai-yi-qi',
     artist: null,
     title: '和你在一起',
@@ -338,15 +350,18 @@ function recordingFilenameMetadata(resourcePath) {
 
 function normalizeSessionCompletion(value) {
   if (!value) return 'unknown'
-  if (/已完成/.test(value)) return 'completed'
   if (/取消/.test(value)) return 'cancelled'
   if (/未完成/.test(value)) return 'incomplete'
-  if (/中断/.test(value)) return 'interrupted'
+  if (/已完成|已学习|已学会|已归档/.test(value)) return 'completed'
+  if (/中断/.test(value) && !/(?:是否)?中断待确认|中断状态待确认/.test(value)) {
+    return 'interrupted'
+  }
   return 'unknown'
 }
 
 function normalizeSongRole(label) {
   if (label === '主攻') return 'focus'
+  if (/暂停/.test(label)) return 'paused'
   if (label === '维护') return 'maintenance'
   if (/退役|对照/.test(label)) return 'retired_reference'
   if (/基线/.test(label)) return 'baseline'

@@ -1126,6 +1126,11 @@
     background: var(--brass);
   }
 
+  .role-paused .song-role i {
+    background: var(--muted-dark);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04);
+  }
+
   .role-baseline .song-role i {
     background: rgba(255, 255, 255, 0.42);
   }
@@ -1855,6 +1860,10 @@
 
   .repertoire-row.role-maintenance {
     background: linear-gradient(115deg, rgba(211, 154, 88, 0.06), transparent 38%);
+  }
+
+  .repertoire-row.role-paused {
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.035), transparent 38%);
   }
 
   .repertoire-row-grid {
