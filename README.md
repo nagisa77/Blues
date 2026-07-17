@@ -44,7 +44,8 @@
 - 7 月 16 日已归档 [《Born Under a Bad Sign》C# 调原速跟原曲吉他 cover](./录音/2026-07-16_W29_D4_BornUnderABadSign跟原曲Cover_CSharp_原速.mp3) 与 [GarageBand 工程](./工程/BornUnderABadSign_CSharp_原速_跟原曲Cover.band)；用户自评大部分准确、少部分 timing（时值 / 落拍）不稳，整体基本 OK。本曲转为维护曲目，不再深挖。
 - 7 月 17 日用户明确反馈《Call It Stormy Monday》当前太难；该任务已取消，不降速补考，也不形成作业债务。
 - 已改用 [Derek and the Dominos《Key to the Highway》1970 年录音室版](./曲目/参考素材/Derek_And_The_Dominos-Key_To_The_Highway-1970_yt_nlhzajhLVY8.mp3)：A 调 `8-bar Blues（8 小节布鲁斯）`，先练形式与 rhythm（节奏/伴奏）/ lead（主音）交接，不抄长 solo（主音独奏）。
-- 今日入口：[2026-07-17 D6 练习日志](./日志/2026-07-17_D6.md)。
+- 7 月 17 日已归档 [《Key to the Highway》solo 第一段跟原曲练习](./录音/2026-07-17_W29_D6_KeyToTheHighwaySolo第一段_A_原速.mp3)；用户自评已经学会、但挺难，记录为“完成，尚待稳定”。尚未实际回听演奏质量。
+- 今日入口：[2026-07-17 D7 练习日志](./日志/2026-07-17_D7.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
@@ -62,7 +63,7 @@
 
 已完成：跟随原曲完成《Born Under a Bad Sign》的整首吉他 cover；用户自评大部分准确，少部分不在拍上，整体基本 OK。尚未实际回听演奏质量。本曲已转为维护。
 
-现在做：Derek and the Dominos《Key to the Highway》A 调原速两个 `8` 小节 chorus（一轮）；第 1 轮只做稀疏 rhythm（节奏/伴奏），第 2 轮只在第 `5–6` 小节加入一条已会回答句，并于第 `7–8` 小节准时回到 rhythm。
+现在做：学习 Derek and the Dominos《Key to the Highway》约 `3:14–3:55` 的 solo（主音独奏）第二段；学完后只从第一段最后一个 `8-bar chorus（8 小节一轮）`开始，连续接入第二段第一个 chorus，不停拍、不进入第三段。
 
 ## 常用入口
 
