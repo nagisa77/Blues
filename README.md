@@ -42,7 +42,9 @@
 - 7 月 14 日进入长音句个人化：不再重复跟原曲，也不扩成新的多 chorus solo；只在自制 B 小调 funk backing 中完成一个不剪辑 chorus，验证尾音长度、延迟揉弦和句后空间。
 - 7 月 14 日已归档 [《The Thrill Is Gone》B 小调 `88 BPM` 三轮变化与自编 solo](./录音/2026-07-14_W29_D1_TheThrillIsGone三轮变化与自Solo_Bm_88BPM.mp3) 并更新 [GarageBand 工程](./工程/TheThrillIsGone_Bm_Funk伴奏3chorus.band)；用户说明第 1、3 chorus 基于原曲做微小变化，第 2 chorus 为自编 solo。结构来自用户自评，尚未实际回听演奏质量，是否一次录完待确认。
 - 7 月 16 日已归档 [《Born Under a Bad Sign》C# 调原速跟原曲吉他 cover](./录音/2026-07-16_W29_D4_BornUnderABadSign跟原曲Cover_CSharp_原速.mp3) 与 [GarageBand 工程](./工程/BornUnderABadSign_CSharp_原速_跟原曲Cover.band)；用户自评大部分准确、少部分 timing（时值 / 落拍）不稳，整体基本 OK。本曲转为维护曲目，不再深挖。
-- 今日入口：[2026-07-16 D5 练习日志](./日志/2026-07-16_D5.md)。
+- 7 月 17 日用户明确反馈《Call It Stormy Monday》当前太难；该任务已取消，不降速补考，也不形成作业债务。
+- 已改用 [Derek and the Dominos《Key to the Highway》1970 年录音室版](./曲目/参考素材/Derek_And_The_Dominos-Key_To_The_Highway-1970_yt_nlhzajhLVY8.mp3)：A 调 `8-bar Blues（8 小节布鲁斯）`，先练形式与 rhythm（节奏/伴奏）/ lead（主音）交接，不抄长 solo（主音独奏）。
+- 今日入口：[2026-07-17 D6 练习日志](./日志/2026-07-17_D6.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
@@ -50,15 +52,17 @@
 维护素材：B.B. King《The Thrill Is Gone》录音室版第一个 chorus（一轮 12 小节）solo（主音独奏）；辅助参考：[New York 1971 现场版](./曲目/参考素材/BB_King-The_Thrill_Is_Gone-New_York_1971_yt_dvRwZga4hAE.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=dvRwZga4hAE)
 维护素材：[Albert King - Born Under a Bad Sign（Official Lyric Video）](./曲目/参考素材/Albert_King-Born_Under_A_Bad_Sign-Official_Lyric_Video_yt_uIPGhI7Gl_0.mp3)，来源：[YouTube / Stax Records](https://www.youtube.com/watch?v=uIPGhI7Gl_0)
 
-当前素材：[T-Bone Walker - Call It Stormy Monday（1947 年原始录音路线）](./曲目/参考素材/TBone_Walker-Call_It_Stormy_Monday-1947_yt_xifoTGRBhg0.mp3)，来源：[YouTube / T-Bone Walker - Topic](https://www.youtube.com/watch?v=xifoTGRBhg0)
+暂停素材：[T-Bone Walker - Call It Stormy Monday（1947 年原始录音路线）](./曲目/参考素材/TBone_Walker-Call_It_Stormy_Monday-1947_yt_xifoTGRBhg0.mp3)，来源：[YouTube / T-Bone Walker - Topic](https://www.youtube.com/watch?v=xifoTGRBhg0)
 
-> 当前课程决策：《Born Under a Bad Sign》已转为维护；当前主攻《Call It Stormy Monday》的 `3 度 / 7 度` voice leading（声部连接），随后再扩展到 `9 / 13 / 经过和弦`。
+当前素材：[Derek and the Dominos - Key to the Highway（1970 年录音室版）](./曲目/参考素材/Derek_And_The_Dominos-Key_To_The_Highway-1970_yt_nlhzajhLVY8.mp3)，来源：[YouTube / Derek & The Dominos - Topic](https://www.youtube.com/watch?v=nlhzajhLVY8)
+
+> 当前课程决策：《Born Under a Bad Sign》已转为维护；《Call It Stormy Monday》因当前难度过高暂停。当前主攻《Key to the Highway》的 `8-bar Blues（8 小节布鲁斯）`形式与 rhythm（节奏/伴奏）/ lead（主音）交接。
 
 ## 今日结果与下一步
 
 已完成：跟随原曲完成《Born Under a Bad Sign》的整首吉他 cover；用户自评大部分准确，少部分不在拍上，整体基本 OK。尚未实际回听演奏质量。本曲已转为维护。
 
-现在做：T-Bone Walker《Call It Stormy Monday》G 调原速两个完整 chorus，只用 I / IV / V 的 `3 度 / 7 度`双音完成 voice leading（声部连接）；不先背复杂替代和弦。
+现在做：Derek and the Dominos《Key to the Highway》A 调原速两个 `8` 小节 chorus（一轮）；第 1 轮只做稀疏 rhythm（节奏/伴奏），第 2 轮只在第 `5–6` 小节加入一条已会回答句，并于第 `7–8` 小节准时回到 rhythm。
 
 ## 常用入口
 

@@ -8,6 +8,7 @@
 - [2026-07-15：W29 D3 Born Under a Bad Sign 实际开练](./2026-07-15_D3.md)
 - [2026-07-16：W29 D4 Born Under a Bad Sign 跟原曲 cover](./2026-07-16_D4.md)
 - [2026-07-16：W29 D5 Stormy Monday voice leading](./2026-07-16_D5.md)
+- [2026-07-17：W29 D6 Key to the Highway 8-bar Blues](./2026-07-17_D6.md)
 
 ## 上周
 
