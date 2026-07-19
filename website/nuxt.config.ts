@@ -15,8 +15,8 @@ export default defineNuxtConfig({
           name: 'description',
           content: 'Tim 的 Blues 吉他练习档案：日志、曲目录音与 8 周进度证据。',
         },
-        { name: 'theme-color', content: '#0b0f14' },
-        { name: 'color-scheme', content: 'dark' },
+        { name: 'theme-color', content: '#f5f4ef' },
+        { name: 'color-scheme', content: 'light' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: `${siteBaseUrl}favicon.svg` },
