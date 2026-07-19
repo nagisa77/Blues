@@ -4,30 +4,25 @@ import type { ProgressMetricItem } from '~/types/archive'
 const props = defineProps<{
   metric: ProgressMetricItem
   index?: number
+  updatedAt?: string | null
 }>()
-
-const progress = computed(() => {
-  const maximum = props.metric.targetMaximum || props.metric.targetValue
-  if (props.metric.currentValue === null || !maximum) return null
-  return Math.min(100, Math.round((props.metric.currentValue / maximum) * 100))
-})
 </script>
 
 <template>
   <article class="metric-card">
     <div class="metric-card-head">
       <span>0{{ (index || 0) + 1 }}</span>
-      <strong v-if="progress !== null">{{ progress }}%</strong>
-      <strong v-else>待验证</strong>
+      <EvidenceBadge :evidence="metric.evidence" compact />
     </div>
     <h3>{{ metric.label }}</h3>
-    <p>{{ metric.currentFact }}</p>
-    <div class="metric-track" :class="{ unknown: progress === null }">
-      <i :style="{ width: `${progress || 0}%` }" />
+    <div class="metric-fact">
+      <span>当前事实</span>
+      <p>{{ metric.currentFact }}</p>
     </div>
     <div class="metric-target">
-      <span>当前事实</span>
-      <span>目标 {{ metric.target }}</span>
+      <span>目标</span>
+      <strong>{{ metric.target }}</strong>
     </div>
+    <p v-if="updatedAt" class="metric-updated">档案更新于 {{ formatArchiveDate(updatedAt, true) }}</p>
   </article>
 </template>

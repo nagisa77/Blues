@@ -4,6 +4,12 @@ import type { RecordingArchiveItem } from '~/types/archive'
 const props = defineProps<{
   recording: RecordingArchiveItem
   featured?: boolean
+  compareMode?: boolean
+  compareSelected?: boolean
+}>()
+
+const emit = defineEmits<{
+  toggleCompare: [recording: RecordingArchiveItem]
 }>()
 
 const { currentTrack, isPlaying, play, toggle } = useAudioPlayer()
@@ -56,10 +62,22 @@ const waveform = computed(() => {
 
     <div class="recording-footer">
       <EvidenceBadge :evidence="recording.evidence" compact />
-      <a :href="githubFileUrl(recording.resourcePath)" target="_blank" rel="noreferrer">
-        GitHub 源文件
-        <AppIcon name="external" :size="13" />
-      </a>
+      <div class="recording-links">
+        <button
+          v-if="compareMode"
+          class="recording-compare"
+          type="button"
+          :aria-pressed="compareSelected"
+          @click="emit('toggleCompare', recording)"
+        >
+          {{ compareSelected ? '已加入对比' : '加入 A/B' }}
+        </button>
+        <NuxtLink v-if="recording.logIds[0]" :to="`/logs/${recording.logIds[0]}`">日志</NuxtLink>
+        <NuxtLink v-if="recording.songId" :to="{ path: '/repertoire', query: { song: recording.songId } }">曲目</NuxtLink>
+        <a :href="githubFileUrl(recording.resourcePath)" target="_blank" rel="noreferrer" aria-label="在 GitHub 打开源文件">
+          源文件<AppIcon name="external" :size="13" />
+        </a>
+      </div>
     </div>
 
     <p v-if="featured && recording.nextChange" class="recording-next">

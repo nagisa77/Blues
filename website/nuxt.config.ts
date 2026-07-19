@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-07-10',
   devtools: { enabled: true },
   ssr: true,
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/product-refinement.css'],
   app: {
     baseURL: siteBaseUrl,
     head: {

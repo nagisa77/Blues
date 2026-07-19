@@ -10,6 +10,11 @@ if (!log.value) {
 const relatedRecordings = computed(() =>
   archive.recordings.filter((recording) => log.value?.recordingIds.includes(recording.id)),
 )
+const relatedSong = computed(() => {
+  const songId = relatedRecordings.value.find(recording => recording.songId)?.songId
+  if (songId) return archive.songs.find(song => song.id === songId) || null
+  return archive.songs.find(song => log.value?.title.toLocaleLowerCase('zh-CN').includes(song.title.toLocaleLowerCase('zh-CN'))) || null
+})
 const currentIndex = computed(() => archive.logs.findIndex((item) => item.id === log.value?.id))
 const newerLog = computed(() => archive.logs[currentIndex.value - 1] || null)
 const olderLog = computed(() => archive.logs[currentIndex.value + 1] || null)
@@ -37,6 +42,7 @@ useSeoMeta({
           <div class="log-detail-meta">
             <EvidenceBadge :evidence="log.evidence" />
             <span v-if="log.durationText"><AppIcon name="clock" :size="15" />{{ log.durationText }}</span>
+            <NuxtLink v-if="relatedSong" :to="{ path: '/repertoire', query: { song: relatedSong.id } }">曲目：{{ relatedSong.title }}</NuxtLink>
           </div>
         </div>
       </div>
@@ -49,6 +55,7 @@ useSeoMeta({
         <a href="#result">02 / 结果</a>
         <a href="#recording">03 / 录音</a>
         <a href="#next">04 / 下一次</a>
+        <NuxtLink v-if="relatedSong" :to="{ path: '/recordings', query: { song: relatedSong.id } }">该曲全部录音</NuxtLink>
         <a :href="githubFileUrl(log.sourcePath)" target="_blank" rel="noreferrer">
           GitHub 原始日志 <AppIcon name="external" :size="13" />
         </a>

@@ -1,39 +1,19 @@
 <script setup lang="ts">
 const archive = useArchive()
-const latestRecording = archive.recordings[0]
-const recentLogs = archive.logs.slice(0, 4)
-const latestRecordings = archive.recordings.slice(0, 3)
 const activeSong = archive.songs.find(song => song.role === 'focus')
-const latestSong = archive.songs.find(song => song.id === latestRecording?.songId)
-const currentSong = activeSong ?? latestSong
-const hasActiveFocus = Boolean(activeSong)
-const currentSongDetail = [currentSong?.version, currentSong?.capabilities]
-  .filter(Boolean)
-  .join(' · ')
-const { play } = useAudioPlayer()
+const latestRecording = archive.recordings.find(recording => recording.id === archive.currentFocus.latestRecordingId)
+  || archive.recordings[0]
+const nextTaskLog = archive.logs.find(log => log.id === archive.currentFocus.latestLogId)
+  || archive.logs[0]
+const recentLogs = archive.logs.slice(0, 3)
+const archiveUpdatedAt = archive.logs[0]?.date || archive.stats.dateRange.end
+const previewSongs = [
+  activeSong,
+  archive.songs.find(song => song.role === 'maintenance'),
+  archive.songs.find(song => song.role === 'retired_reference'),
+].filter((song): song is (typeof archive.songs)[number] => Boolean(song))
 
-const heroStats = [
-  {
-    value: archive.stats.recordingCount.toString().padStart(2, '0'),
-    label: '个人录音',
-    detail: archive.stats.recordingDurationLabel,
-  },
-  {
-    value: archive.stats.sessionLogCount.toString().padStart(2, '0'),
-    label: '练习日志',
-    detail: `${archive.stats.practiceDateCount} 个练习日`,
-  },
-  {
-    value: archive.stats.songCount.toString().padStart(2, '0'),
-    label: '已学曲目',
-    detail: hasActiveFocus ? '全部保留 · 当前主攻 1' : '全部保留 · 待选新素材',
-  },
-  {
-    value: archive.stats.projectCount.toString().padStart(2, '0'),
-    label: '可编辑工程',
-    detail: 'GarageBand',
-  },
-]
+const { play } = useAudioPlayer()
 
 const playLatest = () => {
   if (latestRecording) play(recordingPlayerTrack(latestRecording))
@@ -42,133 +22,102 @@ const playLatest = () => {
 useSeoMeta({
   title: 'Tim 的 Blues 练习记录',
   ogTitle: 'Tim / Blues Practice Archive',
-  description: '练习日志、个人录音、主线曲目和 8 周进度组成的 Blues 吉他成长档案。',
+  description: '下一次训练、个人录音、练习日志和曲目状态组成的 Blues 吉他成长档案。',
 })
 </script>
 
 <template>
   <div>
-    <section class="home-hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span /> TIM'S BLUES PRACTICE ARCHIVE</p>
-          <h1>让每一次进步<br><em>留下声音。</em></h1>
+    <section class="home-hero home-workbench">
+      <div class="container workbench-grid">
+        <div class="hero-copy workbench-copy">
+          <p class="eyebrow"><span /> NEXT SESSION / 下一次训练</p>
+          <h1>从一条可听见的<br><em>结果开始。</em></h1>
           <p class="hero-intro">
-            这里不收藏练习时长，收藏能听见的改变。日志、曲目、录音与下一步，组成 Tim 的 Blues 训练证据链。
+            当前只处理最影响听感的一项。完成一段真实演奏，再用录音决定下一步。
           </p>
           <div class="hero-actions">
             <button v-if="latestRecording" class="button button-primary" type="button" @click="playLatest">
               <span class="button-icon"><AppIcon name="play" :size="18" /></span>
-              听最新录音
+              听最近证据
             </button>
-            <NuxtLink class="button button-ghost" to="/logs">
-              浏览练习日志
-              <AppIcon name="arrow" :size="17" />
+            <NuxtLink class="button button-ghost" :to="nextTaskLog ? `/logs/${nextTaskLog.id}` : '/logs'">
+              查看任务详情<AppIcon name="arrow" :size="17" />
             </NuxtLink>
           </div>
         </div>
 
-        <aside class="focus-panel">
-          <div class="focus-panel-head">
-            <span>{{ hasActiveFocus ? 'NOW / 当前主攻' : 'LATEST / 最新进度' }}</span>
-            <span class="live-pill"><i /> {{ archive.currentFocus.calendarWeekId || '2026-W28' }}</span>
+        <aside class="next-practice-panel">
+          <div class="next-practice-head">
+            <span>{{ activeSong?.title || archive.currentFocus.title }}</span>
+            <strong>{{ nextTaskLog?.durationText || '15–30 分钟' }}</strong>
           </div>
-
-          <div class="focus-record" aria-hidden="true">
-            <div class="record-label">
-              <span>W{{ archive.currentFocus.programWeek?.toString().padStart(2, '0') || '—' }}</span>
-              <i />
-              <small>{{ hasActiveFocus ? 'CURRENT' : 'LATEST' }}<br>{{ hasActiveFocus ? 'FOCUS' : 'RESULT' }}</small>
+          <div class="next-practice-primary">
+            <span>产出</span>
+            <h2>{{ nextTaskLog?.task.output || archive.currentFocus.nextStep }}</h2>
+          </div>
+          <dl class="next-practice-facts">
+            <div>
+              <dt>只盯</dt>
+              <dd>{{ archive.currentFocus.focus || nextTaskLog?.focus }}</dd>
             </div>
-          </div>
-
-          <div class="focus-panel-copy">
-            <p>{{ currentSong?.artist || 'CURRENT SONG' }}</p>
-            <h2>{{ currentSong?.title || archive.currentFocus.title }}</h2>
-            <span>{{ currentSongDetail || '当前训练素材' }}</span>
-          </div>
-
-          <div class="focus-next">
-            <span>{{ hasActiveFocus ? '下一条音乐产出' : '接下来' }}</span>
-            <p>{{ archive.currentFocus.nextStep }}</p>
-          </div>
+            <div v-if="nextTaskLog?.task.constraints">
+              <dt>限制</dt>
+              <dd>{{ nextTaskLog.task.constraints }}</dd>
+            </div>
+            <div v-if="nextTaskLog?.task.passCriteria">
+              <dt>过关</dt>
+              <dd>{{ nextTaskLog.task.passCriteria }}</dd>
+            </div>
+          </dl>
+          <EvidenceBadge :evidence="archive.currentFocus.evidence" />
         </aside>
-      </div>
-
-      <div class="container hero-stat-grid">
-        <article v-for="item in heroStats" :key="item.label" class="hero-stat">
-          <strong>{{ item.value }}</strong>
-          <p>{{ item.label }}</p>
-          <span>{{ item.detail }}</span>
-        </article>
       </div>
     </section>
 
-    <section class="section current-section">
-      <div class="container split-heading">
+    <section class="section latest-evidence-section">
+      <div class="container split-heading compact-heading">
         <div>
-          <p class="section-kicker">{{ hasActiveFocus ? 'CURRENT FOCUS / 当前重点' : 'LATEST RESULT / 最新成果' }}</p>
-          <h2 class="section-title">{{ hasActiveFocus ? '一次只改变' : '完成一层，' }}<br>{{ hasActiveFocus ? '最影响听感的事。' : '再进入下一层。' }}</h2>
+          <p class="section-kicker">LATEST EVIDENCE / 最近证据</p>
+          <h2 class="section-title">先听事实，<br>再决定练什么。</h2>
         </div>
         <p class="section-summary">
           {{ archive.currentFocus.currentCapability || archive.logs[0]?.result.effectiveEvidence }}
         </p>
       </div>
-
-      <div class="container current-grid">
-        <article class="current-task-card">
-          <div class="task-card-index">01</div>
-          <div class="task-card-copy">
-            <p>{{ hasActiveFocus ? 'ONLY LISTEN FOR / 只盯' : 'LAST FOCUS / 上次只盯' }}</p>
-            <h3>{{ archive.currentFocus.focus }}</h3>
-          </div>
-          <div class="task-card-next">
-            <AppIcon name="target" :size="23" />
-            <div>
-              <span>过关方向</span>
-              <p>{{ archive.currentFocus.nextStep }}</p>
-            </div>
-          </div>
-          <EvidenceBadge :evidence="archive.currentFocus.evidence" />
-        </article>
-
+      <div class="container evidence-focus-grid">
         <RecordingCard v-if="latestRecording" :recording="latestRecording" featured />
+        <article class="evidence-decision-card">
+          <p class="mini-label">DECISION / 课程决定</p>
+          <h3>{{ latestRecording?.nextChange || archive.currentFocus.nextStep }}</h3>
+          <div class="evidence-decision-links">
+            <NuxtLink v-if="latestRecording?.logIds[0]" :to="`/logs/${latestRecording.logIds[0]}`">查看对应日志</NuxtLink>
+            <NuxtLink v-if="latestRecording?.songId" :to="{ path: '/recordings', query: { song: latestRecording.songId } }">与上一版 A/B 对比</NuxtLink>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section repertoire-preview">
+    <section class="section repertoire-preview compact-section">
       <div class="container section-heading-inline">
         <div>
-          <p class="section-kicker">REPERTOIRE / 曲目路线</p>
-          <h2 class="section-title">学过的曲目，都留在这里。</h2>
+          <p class="section-kicker">REPERTOIRE / 曲目状态</p>
+          <h2 class="section-title">主攻、维护与退役分开。</h2>
         </div>
-        <NuxtLink to="/repertoire" class="text-link">查看完整曲目看板 <AppIcon name="arrow" :size="17" /></NuxtLink>
+        <NuxtLink to="/repertoire" class="text-link">打开完整看板<AppIcon name="arrow" :size="17" /></NuxtLink>
       </div>
-      <div class="container song-grid">
-        <SongRoleCard v-for="(song, index) in archive.songs" :key="song.id" :song="song" :index="index" />
+      <div class="container song-grid home-song-grid">
+        <SongRoleCard v-for="(song, index) in previewSongs" :key="song.id" :song="song" :index="index" />
       </div>
     </section>
 
-    <section class="section evidence-section">
-      <div class="container section-heading-inline">
-        <div>
-          <p class="section-kicker">RECENT EVIDENCE / 最近证据</p>
-          <h2 class="section-title">声音比勾选更诚实。</h2>
-        </div>
-        <NuxtLink to="/recordings" class="text-link">全部 {{ archive.stats.recordingCount }} 条录音 <AppIcon name="arrow" :size="17" /></NuxtLink>
-      </div>
-      <div class="container recording-grid">
-        <RecordingCard v-for="recording in latestRecordings" :key="recording.id" :recording="recording" />
-      </div>
-    </section>
-
-    <section class="section log-preview">
+    <section class="section log-preview compact-section">
       <div class="container logs-layout">
         <div class="logs-intro">
-          <p class="section-kicker">SESSION NOTES / 练习日志</p>
-          <h2 class="section-title">每一次练习，<br>只留必要事实。</h2>
-          <p>记录产出、唯一听感重点和下一次只改什么。没有听过的录音，不伪装成老师评价。</p>
-          <NuxtLink class="button button-ghost" to="/logs">打开日志档案 <AppIcon name="arrow" :size="17" /></NuxtLink>
+          <p class="section-kicker">RECENT SESSIONS / 最近练习</p>
+          <h2 class="section-title">只保留会影响<br>下一次的事实。</h2>
+          <p>按曲目、证据来源和产出类型查找，不再依赖记住日历周。</p>
+          <NuxtLink class="button button-ghost" to="/logs">打开日志档案<AppIcon name="arrow" :size="17" /></NuxtLink>
         </div>
         <div class="log-list">
           <PracticeLogCard v-for="(log, index) in recentLogs" :key="log.id" :log="log" :index="index" />
@@ -176,16 +125,19 @@ useSeoMeta({
       </div>
     </section>
 
-    <section class="archive-principle">
-      <div class="container principle-grid">
-        <p class="principle-number">12</p>
-        <blockquote>
-          <span>训练原则 / 01</span>
-          “名句提供语法，手法改变语气，<em>录音才是证据。</em>”
-        </blockquote>
-        <div class="principle-bars" aria-hidden="true">
-          <i v-for="n in 12" :key="n" :style="{ height: `${20 + ((n * 37) % 76)}%` }" />
+    <section class="archive-summary-section">
+      <div class="container archive-summary-grid">
+        <div>
+          <p class="section-kicker">ARCHIVE STATUS / 档案状态</p>
+          <strong>更新于 {{ archiveUpdatedAt ? formatArchiveDate(archiveUpdatedAt, true) : '待确认' }}</strong>
         </div>
+        <dl>
+          <div><dt>录音</dt><dd>{{ archive.stats.recordingCount }}</dd></div>
+          <div><dt>日志</dt><dd>{{ archive.stats.sessionLogCount }}</dd></div>
+          <div><dt>曲目</dt><dd>{{ archive.stats.songCount }}</dd></div>
+          <div><dt>工程</dt><dd>{{ archive.stats.projectCount }}</dd></div>
+        </dl>
+        <NuxtLink to="/progress" class="text-link">查看课程决策<AppIcon name="arrow" :size="17" /></NuxtLink>
       </div>
     </section>
   </div>

@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import type { PracticeLogItem } from '~/types/archive'
 
-defineProps<{
+const props = defineProps<{
   log: PracticeLogItem
   index?: number
 }>()
+
+const archive = useArchive()
+const relatedRecording = computed(() =>
+  archive.recordings.find(recording => props.log.recordingIds.includes(recording.id)),
+)
+const relatedSong = computed(() =>
+  archive.songs.find(song => song.id === relatedRecording.value?.songId)
+  || archive.songs.find(song => props.log.title.toLocaleLowerCase('zh-CN').includes(song.title.toLocaleLowerCase('zh-CN'))),
+)
 </script>
 
 <template>
@@ -24,6 +33,7 @@ defineProps<{
       <div class="log-evidence-row">
         <EvidenceBadge :evidence="log.evidence" compact />
         <span v-if="log.recordingIds.length">{{ log.recordingIds.length }} 条录音</span>
+        <NuxtLink v-if="relatedSong" :to="{ path: '/repertoire', query: { song: relatedSong.id } }">{{ relatedSong.title }}</NuxtLink>
       </div>
     </div>
 
