@@ -50,6 +50,7 @@ export interface RecordingArchiveItem {
   tempoLabel: string | null
   evidenceSummary: string | null
   nextChange: string | null
+  waveform: number[] | null
   evidence: EvidenceBoundary
 }
 
@@ -61,6 +62,7 @@ export type SessionCompletion =
   | 'unknown'
 
 export interface PracticeTask {
+  summary: string | null
   material: string | null
   output: string | null
   constraints: string | null

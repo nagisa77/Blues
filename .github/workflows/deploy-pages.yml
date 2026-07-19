@@ -44,6 +44,9 @@ jobs:
         working-directory: website
         run: npm ci
 
+      - name: Install audio tools
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
       - name: Build Nuxt static site
         working-directory: website
         run: npm run build -- --preset github_pages

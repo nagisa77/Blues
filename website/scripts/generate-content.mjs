@@ -1,9 +1,12 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
+import { execFile } from 'node:child_process'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { promisify } from 'node:util'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const repositoryRoot = path.resolve(scriptDirectory, '../..')
+const execFileAsync = promisify(execFile)
 const defaultOutputPath = path.join(
   repositoryRoot,
   'website/app/data/generated/archive.json',
@@ -455,6 +458,8 @@ function parsePracticeLog(filename, markdown, weeklyContexts) {
     evidenceSourceText,
     bodyStatus: markdownField(markdown, '身体状态'),
     task: {
+      summary:
+        markdownField(taskSection, '任务摘要') ?? bulletField(taskSection, '任务摘要'),
       material,
       output: markdownField(taskSection, '产出') ?? bulletField(taskSection, '产出'),
       constraints:
@@ -545,11 +550,55 @@ function parseRecordings(markdown, progressMarkdown) {
         ...recordingFilenameMetadata(resourcePath),
         evidenceSummary: progress?.evidenceSummary ?? null,
         nextChange: progress?.nextChange ?? null,
+        waveform: null,
         evidence: evidenceBoundary(evidenceText, { fileFact: true }),
       }
     })
     .filter(Boolean)
     .sort((left, right) => right.date.localeCompare(left.date) || right.id.localeCompare(left.id))
+}
+
+async function extractWaveform(resourcePath, barCount = 48) {
+  const absolutePath = path.join(repositoryRoot, resourcePath)
+
+  try {
+    const { stdout } = await execFileAsync(
+      'ffmpeg',
+      [
+        '-v', 'error',
+        '-i', absolutePath,
+        '-ac', '1',
+        '-ar', '400',
+        '-f', 's16le',
+        'pipe:1',
+      ],
+      { encoding: 'buffer', maxBuffer: 24 * 1024 * 1024 },
+    )
+
+    const samples = new Int16Array(
+      stdout.buffer,
+      stdout.byteOffset,
+      Math.floor(stdout.byteLength / Int16Array.BYTES_PER_ELEMENT),
+    )
+    if (samples.length === 0) return null
+
+    const peaks = Array.from({ length: barCount }, (_, index) => {
+      const start = Math.floor((index / barCount) * samples.length)
+      const end = Math.max(start + 1, Math.floor(((index + 1) / barCount) * samples.length))
+      let peak = 0
+      for (let sampleIndex = start; sampleIndex < end; sampleIndex += 1) {
+        peak = Math.max(peak, Math.abs(samples[sampleIndex]))
+      }
+      return peak
+    })
+    const maximum = Math.max(...peaks, 1)
+
+    return peaks.map(peak => Math.round(18 + Math.sqrt(peak / maximum) * 82))
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error)
+    process.stderr.write(`Waveform unavailable for ${resourcePath}: ${reason}\n`)
+    return null
+  }
 }
 
 function parseSongs(markdown, recordingsByPath) {
@@ -765,6 +814,11 @@ async function main() {
     .sort((left, right) => right.date.localeCompare(left.date) || right.id.localeCompare(left.id))
 
   const recordings = parseRecordings(recordingsMarkdown, progressMarkdown)
+  await Promise.all(
+    recordings.map(async recording => {
+      recording.waveform = await extractWaveform(recording.resourcePath)
+    }),
+  )
   const recordingsByPath = new Map(recordings.map(recording => [recording.resourcePath, recording]))
   const songs = parseSongs(songsMarkdown, recordingsByPath)
   const weeks = parseProgramWeeks(progressMarkdown, weeklyContexts)

@@ -50,7 +50,7 @@ useSeoMeta({
 
     <div class="container log-detail-body">
       <aside class="log-detail-index">
-        <p>IN THIS SESSION</p>
+        <p>本次练习</p>
         <a href="#task">01 / 今日任务</a>
         <a href="#result">02 / 结果</a>
         <a href="#recording">03 / 录音</a>
@@ -65,7 +65,7 @@ useSeoMeta({
         <section id="task" class="detail-section">
           <div class="detail-section-number">01</div>
           <div class="detail-section-content">
-            <p class="mini-label">TODAY'S TASK / 今日任务</p>
+            <p class="mini-label">今日任务</p>
             <h2>把完整音乐结果说清楚。</h2>
             <dl class="fact-list">
               <div v-if="log.task.material"><dt>材料 / 调性 / 速度</dt><dd>{{ log.task.material }}</dd></div>
@@ -79,8 +79,9 @@ useSeoMeta({
         <section id="result" class="detail-section">
           <div class="detail-section-number">02</div>
           <div class="detail-section-content">
-            <p class="mini-label">RESULT / 结果</p>
+            <p class="mini-label">结果</p>
             <h2>{{ log.result.completionText || '结果待记录' }}</h2>
+            <EvidenceBreakdown :evidence="log.evidence" />
             <dl class="fact-list">
               <div v-if="log.result.effectiveEvidence"><dt>有效证据</dt><dd>{{ log.result.effectiveEvidence }}</dd></div>
               <div v-if="log.result.priorityIssue"><dt>最影响听感的问题</dt><dd>{{ log.result.priorityIssue }}</dd></div>
@@ -92,7 +93,7 @@ useSeoMeta({
         <section id="recording" class="detail-section">
           <div class="detail-section-number">03</div>
           <div class="detail-section-content full-width">
-            <p class="mini-label">RECORDING / 录音</p>
+            <p class="mini-label">录音</p>
             <h2>{{ relatedRecordings.length ? `${relatedRecordings.length} 条声音证据` : '本次未关联导出录音' }}</h2>
             <div v-if="relatedRecordings.length" class="recording-grid detail-recordings">
               <RecordingCard v-for="recording in relatedRecordings" :key="recording.id" :recording="recording" />
@@ -104,7 +105,7 @@ useSeoMeta({
         <section id="next" class="detail-section next-detail-section">
           <div class="detail-section-number">04</div>
           <div class="detail-section-content">
-            <p class="mini-label">NEXT / 下一次</p>
+            <p class="mini-label">下一次</p>
             <h2>{{ log.next.singleChange || '下一项尚未记录' }}</h2>
             <p v-if="log.next.output">{{ log.next.output }}</p>
           </div>

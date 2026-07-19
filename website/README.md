@@ -11,6 +11,8 @@ npm run dev
 
 内容不是在站点内重复维护的。`scripts/generate-content.mjs` 会在开发、构建和静态生成前，从仓库根目录的 Markdown 档案生成类型化 JSON。
 
+生成脚本会在系统可用时通过 `ffmpeg` 从个人录音提取真实波形；如果不可用，界面会显示明确的音频轨道占位，不生成伪波形。
+
 ## 验证
 
 ```bash

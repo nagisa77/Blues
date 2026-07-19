@@ -51,8 +51,8 @@ useSeoMeta({
     <section class="page-hero repertoire-page-hero compact-page-hero">
       <div class="container page-hero-grid">
         <div>
-          <p class="eyebrow"><span /> REPERTOIRE / 曲目看板</p>
-          <h1>先比较状态，<br><em>再展开细节。</em></h1>
+          <p class="eyebrow"><span /> 曲目看板</p>
+          <h1>曲目状态，<br><em>一眼分清。</em></h1>
         </div>
         <p class="page-hero-statement">
           当前主攻、维护、暂停、退役与基线各自归位。只有仍会影响下一课的素材，才占据训练注意力。

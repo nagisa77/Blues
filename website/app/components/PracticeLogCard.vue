@@ -28,7 +28,7 @@ const relatedSong = computed(() =>
         <span v-if="log.calendarWeekId">{{ log.calendarWeekId }}</span>
         <span v-if="log.durationText"><AppIcon name="clock" :size="14" />{{ log.durationText }}</span>
       </div>
-      <h3>{{ log.title }}</h3>
+      <h3><NuxtLink :to="`/logs/${log.id}`">{{ log.title }}</NuxtLink></h3>
       <p>{{ log.focus || log.task.output || '本次事实正在整理。' }}</p>
       <div class="log-evidence-row">
         <EvidenceBadge :evidence="log.evidence" compact />

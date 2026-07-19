@@ -48,7 +48,27 @@ const comparisonRecordings = computed(() => comparisonIds.value
   .map(id => archive.recordings.find(recording => recording.id === id))
   .filter((recording): recording is RecordingArchiveItem => Boolean(recording)))
 
+const comparisonScope = computed(() => comparisonRecordings.value.length
+  ? comparisonRecordings.value[0]?.songId || 'other'
+  : null)
+
+const hasComparisonPeer = (recording: RecordingArchiveItem) => archive.recordings.some(other =>
+  other.id !== recording.id
+  && (other.songId || 'other') === (recording.songId || 'other'),
+)
+
+const compareDisabledReason = (recording: RecordingArchiveItem) => {
+  if (!hasComparisonPeer(recording)) return '暂无版本'
+  if (comparisonScope.value !== null && (recording.songId || 'other') !== comparisonScope.value) {
+    return '仅限同曲'
+  }
+  return null
+}
+
+const compareDisabled = (recording: RecordingArchiveItem) => Boolean(compareDisabledReason(recording))
+
 const toggleCompare = (recording: RecordingArchiveItem) => {
+  if (compareDisabled(recording)) return
   if (comparisonIds.value.includes(recording.id)) {
     comparisonIds.value = comparisonIds.value.filter(id => id !== recording.id)
     return
@@ -58,18 +78,35 @@ const toggleCompare = (recording: RecordingArchiveItem) => {
 
 const playComparison = (recording: RecordingArchiveItem) => play(recordingPlayerTrack(recording))
 
+const applyRouteState = async () => {
+  const songId = route.query.song
+  if (typeof songId === 'string' && archive.songs.some(song => song.id === songId)) {
+    selectedSong.value = songId
+    await nextTick()
+  }
+
+  if (typeof route.query.compare !== 'string') return
+  const candidates = route.query.compare
+    .split(',')
+    .map(id => archive.recordings.find(recording => recording.id === id))
+    .filter((recording): recording is RecordingArchiveItem => Boolean(recording))
+  if (candidates.length !== 2) return
+  const scope = candidates[0]?.songId || 'other'
+  if (candidates.every(recording => (recording.songId || 'other') === scope)) {
+    comparisonIds.value = candidates.map(recording => recording.id)
+  }
+}
+
+const groupShouldOpen = (songId: string) => selectedSong.value !== 'all'
+  || songId === archive.currentFocus.songId
+
 watch(selectedSong, () => {
   comparisonIds.value = []
 })
 
-watch(() => route.query.song, (songId) => {
-  if (typeof songId === 'string' && archive.songs.some(song => song.id === songId)) selectedSong.value = songId
-})
+watch(() => [route.query.song, route.query.compare], applyRouteState)
 
-onMounted(() => {
-  const songId = route.query.song
-  if (typeof songId === 'string' && archive.songs.some(song => song.id === songId)) selectedSong.value = songId
-})
+onMounted(applyRouteState)
 
 useSeoMeta({
   title: '曲目录音 · Tim / Blues',
@@ -82,8 +119,8 @@ useSeoMeta({
     <section class="page-hero recording-page-hero compact-page-hero">
       <div class="container page-hero-grid">
         <div>
-          <p class="eyebrow"><span /> RECORDING ARCHIVE / 录音档案</p>
-          <h1>不是播放列表。<br><em>是前后版本。</em></h1>
+          <p class="eyebrow"><span /> 录音档案</p>
+          <h1>录音版本，<br><em>直接比较。</em></h1>
         </div>
         <div class="recording-total">
           <span>总播放时长</span>
@@ -105,7 +142,7 @@ useSeoMeta({
       </div>
 
       <div class="container archive-context-line">
-        <p>显示 <strong>{{ filteredRecordings.length }}</strong> / {{ archive.stats.recordingCount }} · 选择任意两条录音做 A/B</p>
+        <p>显示 <strong>{{ filteredRecordings.length }}</strong> / {{ archive.stats.recordingCount }} · A/B 只比较同一曲目</p>
         <EvidenceLegend />
       </div>
 
@@ -126,11 +163,11 @@ useSeoMeta({
       </aside>
 
       <div class="container recording-groups" aria-live="polite">
-        <section v-for="group in groupedRecordings" :key="group.songId" class="recording-group">
-          <header class="recording-group-head">
+        <details v-for="group in groupedRecordings" :key="group.songId" class="recording-group" :open="groupShouldOpen(group.songId)">
+          <summary class="recording-group-head">
             <div><span>{{ group.roleLabel }}</span><h2>{{ group.title }}</h2></div>
-            <p>{{ group.recordings.length }} 条</p>
-          </header>
+            <p>{{ group.recordings.length }} 条<AppIcon name="arrow" :size="17" /></p>
+          </summary>
           <div class="recording-library">
             <RecordingCard
               v-for="recording in group.recordings"
@@ -138,10 +175,12 @@ useSeoMeta({
               :recording="recording"
               compare-mode
               :compare-selected="comparisonIds.includes(recording.id)"
+              :compare-disabled="compareDisabled(recording)"
+              :compare-disabled-label="compareDisabledReason(recording) || undefined"
               @toggle-compare="toggleCompare"
             />
           </div>
-        </section>
+        </details>
         <p v-if="!filteredRecordings.length" class="empty-state">没有匹配的录音。</p>
       </div>
     </section>

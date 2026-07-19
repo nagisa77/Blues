@@ -68,8 +68,8 @@ useSeoMeta({
     <section class="page-hero logs-page-hero compact-page-hero">
       <div class="container page-hero-grid">
         <div>
-          <p class="eyebrow"><span /> PRACTICE LOGS / 练习日志</p>
-          <h1>找到一次决定，<br><em>不必记住周次。</em></h1>
+          <p class="eyebrow"><span /> 练习日志</p>
+          <h1>按事实找到<br><em>一次练习。</em></h1>
         </div>
         <div class="page-hero-aside">
           <strong>{{ archive.stats.sessionLogCount }}</strong>
@@ -80,7 +80,7 @@ useSeoMeta({
     </section>
 
     <section class="archive-content">
-      <div class="container archive-toolbar advanced-toolbar">
+      <div class="container archive-toolbar advanced-toolbar logs-primary-toolbar">
         <label class="search-field">
           <AppIcon name="search" :size="18" />
           <span class="sr-only">搜索练习日志</span>
@@ -88,9 +88,17 @@ useSeoMeta({
         </label>
         <label class="filter-select"><span>曲目</span><select v-model="selectedSong"><option value="all">全部曲目</option><option v-for="song in songOptions" :key="song.id" :value="song.id">{{ song.title }}</option><option value="other">其他训练</option></select></label>
         <label class="filter-select"><span>证据</span><select v-model="selectedEvidence"><option value="all">全部证据</option><option value="file_fact">文件事实</option><option value="self_report">用户自评</option><option value="reviewed">已实际回听</option><option value="unknown">待确认</option></select></label>
-        <label class="filter-select"><span>产出</span><select v-model="selectedOutput"><option value="all">全部产出</option><option value="recording">有导出录音</option><option value="completed">已完成，无录音</option><option value="task">任务记录</option></select></label>
-        <label class="filter-select compact-filter"><span>周次</span><select v-model="selectedWeek"><option value="all">全部周次</option><option v-for="week in weeks" :key="week" :value="week">{{ week }}</option></select></label>
-        <button v-if="hasFilters" class="clear-filters" type="button" @click="resetFilters">清除</button>
+      </div>
+
+      <div class="container logs-secondary-toolbar">
+        <details class="advanced-filters">
+          <summary>更多筛选<AppIcon name="arrow" :size="15" /></summary>
+          <div>
+            <label class="filter-select"><span>产出</span><select v-model="selectedOutput"><option value="all">全部产出</option><option value="recording">有导出录音</option><option value="completed">已完成，无录音</option><option value="task">任务记录</option></select></label>
+            <label class="filter-select compact-filter"><span>周次</span><select v-model="selectedWeek"><option value="all">全部周次</option><option v-for="week in weeks" :key="week" :value="week">{{ week }}</option></select></label>
+          </div>
+        </details>
+        <button v-if="hasFilters" class="clear-filters" type="button" @click="resetFilters">清除筛选</button>
       </div>
 
       <div class="container archive-context-line">

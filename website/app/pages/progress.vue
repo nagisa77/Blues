@@ -5,6 +5,8 @@ const activeWeekItem = archive.weeks.find(week => week.number === activeWeek)
 const nextWeekItem = archive.weeks.find(week => week.number === activeWeek + 1)
 const latestEvidence = archive.recordings[0]
 const archiveUpdatedAt = archive.logs[0]?.date || archive.stats.dateRange.end
+const nearbyWeeks = archive.weeks.filter(week => Math.abs(week.number - activeWeek) <= 1)
+const otherWeeks = archive.weeks.filter(week => Math.abs(week.number - activeWeek) > 1)
 
 useSeoMeta({
   title: '进度看板 · Tim / Blues',
@@ -17,8 +19,8 @@ useSeoMeta({
     <section class="page-hero progress-page-hero compact-page-hero">
       <div class="container progress-stage-grid">
         <div>
-          <p class="eyebrow"><span /> PROGRESS / 当前阶段</p>
-          <h1>阶段说明位置。<br><em>证据决定前进。</em></h1>
+          <p class="eyebrow"><span /> 当前阶段</p>
+          <h1>当前能力，<br><em>证据决定前进。</em></h1>
         </div>
         <div class="progress-stage-card">
           <div class="stage-number"><span>当前能力阶段</span><strong>W{{ activeWeek.toString().padStart(2, '0') }}</strong></div>
@@ -38,15 +40,15 @@ useSeoMeta({
     <section class="section week-section compact-section">
       <div class="container section-heading-inline">
         <div>
-          <p class="section-kicker">ABILITY ROUTE / 能力路线</p>
-          <h2 class="section-title">交付轨道</h2>
+          <p class="section-kicker">能力路线</p>
+          <h2 class="section-title">相邻三个阶段</h2>
         </div>
         <p class="section-summary compact">课程周不是倒计时。一次明确、可复现的达标证据即可前进，空项不会制造补作业债务。</p>
       </div>
 
       <div class="container week-rail">
         <article
-          v-for="week in archive.weeks"
+          v-for="week in nearbyWeeks"
           :key="week.number"
           class="week-card"
           :class="[`status-${week.status}`, { active: week.number === activeWeek }]"
@@ -58,12 +60,29 @@ useSeoMeta({
           <div v-if="week.nextStep" class="week-next"><span>下一步</span>{{ week.nextStep }}</div>
         </article>
       </div>
+      <details v-if="otherWeeks.length" class="container full-route-disclosure">
+        <summary>查看其他 {{ otherWeeks.length }} 个阶段<AppIcon name="arrow" :size="16" /></summary>
+        <div class="week-rail full-week-rail">
+          <article
+            v-for="week in otherWeeks"
+            :key="week.number"
+            class="week-card"
+            :class="`status-${week.status}`"
+          >
+            <div class="week-number"><span>W</span>{{ week.number.toString().padStart(2, '0') }}</div>
+            <div class="week-status"><i />{{ week.statusLabel }}</div>
+            <h3>{{ week.deliverable }}</h3>
+            <p>{{ week.evidenceSummary || '尚无交付证据。' }}</p>
+            <div v-if="week.nextStep" class="week-next"><span>下一步</span>{{ week.nextStep }}</div>
+          </article>
+        </div>
+      </details>
     </section>
 
     <section class="section metrics-section compact-section">
       <div class="container split-heading compact-heading">
         <div>
-          <p class="section-kicker">CORE FACTS / 核心事实</p>
+          <p class="section-kicker">核心事实</p>
           <h2 class="section-title">不用百分比包装<br>音乐能力。</h2>
         </div>
         <p class="section-summary">每项只显示当前事实、目标和证据状态。没有录音验证的内容明确标记，不换算成看似精确的完成率。</p>
@@ -82,7 +101,7 @@ useSeoMeta({
     <section class="section evidence-rules-section compact-section">
       <div class="container evidence-rules-grid">
         <div>
-          <p class="section-kicker">EVIDENCE RULES / 证据规则</p>
+          <p class="section-kicker">证据规则</p>
           <h2 class="section-title">三种状态，<br>不互相冒充。</h2>
           <p class="archive-updated">档案更新于 {{ archiveUpdatedAt ? formatArchiveDate(archiveUpdatedAt, true) : '待确认' }}</p>
         </div>
