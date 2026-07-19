@@ -8,6 +8,7 @@ const props = defineProps<{
   compareSelected?: boolean
   compareDisabled?: boolean
   compareDisabledLabel?: string
+  hideSongLink?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -31,7 +32,7 @@ const waveform = computed(() => {
 </script>
 
 <template>
-  <article class="recording-card" :class="{ featured, playing: isCurrent && isPlaying }">
+  <article class="recording-card" :class="{ featured, playing: isCurrent && isPlaying, 'condensed-actions': hideSongLink }">
     <div class="recording-topline">
       <span class="recording-type">{{ recording.typeLabel }}</span>
       <span>{{ formatArchiveDate(recording.date, true) }}</span>
@@ -76,12 +77,19 @@ const waveform = computed(() => {
           :title="compareDisabled ? compareDisabledLabel || 'A/B 对比需选择同一曲目的录音' : undefined"
           @click="emit('toggleCompare', recording)"
         >
-          {{ compareSelected ? '已加入对比' : compareDisabled ? compareDisabledLabel || '仅限同曲' : '加入 A/B' }}
+          {{ compareSelected ? '已选 A/B' : compareDisabled ? compareDisabledLabel || '仅限同曲' : 'A/B 对比' }}
         </button>
         <NuxtLink v-if="recording.logIds[0]" :to="`/logs/${recording.logIds[0]}`">日志</NuxtLink>
-        <NuxtLink v-if="recording.songId" :to="{ path: '/repertoire', query: { song: recording.songId } }">曲目</NuxtLink>
-        <a :href="githubFileUrl(recording.resourcePath)" target="_blank" rel="noreferrer" aria-label="在 GitHub 打开源文件">
-          源文件<AppIcon name="external" :size="13" />
+        <NuxtLink v-if="recording.songId && !hideSongLink" :to="{ path: '/repertoire', query: { song: recording.songId } }">曲目</NuxtLink>
+        <a
+          class="recording-source-link"
+          :href="githubFileUrl(recording.resourcePath)"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="在 GitHub 打开源文件"
+          title="在 GitHub 打开源文件"
+        >
+          <AppIcon name="external" :size="14" />
         </a>
       </div>
     </div>

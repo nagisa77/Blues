@@ -177,6 +177,7 @@ useSeoMeta({
               :compare-selected="comparisonIds.includes(recording.id)"
               :compare-disabled="compareDisabled(recording)"
               :compare-disabled-label="compareDisabledReason(recording) || undefined"
+              hide-song-link
               @toggle-compare="toggleCompare"
             />
           </div>
