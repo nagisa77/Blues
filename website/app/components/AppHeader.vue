@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
+const { theme, toggleTheme } = useTheme()
 
 const navigation = [
   { label: '首页', to: '/' },
@@ -35,16 +36,29 @@ const isActive = (to: string) =>
         </NuxtLink>
       </nav>
 
-      <a
-        class="header-github"
-        href="https://github.com/nagisa77/Blues"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="在 GitHub 查看训练档案"
-      >
-        <AppIcon name="github" :size="18" />
-        <span>GitHub</span>
-      </a>
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          :aria-label="theme === 'dark' ? '切换到白天模式' : '切换到黑夜模式'"
+          :title="theme === 'dark' ? '切换到白天模式' : '切换到黑夜模式'"
+          @click="toggleTheme"
+        >
+          <AppIcon :name="theme === 'dark' ? 'sun' : 'moon'" :size="17" />
+          <span>{{ theme === 'dark' ? '白天' : '黑夜' }}</span>
+        </button>
+
+        <a
+          class="header-github"
+          href="https://github.com/nagisa77/Blues"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="在 GitHub 查看训练档案"
+        >
+          <AppIcon name="github" :size="18" />
+          <span>GitHub</span>
+        </a>
+      </div>
     </div>
   </header>
 </template>
