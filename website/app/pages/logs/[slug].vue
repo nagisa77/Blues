@@ -16,6 +16,7 @@ const relatedSong = computed(() => {
   return archive.songs.find(song => log.value?.title.toLocaleLowerCase('zh-CN').includes(song.title.toLocaleLowerCase('zh-CN'))) || null
 })
 const currentIndex = computed(() => archive.logs.findIndex((item) => item.id === log.value?.id))
+const isCurrentTask = computed(() => log.value?.id === archive.currentFocus.latestLogId)
 const newerLog = computed(() => archive.logs[currentIndex.value - 1] || null)
 const olderLog = computed(() => archive.logs[currentIndex.value + 1] || null)
 
@@ -43,6 +44,7 @@ useSeoMeta({
             <EvidenceBadge :evidence="log.evidence" />
             <span v-if="log.durationText"><AppIcon name="clock" :size="15" />{{ log.durationText }}</span>
             <NuxtLink v-if="relatedSong" :to="{ path: '/repertoire', query: { song: relatedSong.id } }">曲目：{{ relatedSong.title }}</NuxtLink>
+            <NuxtLink v-if="isCurrentTask" class="log-practice-link" to="/practice">开始这项练习<AppIcon name="arrow" :size="15" /></NuxtLink>
           </div>
         </div>
       </div>
@@ -66,7 +68,7 @@ useSeoMeta({
           <div class="detail-section-number">01</div>
           <div class="detail-section-content">
             <p class="mini-label">今日任务</p>
-            <h2>把完整音乐结果说清楚。</h2>
+            <h2>{{ log.task.summary || log.task.output || '把完整音乐结果说清楚。' }}</h2>
             <dl class="fact-list">
               <div v-if="log.task.material"><dt>材料 / 调性 / 速度</dt><dd>{{ log.task.material }}</dd></div>
               <div v-if="log.task.output"><dt>产出</dt><dd>{{ log.task.output }}</dd></div>

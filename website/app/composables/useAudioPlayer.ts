@@ -4,6 +4,9 @@ export interface PlayerTrack {
   subtitle: string
   duration: string
   source: string
+  startSeconds?: number
+  endSeconds?: number
+  loop?: boolean
 }
 
 export const useAudioPlayer = () => {

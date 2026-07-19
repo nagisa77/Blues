@@ -3,11 +3,20 @@ const audio = ref<HTMLAudioElement | null>(null)
 const currentSeconds = ref(0)
 const actualDuration = ref(0)
 const loadedSource = ref('')
+const loadedTrackSignature = ref('')
 const { currentTrack, isPlaying, playRequest, toggle, close } = useAudioPlayer()
 
+const trackStart = computed(() => currentTrack.value?.startSeconds || 0)
+const trackEnd = computed(() => {
+  const requestedEnd = currentTrack.value?.endSeconds
+  if (requestedEnd && actualDuration.value) return Math.min(requestedEnd, actualDuration.value)
+  return requestedEnd || actualDuration.value
+})
+const timelineDuration = computed(() => Math.max(0, trackEnd.value - trackStart.value))
+const timelinePosition = computed(() => Math.max(0, currentSeconds.value - trackStart.value))
 const percentage = computed(() =>
-  actualDuration.value > 0
-    ? Math.min(100, (currentSeconds.value / actualDuration.value) * 100)
+  timelineDuration.value > 0
+    ? Math.min(100, (timelinePosition.value / timelineDuration.value) * 100)
     : 0,
 )
 
@@ -26,8 +35,15 @@ watch(playRequest, () => {
     audio.value.removeAttribute('src')
     audio.value.load()
     loadedSource.value = ''
+    loadedTrackSignature.value = ''
     return
   }
+
+  const signature = [
+    currentTrack.value.id,
+    currentTrack.value.startSeconds || 0,
+    currentTrack.value.endSeconds || 0,
+  ].join(':')
 
   if (loadedSource.value !== currentTrack.value.source) {
     loadedSource.value = currentTrack.value.source
@@ -35,6 +51,15 @@ watch(playRequest, () => {
     actualDuration.value = 0
     audio.value.src = currentTrack.value.source
     audio.value.load()
+  }
+
+
+  if (loadedTrackSignature.value !== signature) {
+    loadedTrackSignature.value = signature
+    if (audio.value.readyState >= 1) {
+      audio.value.currentTime = currentTrack.value.startSeconds || 0
+      currentSeconds.value = audio.value.currentTime
+    }
   }
 
   if (isPlaying.value) {
@@ -46,10 +71,36 @@ watch(playRequest, () => {
   }
 }, { flush: 'sync' })
 
+const handleLoadedMetadata = () => {
+  if (!audio.value) return
+  actualDuration.value = audio.value.duration || 0
+  const start = currentTrack.value?.startSeconds || 0
+  if (start > 0 && start < actualDuration.value) {
+    audio.value.currentTime = start
+    currentSeconds.value = start
+  }
+}
+
+const handleTimeUpdate = () => {
+  if (!audio.value) return
+  currentSeconds.value = audio.value.currentTime || 0
+  const end = currentTrack.value?.endSeconds
+  if (!end || audio.value.currentTime < end) return
+
+  if (currentTrack.value?.loop) {
+    audio.value.currentTime = currentTrack.value.startSeconds || 0
+    void audio.value.play().catch(() => {
+      isPlaying.value = false
+    })
+  } else {
+    audio.value.pause()
+  }
+}
+
 const seek = (event: Event) => {
   const value = Number((event.target as HTMLInputElement).value)
-  if (!audio.value || !actualDuration.value) return
-  audio.value.currentTime = (value / 100) * actualDuration.value
+  if (!audio.value || !timelineDuration.value) return
+  audio.value.currentTime = trackStart.value + (value / 100) * timelineDuration.value
 }
 </script>
 
@@ -57,8 +108,8 @@ const seek = (event: Event) => {
   <audio
     ref="audio"
     preload="metadata"
-    @timeupdate="currentSeconds = audio?.currentTime || 0"
-    @loadedmetadata="actualDuration = audio?.duration || 0"
+    @timeupdate="handleTimeUpdate"
+    @loadedmetadata="handleLoadedMetadata"
     @play="isPlaying = true"
     @pause="isPlaying = false"
     @ended="isPlaying = false"
@@ -71,7 +122,7 @@ const seek = (event: Event) => {
       </div>
 
       <div class="dock-copy">
-        <span>NOW PLAYING</span>
+        <span>{{ currentTrack.loop ? 'LOOPING SEGMENT' : 'NOW PLAYING' }}</span>
         <strong>{{ currentTrack.title }}</strong>
         <small>{{ currentTrack.subtitle }}</small>
       </div>
@@ -81,7 +132,7 @@ const seek = (event: Event) => {
       </button>
 
       <div class="dock-progress">
-        <span>{{ formatClock(currentSeconds) }}</span>
+        <span>{{ formatClock(timelinePosition) }}</span>
         <label class="sr-only" for="audio-progress">播放进度</label>
         <input
           id="audio-progress"
@@ -93,7 +144,7 @@ const seek = (event: Event) => {
           :style="{ '--progress': `${percentage}%` }"
           @input="seek"
         >
-        <span>{{ actualDuration ? formatClock(actualDuration) : currentTrack.duration }}</span>
+        <span>{{ timelineDuration ? formatClock(timelineDuration) : currentTrack.duration }}</span>
       </div>
 
       <a :href="currentTrack.source" class="dock-source" target="_blank" rel="noreferrer">

@@ -3,10 +3,17 @@ import type { RecordingArchiveItem } from '~/types/archive'
 
 const archive = useArchive()
 const route = useRoute()
-const search = ref('')
-const selectedType = ref('all')
-const selectedSong = ref('all')
+const router = useRouter()
+const initialSong = typeof route.query.song === 'string'
+  && archive.songs.some(song => song.id === route.query.song)
+  ? route.query.song
+  : archive.currentFocus.songId || 'all'
+const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
+const selectedType = ref(typeof route.query.type === 'string' ? route.query.type : 'all')
+const selectedSong = ref(initialSong)
 const comparisonIds = ref<string[]>([])
+const compareStart = ref(0)
+const compareLength = ref(20)
 const { play } = useAudioPlayer()
 
 const typeOptions = computed(() => {
@@ -57,6 +64,16 @@ const hasComparisonPeer = (recording: RecordingArchiveItem) => archive.recording
   && (other.songId || 'other') === (recording.songId || 'other'),
 )
 
+const comparisonPeer = (recording: RecordingArchiveItem) => {
+  const peers = archive.recordings.filter(other =>
+    other.id !== recording.id
+    && (other.songId || 'other') === (recording.songId || 'other'),
+  )
+  if (!peers.length) return null
+  const older = peers.find(other => other.date <= recording.date)
+  return older || peers[0] || null
+}
+
 const compareDisabledReason = (recording: RecordingArchiveItem) => {
   if (!hasComparisonPeer(recording)) return '暂无版本'
   if (comparisonScope.value !== null && (recording.songId || 'other') !== comparisonScope.value) {
@@ -76,7 +93,15 @@ const toggleCompare = (recording: RecordingArchiveItem) => {
   comparisonIds.value = [...comparisonIds.value.slice(-1), recording.id]
 }
 
-const playComparison = (recording: RecordingArchiveItem) => play(recordingPlayerTrack(recording))
+const comparePair = (recording: RecordingArchiveItem) => {
+  const peer = comparisonPeer(recording)
+  if (!peer) return
+  comparisonIds.value = [recording.id, peer.id]
+}
+
+const playComparison = (recording: RecordingArchiveItem) => play(
+  recordingLoopTrack(recording, compareStart.value, compareLength.value),
+)
 
 const applyRouteState = async () => {
   const songId = route.query.song
@@ -103,6 +128,20 @@ const groupShouldOpen = (songId: string) => selectedSong.value !== 'all'
 watch(selectedSong, () => {
   comparisonIds.value = []
 })
+
+let syncTimer: number | undefined
+watch([search, selectedSong, selectedType, comparisonIds], () => {
+  if (!import.meta.client) return
+  window.clearTimeout(syncTimer)
+  syncTimer = window.setTimeout(() => {
+    const query: Record<string, string> = {}
+    if (search.value) query.q = search.value
+    if (selectedSong.value !== 'all') query.song = selectedSong.value
+    if (selectedType.value !== 'all') query.type = selectedType.value
+    if (comparisonIds.value.length) query.compare = comparisonIds.value.join(',')
+    void router.replace({ query })
+  }, 180)
+}, { deep: true })
 
 watch(() => [route.query.song, route.query.compare], applyRouteState)
 
@@ -142,19 +181,24 @@ useSeoMeta({
       </div>
 
       <div class="container archive-context-line">
-        <p>显示 <strong>{{ filteredRecordings.length }}</strong> / {{ archive.stats.recordingCount }} · A/B 只比较同一曲目</p>
+        <p>显示 <strong>{{ filteredRecordings.length }}</strong> / {{ archive.stats.recordingCount }} · 默认先看当前主攻</p>
+        <button v-if="selectedSong !== 'all' || selectedType !== 'all' || search" class="clear-filters" type="button" @click="selectedSong = 'all'; selectedType = 'all'; search = ''">查看全部录音</button>
         <EvidenceLegend />
       </div>
 
       <aside v-if="comparisonRecordings.length" class="container comparison-tray" aria-label="A/B 录音对比">
         <div class="comparison-title">
           <span>A/B</span>
-          <p>{{ comparisonRecordings.length === 2 ? '两条版本已就绪，依次播放比较。' : '再选择一条录音完成对比。' }}</p>
+          <p>{{ comparisonRecordings.length === 2 ? '同一片段循环播放；切换 A / B 直接听差异。' : '再选择一条同曲录音。' }}</p>
+        </div>
+        <div class="comparison-loop-controls">
+          <label><span>循环起点</span><input v-model.number="compareStart" type="number" min="0" step="1"><small>秒</small></label>
+          <label><span>片段长度</span><input v-model.number="compareLength" type="number" min="5" max="90" step="5"><small>秒</small></label>
         </div>
         <div class="comparison-slots">
           <article v-for="(recording, index) in comparisonRecordings" :key="recording.id">
             <span>{{ index === 0 ? 'A' : 'B' }}</span>
-            <div><strong>{{ recording.title }}</strong><small>{{ recording.date }} · {{ recording.durationLabel }}</small></div>
+            <div><strong>{{ recording.title }}</strong><small>{{ recording.date }} · {{ recording.keyLabel }} · {{ recording.tempoLabel }} · {{ recording.durationLabel }}</small></div>
             <button type="button" :aria-label="`播放对比版本 ${index === 0 ? 'A' : 'B'}`" @click="playComparison(recording)"><AppIcon name="play" :size="17" /></button>
           </article>
           <div v-if="comparisonRecordings.length < 2" class="comparison-empty">选择另一条版本</div>
@@ -168,7 +212,7 @@ useSeoMeta({
             <div><span>{{ group.roleLabel }}</span><h2>{{ group.title }}</h2></div>
             <p>{{ group.recordings.length }} 条<AppIcon name="arrow" :size="17" /></p>
           </summary>
-          <div class="recording-library">
+          <div class="recording-library" :class="`count-${Math.min(group.recordings.length, 3)}`">
             <RecordingCard
               v-for="recording in group.recordings"
               :key="recording.id"
@@ -177,8 +221,12 @@ useSeoMeta({
               :compare-selected="comparisonIds.includes(recording.id)"
               :compare-disabled="compareDisabled(recording)"
               :compare-disabled-label="compareDisabledReason(recording) || undefined"
+              :compare-with-label="comparisonPeer(recording) ? '与相邻版本比较' : undefined"
+              :wide="group.recordings.length === 1"
+              show-decision
               hide-song-link
               @toggle-compare="toggleCompare"
+              @compare-pair="comparePair"
             />
           </div>
         </details>

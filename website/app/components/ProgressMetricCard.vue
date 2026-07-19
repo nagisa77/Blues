@@ -6,6 +6,14 @@ const props = defineProps<{
   index?: number
   updatedAt?: string | null
 }>()
+
+const state = computed(() => {
+  if (props.metric.evidence.performanceReview === 'reviewed') return '已复核'
+  if (/^(?:0|待验证|尚无)/.test(props.metric.currentFact)) return '未建立'
+  if (props.metric.evidence.selfReport === 'yes') return '有自评，待复核'
+  if (props.metric.evidence.sources.includes('file_fact')) return '已有文件事实'
+  return '待确认'
+})
 </script>
 
 <template>
@@ -15,6 +23,7 @@ const props = defineProps<{
       <EvidenceBadge :evidence="metric.evidence" compact />
     </div>
     <h3>{{ metric.label }}</h3>
+    <p class="metric-state">{{ state }}</p>
     <div class="metric-fact">
       <span>当前事实</span>
       <p>{{ metric.currentFact }}</p>

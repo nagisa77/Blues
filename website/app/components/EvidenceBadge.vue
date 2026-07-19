@@ -26,11 +26,17 @@ const tone = computed(() => {
   if (props.evidence.selfReport === 'yes') return 'self-report'
   return 'neutral'
 })
+
+const mark = computed(() => {
+  if (tone.value === 'reviewed') return '✓'
+  if (tone.value === 'self-report') return '•'
+  return '○'
+})
 </script>
 
 <template>
   <span class="evidence-badge" :class="[`tone-${tone}`, { compact }]" :title="compact ? label : undefined">
-    <i aria-hidden="true" />
+    <i aria-hidden="true">{{ mark }}</i>
     {{ compactLabel }}
   </span>
 </template>

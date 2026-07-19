@@ -9,10 +9,14 @@ const props = defineProps<{
   compareDisabled?: boolean
   compareDisabledLabel?: string
   hideSongLink?: boolean
+  compareWithLabel?: string
+  showDecision?: boolean
+  wide?: boolean
 }>()
 
 const emit = defineEmits<{
   toggleCompare: [recording: RecordingArchiveItem]
+  comparePair: [recording: RecordingArchiveItem]
 }>()
 
 const { currentTrack, isPlaying, play, toggle } = useAudioPlayer()
@@ -32,7 +36,7 @@ const waveform = computed(() => {
 </script>
 
 <template>
-  <article class="recording-card" :class="{ featured, playing: isCurrent && isPlaying, 'condensed-actions': hideSongLink }">
+  <article class="recording-card" :class="{ featured, wide, playing: isCurrent && isPlaying, 'condensed-actions': hideSongLink }">
     <div class="recording-topline">
       <span class="recording-type">{{ recording.typeLabel }}</span>
       <span>{{ formatArchiveDate(recording.date, true) }}</span>
@@ -65,6 +69,11 @@ const waveform = computed(() => {
       <span>波形暂不可用</span>
     </div>
 
+    <div v-if="showDecision && (recording.evidenceSummary || recording.nextChange)" class="recording-decision">
+      <p v-if="recording.evidenceSummary"><span>听完确认</span>{{ recording.evidenceSummary }}</p>
+      <p v-if="recording.nextChange"><span>下一遍只改</span>{{ recording.nextChange }}</p>
+    </div>
+
     <div class="recording-footer">
       <EvidenceBadge :evidence="recording.evidence" compact />
       <div class="recording-links">
@@ -77,7 +86,15 @@ const waveform = computed(() => {
           :title="compareDisabled ? compareDisabledLabel || 'A/B 对比需选择同一曲目的录音' : undefined"
           @click="emit('toggleCompare', recording)"
         >
-          {{ compareSelected ? '已选 A/B' : compareDisabled ? compareDisabledLabel || '仅限同曲' : 'A/B 对比' }}
+          {{ compareSelected ? '已选 A/B' : compareDisabled ? compareDisabledLabel || '仅限同曲' : '选择 A/B' }}
+        </button>
+        <button
+          v-if="compareMode && compareWithLabel && !compareSelected && !compareDisabled"
+          class="recording-compare recording-compare-direct"
+          type="button"
+          @click="emit('comparePair', recording)"
+        >
+          {{ compareWithLabel }}
         </button>
         <NuxtLink v-if="recording.logIds[0]" :to="`/logs/${recording.logIds[0]}`">日志</NuxtLink>
         <NuxtLink v-if="recording.songId && !hideSongLink" :to="{ path: '/repertoire', query: { song: recording.songId } }">曲目</NuxtLink>

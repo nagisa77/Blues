@@ -3,15 +3,15 @@ const route = useRoute()
 const { theme, toggleTheme } = useTheme()
 
 const navigation = [
-  { label: '首页', to: '/' },
-  { label: '练习日志', to: '/logs' },
+  { label: '今天', to: '/' },
+  { label: '历史', to: '/logs' },
   { label: '曲目', to: '/repertoire' },
   { label: '录音', to: '/recordings' },
-  { label: '进度', to: '/progress' },
+  { label: '能力', to: '/progress' },
 ]
 
 const isActive = (to: string) =>
-  to === '/' ? route.path === '/' : route.path.startsWith(to)
+  to === '/' ? ['/', '/practice'].includes(route.path) : route.path.startsWith(to)
 </script>
 
 <template>

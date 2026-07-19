@@ -111,6 +111,7 @@ useSeoMeta({
               <div><span>当前能连续完成到</span><p>{{ song.currentCapability }}</p></div>
               <div class="repertoire-next"><span>下一步</span><p>{{ song.nextStep }}</p></div>
               <EvidenceBadge :evidence="song.evidence" />
+              <NuxtLink v-if="song.role === 'focus'" class="button button-primary repertoire-practice-link" to="/practice">开始今天的练习<AppIcon name="arrow" :size="16" /></NuxtLink>
             </div>
             <div class="song-recordings compact-recordings">
               <div class="compact-recordings-head">

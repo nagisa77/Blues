@@ -2,11 +2,14 @@
 import type { PracticeLogItem } from '~/types/archive'
 
 const archive = useArchive()
-const search = ref('')
-const selectedSong = ref('all')
-const selectedEvidence = ref('all')
-const selectedOutput = ref('all')
-const selectedWeek = ref('all')
+const route = useRoute()
+const router = useRouter()
+const queryValue = (key: string) => typeof route.query[key] === 'string' ? route.query[key] as string : 'all'
+const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
+const selectedSong = ref(queryValue('song'))
+const selectedEvidence = ref(queryValue('evidence'))
+const selectedOutput = ref(queryValue('output'))
+const selectedWeek = ref(queryValue('week'))
 
 const weeks = [...new Set(archive.logs.map(log => log.calendarWeekId).filter(Boolean))] as string[]
 
@@ -46,6 +49,15 @@ const filteredLogs = computed(() => {
   })
 })
 
+const groupedLogs = computed(() => {
+  const groups = new Map<string, PracticeLogItem[]>()
+  filteredLogs.value.forEach((log) => {
+    const key = log.calendarWeekId || '未归入周次'
+    groups.set(key, [...(groups.get(key) || []), log])
+  })
+  return [...groups.entries()].map(([week, logs]) => ({ week, logs }))
+})
+
 const resetFilters = () => {
   search.value = ''
   selectedSong.value = 'all'
@@ -56,6 +68,21 @@ const resetFilters = () => {
 
 const hasFilters = computed(() => Boolean(search.value)
   || [selectedSong.value, selectedEvidence.value, selectedOutput.value, selectedWeek.value].some(value => value !== 'all'))
+
+let syncTimer: number | undefined
+watch([search, selectedSong, selectedEvidence, selectedOutput, selectedWeek], () => {
+  if (!import.meta.client) return
+  window.clearTimeout(syncTimer)
+  syncTimer = window.setTimeout(() => {
+    const query: Record<string, string> = {}
+    if (search.value) query.q = search.value
+    if (selectedSong.value !== 'all') query.song = selectedSong.value
+    if (selectedEvidence.value !== 'all') query.evidence = selectedEvidence.value
+    if (selectedOutput.value !== 'all') query.output = selectedOutput.value
+    if (selectedWeek.value !== 'all') query.week = selectedWeek.value
+    void router.replace({ query })
+  }, 180)
+})
 
 useSeoMeta({
   title: '练习日志 · Tim / Blues',
@@ -68,8 +95,8 @@ useSeoMeta({
     <section class="page-hero logs-page-hero compact-page-hero">
       <div class="container page-hero-grid">
         <div>
-          <p class="eyebrow"><span /> 练习日志</p>
-          <h1>按事实找到<br><em>一次练习。</em></h1>
+          <p class="eyebrow"><span /> 练习历史</p>
+          <h1>按周次找到<br><em>一次练习。</em></h1>
         </div>
         <div class="page-hero-aside">
           <strong>{{ archive.stats.sessionLogCount }}</strong>
@@ -106,15 +133,17 @@ useSeoMeta({
         <EvidenceLegend />
       </div>
 
-      <div class="container full-log-layout compact-log-layout">
-        <aside class="timeline-legend">
-          <span>2026</span>
-          <strong>{{ filteredLogs.length.toString().padStart(2, '0') }}</strong>
-          <p>SESSIONS<br>VISIBLE</p>
-          <i />
-        </aside>
-        <div class="full-log-list" aria-live="polite">
-          <PracticeLogCard v-for="(log, index) in filteredLogs" :key="log.id" :log="log" :index="index" />
+      <div class="container compact-log-layout">
+        <div class="log-week-list" aria-live="polite">
+          <section v-for="group in groupedLogs" :key="group.week" class="log-week-group">
+            <header class="log-week-heading">
+              <strong>{{ group.week }}</strong>
+              <span>{{ group.logs.length }} 次练习</span>
+            </header>
+            <div class="full-log-list">
+              <PracticeLogCard v-for="(log, index) in group.logs" :key="log.id" :log="log" :index="index" />
+            </div>
+          </section>
           <p v-if="!filteredLogs.length" class="empty-state">没有匹配的日志。清除筛选后再试。</p>
         </div>
       </div>

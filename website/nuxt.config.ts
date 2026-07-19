@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-07-10',
   devtools: { enabled: true },
   ssr: true,
-  css: ['~/assets/css/main.css', '~/assets/css/product-refinement.css'],
+  css: ['~/assets/css/main.css'],
   app: {
     baseURL: siteBaseUrl,
     head: {
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
           content: 'Tim 的 Blues 吉他练习档案：日志、曲目录音与 8 周进度证据。',
         },
         { name: 'theme-color', content: '#f5f4ef' },
-        { name: 'color-scheme', content: 'light' },
+        { name: 'color-scheme', content: 'light dark' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: `${siteBaseUrl}favicon.svg` },

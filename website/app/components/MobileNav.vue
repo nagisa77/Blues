@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const route = useRoute()
 const items = [
-  { label: '首页', to: '/', icon: 'home' as const },
-  { label: '日志', to: '/logs', icon: 'logs' as const },
+  { label: '今天', to: '/', icon: 'home' as const },
+  { label: '历史', to: '/logs', icon: 'logs' as const },
   { label: '曲目', to: '/repertoire', icon: 'repertoire' as const },
   { label: '录音', to: '/recordings', icon: 'recordings' as const },
-  { label: '进度', to: '/progress', icon: 'progress' as const },
+  { label: '能力', to: '/progress', icon: 'progress' as const },
 ]
 const active = (to: string) =>
-  to === '/' ? route.path === '/' : route.path.startsWith(to)
+  to === '/' ? ['/', '/practice'].includes(route.path) : route.path.startsWith(to)
 </script>
 
 <template>
