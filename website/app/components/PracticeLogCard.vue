@@ -6,14 +6,8 @@ const props = defineProps<{
   index?: number
 }>()
 
-const archive = useArchive()
-const relatedRecording = computed(() =>
-  archive.recordings.find(recording => props.log.recordingIds.includes(recording.id)),
-)
-const relatedSong = computed(() =>
-  archive.songs.find(song => song.id === relatedRecording.value?.songId)
-  || archive.songs.find(song => props.log.title.toLocaleLowerCase('zh-CN').includes(song.title.toLocaleLowerCase('zh-CN'))),
-)
+const catalog = useArchiveCatalog()
+const relatedSong = computed(() => catalog.songForLog(props.log))
 </script>
 
 <template>

@@ -8,13 +8,6 @@ const archiveUpdatedAt = archive.logs[0]?.date || archive.stats.dateRange.end
 const nearbyWeeks = archive.weeks.filter(week => Math.abs(week.number - activeWeek) <= 1)
 const otherWeeks = archive.weeks.filter(week => Math.abs(week.number - activeWeek) > 1)
 
-const capabilityTitle = (weekNumber: number, fallback: string) => {
-  if (weekNumber === activeWeek - 1) return '完整曲目中的稳定连接'
-  if (weekNumber === activeWeek) return '跨段连续进入与失误恢复'
-  if (weekNumber === activeWeek + 1) return '连续 set 与失误恢复'
-  return fallback
-}
-
 useSeoMeta({
   title: '进度看板 · Tim / Blues',
   description: 'Tim 当前所在的 Blues 能力阶段、最近声音证据、下一阶段条件与核心事实。',
@@ -54,34 +47,22 @@ useSeoMeta({
       </div>
 
       <div class="container week-rail">
-        <article
+        <ProgramWeekCard
           v-for="week in nearbyWeeks"
           :key="week.number"
-          class="week-card"
-          :class="[`status-${week.status}`, { active: week.number === activeWeek }]"
-        >
-          <div class="week-number"><span>阶段</span>{{ week.number.toString().padStart(2, '0') }}</div>
-          <div class="week-status"><i />{{ week.statusLabel }}</div>
-          <h3>{{ capabilityTitle(week.number, week.deliverable) }}</h3>
-          <p>{{ week.evidenceSummary || '尚无交付证据。' }}</p>
-          <div v-if="week.nextStep" class="week-next"><span>下一步</span>{{ week.nextStep }}</div>
-        </article>
+          :week="week"
+          :active-week="activeWeek"
+        />
       </div>
       <details v-if="otherWeeks.length" class="container full-route-disclosure">
         <summary>查看其他 {{ otherWeeks.length }} 个阶段<AppIcon name="arrow" :size="16" /></summary>
         <div class="week-rail full-week-rail">
-          <article
+          <ProgramWeekCard
             v-for="week in otherWeeks"
             :key="week.number"
-            class="week-card"
-            :class="`status-${week.status}`"
-          >
-            <div class="week-number"><span>阶段</span>{{ week.number.toString().padStart(2, '0') }}</div>
-            <div class="week-status"><i />{{ week.statusLabel }}</div>
-            <h3>{{ capabilityTitle(week.number, week.deliverable) }}</h3>
-            <p>{{ week.evidenceSummary || '尚无交付证据。' }}</p>
-            <div v-if="week.nextStep" class="week-next"><span>下一步</span>{{ week.nextStep }}</div>
-          </article>
+            :week="week"
+            :active-week="activeWeek"
+          />
         </div>
       </details>
     </section>

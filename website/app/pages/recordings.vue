@@ -2,8 +2,8 @@
 import type { RecordingArchiveItem } from '~/types/archive'
 
 const archive = useArchive()
+const catalog = useArchiveCatalog()
 const route = useRoute()
-const router = useRouter()
 const initialSong = typeof route.query.song === 'string'
   && archive.songs.some(song => song.id === route.query.song)
   ? route.query.song
@@ -11,10 +11,23 @@ const initialSong = typeof route.query.song === 'string'
 const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
 const selectedType = ref(typeof route.query.type === 'string' ? route.query.type : 'all')
 const selectedSong = ref(initialSong)
-const comparisonIds = ref<string[]>([])
-const compareLength = ref(20)
-const comparisonOffsets = reactive<Record<string, number>>({})
-const { play } = useAudioPlayer()
+const {
+  comparisonIds,
+  compareLength,
+  comparisonOffsets,
+  comparisonRecordings,
+  maximumLength: comparisonMaximumLength,
+  hasPeer: hasComparisonPeer,
+  peer: comparisonPeer,
+  disabledReason: compareDisabledReason,
+  isDisabled: compareDisabled,
+  toggle: toggleComparison,
+  selectPair,
+  start: comparisonStart,
+  playRecording: playComparison,
+  restore: restoreComparison,
+  clear: clearComparison,
+} = useRecordingComparison()
 
 const typeOptions = computed(() => {
   const options = new Map<string, string>()
@@ -27,10 +40,12 @@ const songOptions = archive.songs.filter(song => archive.recordings.some(recordi
 const filteredRecordings = computed(() => {
   const keyword = search.value.trim().toLocaleLowerCase('zh-CN')
   return archive.recordings.filter((recording) => {
-    const haystack = [recording.title, recording.keyLabel, recording.tempoLabel, recording.typeLabel]
-      .filter(Boolean)
-      .join(' ')
-      .toLocaleLowerCase('zh-CN')
+    const haystack = searchableText([
+      recording.title,
+      recording.keyLabel,
+      recording.tempoLabel,
+      recording.typeLabel,
+    ])
     return (selectedType.value === 'all' || recording.type === selectedType.value)
       && (selectedSong.value === 'all' || recording.songId === selectedSong.value)
       && (!keyword || haystack.includes(keyword))
@@ -45,49 +60,11 @@ const groupedRecordings = computed(() => {
   })
   return [...groups.entries()].map(([songId, recordings]) => ({
     songId,
-    title: archive.songs.find(song => song.id === songId)?.title || '基础与其他训练',
-    roleLabel: archive.songs.find(song => song.id === songId)?.roleLabel || '档案',
+    title: catalog.song(songId)?.title || '基础与其他训练',
+    roleLabel: catalog.song(songId)?.roleLabel || '档案',
     recordings,
   }))
 })
-
-const comparisonRecordings = computed(() => comparisonIds.value
-  .map(id => archive.recordings.find(recording => recording.id === id))
-  .filter((recording): recording is RecordingArchiveItem => Boolean(recording)))
-
-const comparisonScope = computed(() => comparisonRecordings.value.length
-  ? comparisonRecordings.value[0]?.comparisonGroup || null
-  : null)
-
-const comparisonGroupItems = (recording: RecordingArchiveItem) => archive.recordings.filter(other =>
-  other.comparisonGroup
-  && other.comparisonGroup === recording.comparisonGroup,
-)
-
-const hasComparisonPeer = (recording: RecordingArchiveItem) => comparisonGroupItems(recording).length > 1
-
-const comparisonPeer = (recording: RecordingArchiveItem) => {
-  const group = comparisonGroupItems(recording)
-  const index = group.findIndex(other => other.id === recording.id)
-  if (index < 0) return null
-  return group[index + 1] || group[index - 1] || null
-}
-
-const compareDisabledReason = (recording: RecordingArchiveItem) => {
-  if (!hasComparisonPeer(recording)) return '暂无同段版本'
-  if (comparisonScope.value !== null && recording.comparisonGroup !== comparisonScope.value) {
-    return '仅限同一片段'
-  }
-  return null
-}
-
-const compareDisabled = (recording: RecordingArchiveItem) => Boolean(compareDisabledReason(recording))
-
-const seedComparisonOffset = (recording: RecordingArchiveItem) => {
-  if (!(recording.id in comparisonOffsets)) {
-    comparisonOffsets[recording.id] = recording.comparisonStartSeconds || 0
-  }
-}
 
 const revealComparison = async () => {
   await nextTick()
@@ -97,41 +74,12 @@ const revealComparison = async () => {
 }
 
 const toggleCompare = (recording: RecordingArchiveItem) => {
-  if (compareDisabled(recording)) return
-  if (comparisonIds.value.includes(recording.id)) {
-    comparisonIds.value = comparisonIds.value.filter(id => id !== recording.id)
-    return
-  }
-  seedComparisonOffset(recording)
-  comparisonIds.value = [...comparisonIds.value.slice(-1), recording.id]
-  void revealComparison()
+  if (toggleComparison(recording)) void revealComparison()
 }
 
 const comparePair = (recording: RecordingArchiveItem) => {
-  const peer = comparisonPeer(recording)
-  if (!peer) return
-  seedComparisonOffset(recording)
-  seedComparisonOffset(peer)
-  comparisonIds.value = [recording.id, peer.id]
-  void revealComparison()
+  if (selectPair(recording)) void revealComparison()
 }
-
-const comparisonStart = (recording: RecordingArchiveItem) => comparisonOffsets[recording.id]
-  ?? recording.comparisonStartSeconds
-  ?? 0
-
-const comparisonMaximumLength = computed(() => {
-  if (!comparisonRecordings.value.length) return 90
-  const available = comparisonRecordings.value.map(recording => Math.max(
-    1,
-    (recording.durationSeconds || 90) - comparisonStart(recording),
-  ))
-  return Math.max(1, Math.floor(Math.min(90, ...available)))
-})
-
-const playComparison = (recording: RecordingArchiveItem) => play(
-  recordingLoopTrack(recording, comparisonStart(recording), Math.min(compareLength.value, comparisonMaximumLength.value)),
-)
 
 const comparableSongCount = computed(() => new Set(
   archive.recordings
@@ -141,7 +89,7 @@ const comparableSongCount = computed(() => new Set(
 const pendingReviewCount = computed(() => archive.recordings.filter(
   recording => recording.evidence.performanceReview !== 'reviewed',
 ).length)
-const selectedSongName = computed(() => archive.songs.find(song => song.id === selectedSong.value)?.title || null)
+const selectedSongName = computed(() => catalog.song(selectedSong.value)?.title || null)
 const resultContext = computed(() => selectedSongName.value
   ? `已筛选：${selectedSongName.value}`
   : selectedType.value !== 'all' || search.value
@@ -159,37 +107,27 @@ const applyRouteState = async () => {
   if (typeof route.query.compare !== 'string') return
   const candidates = route.query.compare
     .split(',')
-    .map(id => archive.recordings.find(recording => recording.id === id))
+    .map(id => catalog.recording(id))
     .filter((recording): recording is RecordingArchiveItem => Boolean(recording))
   if (candidates.length !== 2) return
-  const scope = candidates[0]?.comparisonGroup
-  if (scope && candidates.every(recording => recording.comparisonGroup === scope)) {
-    candidates.forEach(seedComparisonOffset)
-    comparisonIds.value = candidates.map(recording => recording.id)
-  }
+  restoreComparison(candidates)
 }
 
 const groupShouldOpen = (songId: string) => selectedSong.value !== 'all'
   || songId === archive.currentFocus.songId
 
 watch(selectedSong, () => {
-  comparisonIds.value = []
-  Object.keys(comparisonOffsets).forEach(key => delete comparisonOffsets[key])
+  clearComparison()
 })
 
-let syncTimer: number | undefined
-watch([search, selectedSong, selectedType, comparisonIds], () => {
-  if (!import.meta.client) return
-  window.clearTimeout(syncTimer)
-  syncTimer = window.setTimeout(() => {
-    const query: Record<string, string> = {}
-    if (search.value) query.q = search.value
-    if (selectedSong.value !== 'all') query.song = selectedSong.value
-    if (selectedType.value !== 'all') query.type = selectedType.value
-    if (comparisonIds.value.length) query.compare = comparisonIds.value.join(',')
-    void router.replace({ query })
-  }, 180)
-}, { deep: true })
+useRouteQuerySync([search, selectedSong, selectedType, comparisonIds], () => {
+  const query: Record<string, string> = {}
+  if (search.value) query.q = search.value
+  if (selectedSong.value !== 'all') query.song = selectedSong.value
+  if (selectedType.value !== 'all') query.type = selectedType.value
+  if (comparisonIds.value.length) query.compare = comparisonIds.value.join(',')
+  return query
+})
 
 watch(() => [route.query.song, route.query.compare], applyRouteState)
 
@@ -255,7 +193,7 @@ useSeoMeta({
           </article>
           <div v-if="comparisonRecordings.length < 2" class="comparison-empty">选择另一条版本</div>
         </div>
-        <button class="comparison-clear" type="button" @click="comparisonIds = []">清除</button>
+        <button class="comparison-clear" type="button" @click="clearComparison">清除</button>
       </aside>
 
       <div class="container recording-groups">

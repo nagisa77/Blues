@@ -1,17 +1,10 @@
 <script setup lang="ts">
+import { isNavigationItemActive, NAVIGATION_ITEMS, SITE } from '~/config/site'
+
 const route = useRoute()
 const { theme, toggleTheme } = useTheme()
 
-const navigation = [
-  { label: '今天', to: '/' },
-  { label: '历史', to: '/logs' },
-  { label: '曲目', to: '/repertoire' },
-  { label: '录音', to: '/recordings' },
-  { label: '能力', to: '/progress' },
-]
-
-const isActive = (to: string) =>
-  to === '/' ? ['/', '/practice'].includes(route.path) : route.path.startsWith(to)
+const isActive = (to: string) => isNavigationItemActive(route.path, to)
 </script>
 
 <template>
@@ -27,7 +20,7 @@ const isActive = (to: string) =>
 
       <nav class="desktop-nav" aria-label="主导航">
         <NuxtLink
-          v-for="item in navigation"
+          v-for="item in NAVIGATION_ITEMS"
           :key="item.to"
           :to="item.to"
           :class="{ active: isActive(item.to) }"
@@ -50,7 +43,7 @@ const isActive = (to: string) =>
 
         <a
           class="header-github"
-          href="https://github.com/nagisa77/Blues"
+          :href="SITE.repositoryUrl"
           target="_blank"
           rel="noreferrer"
           aria-label="在 GitHub 查看训练档案"

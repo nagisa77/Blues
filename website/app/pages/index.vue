@@ -1,28 +1,19 @@
 <script setup lang="ts">
 const archive = useArchive()
+const catalog = useArchiveCatalog()
 const activeSong = archive.songs.find(song => song.role === 'focus')
 const latestLog = archive.logs[0]
-const nextTaskLog = archive.logs.find(log => log.id === archive.currentFocus.latestLogId)
-  || latestLog
-const latestRecording = archive.recordings.find(recording => recording.id === archive.currentFocus.latestRecordingId)
-  || archive.recordings[0]
-const previousVersion = archive.recordings.find(recording =>
-  latestRecording
-  && recording.id !== latestRecording.id
-  && recordingsShareComparisonGroup(recording, latestRecording),
-)
+const nextTaskLog = catalog.log(archive.currentFocus.latestLogId) || latestLog
+const latestRecording = catalog.recording(archive.currentFocus.latestRecordingId) || archive.recordings[0]
+const previousVersion = latestRecording
+  ? catalog.comparisonGroup(latestRecording).find(recording => recording.id !== latestRecording.id)
+  : undefined
 const activeWeek = archive.stats.activeProgramWeek
 const activeWeekItem = archive.weeks.find(week => week.number === activeWeek)
 const taskSummary = nextTaskLog?.task.summary
   || archive.currentFocus.nextStep
   || nextTaskLog?.task.output
   || '由下一条声音证据决定训练内容'
-
-const firstClause = (value: string | null | undefined, fallback: string) => {
-  if (!value) return fallback
-  const clause = value.split(/[；。]/)[0]?.trim() || value
-  return clause.length > 76 ? `${clause.slice(0, 76)}…` : clause
-}
 
 const shortPassCriteria = firstClause(nextTaskLog?.task.passCriteria, '完成一次明确、可复现的音乐结果')
 const capabilitySummary = computed(() => firstClause(

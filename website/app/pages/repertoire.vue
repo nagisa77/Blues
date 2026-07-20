@@ -2,6 +2,7 @@
 import type { SongRole } from '~/types/archive'
 
 const archive = useArchive()
+const catalog = useArchiveCatalog()
 const route = useRoute()
 const selectedRole = ref<'all' | SongRole>('all')
 const expandedId = ref<string | null>(null)
@@ -20,16 +21,14 @@ const filteredSongs = computed(() => selectedRole.value === 'all'
   : archive.songs.filter(song => song.role === selectedRole.value))
 
 const recordingsForSong = (songId: string) =>
-  archive.recordings.filter(recording => recording.songId === songId).slice(0, 3)
+  catalog.recordingsForSong(songId, 3)
 
 const latestRecordingForSong = (songId: string) =>
-  archive.recordings.find(recording => recording.songId === songId)
+  catalog.recordingsForSong(songId, 1)[0]
 
 const compactCapability = (value: string) => {
-  const firstClause = value.split(/[；。]/)[0]?.trim() || value
-  const normalized = firstClause
+  const normalized = firstClause(value, value, 1000)
     .replace(/^已(?:学习|完成|留下|跟原曲完成)/, '')
-    .replace(/；.*$/, '')
     .trim()
   return normalized.length > 42 ? `${normalized.slice(0, 42)}…` : normalized
 }

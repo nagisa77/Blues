@@ -1,24 +1,8 @@
 <script setup lang="ts">
+import type { AppIconName } from '~/config/site'
+
 defineProps<{
-  name:
-    | 'home'
-    | 'logs'
-    | 'recordings'
-    | 'repertoire'
-    | 'progress'
-    | 'play'
-    | 'pause'
-    | 'arrow'
-    | 'external'
-    | 'calendar'
-    | 'target'
-    | 'waveform'
-    | 'clock'
-    | 'search'
-    | 'close'
-    | 'github'
-    | 'moon'
-    | 'sun'
+  name: AppIconName
   size?: number
 }>()
 </script>
@@ -69,16 +53,10 @@ defineProps<{
       <path d="M14 4h6v6M20 4l-9 9" />
       <path d="M18 13v6H5V6h6" />
     </template>
-    <template v-else-if="name === 'calendar'">
-      <path d="M4 6h16v14H4zM8 3v6M16 3v6M4 10h16" />
-    </template>
     <template v-else-if="name === 'target'">
       <circle cx="12" cy="12" r="8" />
       <circle cx="12" cy="12" r="3" />
       <path d="M15 9 21 3M17 3h4v4" />
-    </template>
-    <template v-else-if="name === 'waveform'">
-      <path d="M3 12h2l2-6 3 12 3-14 3 13 2-5h3" />
     </template>
     <template v-else-if="name === 'clock'">
       <circle cx="12" cy="12" r="9" />

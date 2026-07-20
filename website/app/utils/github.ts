@@ -1,5 +1,4 @@
-const REPOSITORY = 'nagisa77/Blues'
-const BRANCH = 'main'
+import { SITE } from '~/config/site'
 
 export const encodeRepositoryPath = (path: string) =>
   path
@@ -8,10 +7,7 @@ export const encodeRepositoryPath = (path: string) =>
     .join('/')
 
 export const githubRawUrl = (path: string) =>
-  `https://raw.githubusercontent.com/${REPOSITORY}/${BRANCH}/${encodeRepositoryPath(path)}`
+  `https://raw.githubusercontent.com/${SITE.repository}/${SITE.branch}/${encodeRepositoryPath(path)}`
 
 export const githubFileUrl = (path: string) =>
-  `https://github.com/${REPOSITORY}/blob/${BRANCH}/${encodeRepositoryPath(path)}`
-
-export const githubTreeUrl = (path: string) =>
-  `https://github.com/${REPOSITORY}/tree/${BRANCH}/${encodeRepositoryPath(path)}`
+  `${SITE.repositoryUrl}/blob/${SITE.branch}/${encodeRepositoryPath(path)}`

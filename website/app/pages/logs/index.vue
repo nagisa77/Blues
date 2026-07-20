@@ -2,29 +2,21 @@
 import type { PracticeLogItem } from '~/types/archive'
 
 const archive = useArchive()
+const catalog = useArchiveCatalog()
 const route = useRoute()
-const router = useRouter()
-const queryValue = (key: string) => typeof route.query[key] === 'string' ? route.query[key] as string : 'all'
 const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
-const selectedSong = ref(queryValue('song'))
-const selectedEvidence = ref(queryValue('evidence'))
-const selectedOutput = ref(queryValue('output'))
-const selectedWeek = ref(queryValue('week'))
+const selectedSong = ref(stringQueryValue(route.query, 'song'))
+const selectedEvidence = ref(stringQueryValue(route.query, 'evidence'))
+const selectedOutput = ref(stringQueryValue(route.query, 'output'))
+const selectedWeek = ref(stringQueryValue(route.query, 'week'))
 
 const weeks = [...new Set(archive.logs.map(log => log.calendarWeekId).filter(Boolean))] as string[]
 
 const songIdForLog = (log: PracticeLogItem) => {
-  const recording = archive.recordings.find(item => log.recordingIds.includes(item.id) && item.songId)
-  if (recording?.songId) return recording.songId
-  return archive.songs.find(song => log.title.toLocaleLowerCase('zh-CN').includes(song.title.toLocaleLowerCase('zh-CN')))?.id || 'other'
+  return catalog.songForLog(log)?.id || 'other'
 }
 
-const evidenceTypeForLog = (log: PracticeLogItem) => {
-  if (log.evidence.performanceReview === 'reviewed') return 'reviewed'
-  if (log.evidence.selfReport === 'yes') return 'self_report'
-  if (log.evidence.sources.includes('file_fact')) return 'file_fact'
-  return 'unknown'
-}
+const evidenceTypeForLog = (log: PracticeLogItem) => evidenceKind(log.evidence)
 
 const outputTypeForLog = (log: PracticeLogItem) => {
   if (log.recordingIds.length) return 'recording'
@@ -37,10 +29,7 @@ const songOptions = archive.songs.filter(song => archive.logs.some(log => songId
 const filteredLogs = computed(() => {
   const keyword = search.value.trim().toLocaleLowerCase('zh-CN')
   return archive.logs.filter((log) => {
-    const haystack = [log.title, log.focus, log.task.material, log.task.output]
-      .filter(Boolean)
-      .join(' ')
-      .toLocaleLowerCase('zh-CN')
+    const haystack = searchableText([log.title, log.focus, log.task.material, log.task.output])
     return (selectedSong.value === 'all' || songIdForLog(log) === selectedSong.value)
       && (selectedEvidence.value === 'all' || evidenceTypeForLog(log) === selectedEvidence.value)
       && (selectedOutput.value === 'all' || outputTypeForLog(log) === selectedOutput.value)
@@ -70,19 +59,14 @@ const hasFilters = computed(() => Boolean(search.value)
   || [selectedSong.value, selectedEvidence.value, selectedOutput.value, selectedWeek.value].some(value => value !== 'all'))
 const resultAnnouncement = computed(() => `显示 ${filteredLogs.value.length} / ${archive.stats.sessionLogCount} 份练习日志。`)
 
-let syncTimer: number | undefined
-watch([search, selectedSong, selectedEvidence, selectedOutput, selectedWeek], () => {
-  if (!import.meta.client) return
-  window.clearTimeout(syncTimer)
-  syncTimer = window.setTimeout(() => {
-    const query: Record<string, string> = {}
-    if (search.value) query.q = search.value
-    if (selectedSong.value !== 'all') query.song = selectedSong.value
-    if (selectedEvidence.value !== 'all') query.evidence = selectedEvidence.value
-    if (selectedOutput.value !== 'all') query.output = selectedOutput.value
-    if (selectedWeek.value !== 'all') query.week = selectedWeek.value
-    void router.replace({ query })
-  }, 180)
+useRouteQuerySync([search, selectedSong, selectedEvidence, selectedOutput, selectedWeek], () => {
+  const query: Record<string, string> = {}
+  if (search.value) query.q = search.value
+  if (selectedSong.value !== 'all') query.song = selectedSong.value
+  if (selectedEvidence.value !== 'all') query.evidence = selectedEvidence.value
+  if (selectedOutput.value !== 'all') query.output = selectedOutput.value
+  if (selectedWeek.value !== 'all') query.week = selectedWeek.value
+  return query
 })
 
 useSeoMeta({

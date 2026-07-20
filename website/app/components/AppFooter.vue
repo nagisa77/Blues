@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { SITE } from '~/config/site'
+</script>
+
 <template>
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -8,7 +12,7 @@
       <p class="footer-meta">
         最后更新以训练档案为准<br>
         文件事实、用户自评与实际回听分别记录 ·
-        <a href="https://github.com/nagisa77/Blues" target="_blank" rel="noreferrer">查看 GitHub 源档案</a>
+        <a :href="SITE.repositoryUrl" target="_blank" rel="noreferrer">查看 GitHub 源档案</a>
       </p>
     </div>
   </footer>

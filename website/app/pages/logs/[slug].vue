@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
 const archive = useArchive()
-const log = computed(() => archive.logs.find((item) => item.id === route.params.slug))
+const catalog = useArchiveCatalog()
+const log = computed(() => catalog.log(String(route.params.slug)))
 
 if (!log.value) {
   throw createError({ statusCode: 404, statusMessage: '这份练习日志不存在' })
@@ -10,11 +11,7 @@ if (!log.value) {
 const relatedRecordings = computed(() =>
   archive.recordings.filter((recording) => log.value?.recordingIds.includes(recording.id)),
 )
-const relatedSong = computed(() => {
-  const songId = relatedRecordings.value.find(recording => recording.songId)?.songId
-  if (songId) return archive.songs.find(song => song.id === songId) || null
-  return archive.songs.find(song => log.value?.title.toLocaleLowerCase('zh-CN').includes(song.title.toLocaleLowerCase('zh-CN'))) || null
-})
+const relatedSong = computed(() => log.value ? catalog.songForLog(log.value) : null)
 const currentIndex = computed(() => archive.logs.findIndex((item) => item.id === log.value?.id))
 const isCurrentTask = computed(() => log.value?.id === archive.currentFocus.latestLogId)
 const newerLog = computed(() => archive.logs[currentIndex.value - 1] || null)

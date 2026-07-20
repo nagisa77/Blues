@@ -1,0 +1,386 @@
+
+
+@layer responsive {
+  @media (max-width: 1080px) {
+    .container {
+      width: min(calc(100% - 44px), var(--container));
+    }
+
+    .desktop-nav a {
+      padding-inline: 9px;
+    }
+
+    .recording-library,
+    .metric-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .week-rail {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .audio-dock {
+      grid-template-columns: 48px minmax(150px, 1fr) 40px minmax(180px, 1fr) 30px;
+    }
+
+    .dock-source {
+      display: none;
+    }
+  }
+
+  @media (max-width: 860px) {
+    body {
+      padding-bottom: 66px;
+    }
+
+    .site-header {
+      height: 64px;
+    }
+
+    .desktop-nav,
+    .header-github span,
+    .theme-toggle span {
+      display: none;
+    }
+
+    .header-actions {
+      margin-left: auto;
+    }
+
+    .header-github,
+    .theme-toggle {
+      padding: 8px;
+      border: 0;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      display: grid;
+      height: 66px;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 7px max(8px, env(safe-area-inset-right)) max(7px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+      background: var(--header-bg);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .mobile-nav a {
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 2px;
+      color: var(--muted-dark);
+      border-radius: 8px;
+      font-size: 8px;
+    }
+
+    .mobile-nav a.active {
+      color: var(--night);
+      background: var(--nav-bg);
+    }
+
+    .mobile-nav a.active svg {
+      color: var(--cobalt);
+    }
+
+    .section {
+      padding-block: 76px;
+    }
+
+    .split-heading,
+    .section-heading-inline,
+    .page-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .section-heading-inline .text-link {
+      justify-self: start;
+    }
+
+
+    .recording-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-hero {
+      padding-block: 72px 60px;
+    }
+
+    .page-hero::before {
+      width: 60%;
+    }
+
+    .page-hero-aside,
+    .recording-total,
+    .page-hero-statement {
+      max-width: 520px;
+      padding: 0;
+      border-left: 0;
+    }
+
+    .archive-toolbar {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .filter-pills {
+      justify-content: flex-start;
+    }
+
+
+    .song-recordings {
+      grid-column: 2;
+    }
+
+    .song-recordings {
+      grid-template-columns: 1fr;
+    }
+
+    .evidence-rules-grid {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+
+    .log-detail-hero-grid,
+    .log-detail-body {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+
+    .log-detail-date {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      padding: 0 0 18px;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .log-detail-date strong {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .log-detail-title .eyebrow {
+      margin-top: 38px;
+    }
+
+    .log-detail-index {
+      position: static;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 16px;
+    }
+
+    .log-detail-index p {
+      width: 100%;
+    }
+
+    .log-detail-index a:last-child {
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .audio-dock {
+      right: 10px;
+      bottom: 76px;
+      left: 10px;
+      grid-template-columns: 44px 1fr 38px 28px;
+      gap: 10px;
+      min-height: 66px;
+      padding: 9px;
+      border-radius: 12px;
+    }
+
+    .dock-art {
+      width: 44px;
+      height: 44px;
+    }
+
+    .dock-progress,
+    .dock-source {
+      display: none;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .container {
+      width: min(calc(100% - 30px), var(--container));
+    }
+
+    .brand-copy strong {
+      font-size: 10px;
+    }
+
+
+    .page-hero h1 {
+      font-size: clamp(43px, 13vw, 58px);
+    }
+
+    .section {
+      padding-block: 64px;
+    }
+
+    .section-title {
+      font-size: 37px;
+    }
+
+    .split-heading,
+    .section-heading-inline {
+      margin-bottom: 32px;
+    }
+
+
+    .recording-card.featured {
+      min-height: 360px;
+      padding: 21px;
+    }
+
+    .recording-card {
+      min-height: 275px;
+      padding: 18px;
+    }
+
+    .recording-card.featured .recording-main {
+      margin-top: 40px;
+    }
+
+    .recording-card.featured .recording-copy h3 {
+      font-size: 21px;
+    }
+
+    .recording-footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .log-card {
+      grid-template-columns: 68px 1fr 34px;
+      gap: 10px;
+    }
+
+    .log-card-content h3 {
+      font-size: 18px;
+    }
+
+    .log-open {
+      width: 33px;
+      height: 33px;
+    }
+
+    .archive-content {
+      padding-block: 44px 80px;
+    }
+
+    .recording-library,
+    .metric-grid,
+    .week-rail {
+      grid-template-columns: 1fr;
+    }
+
+
+    .song-recordings {
+      grid-column: 1;
+    }
+
+    .evidence-rule-list li {
+      grid-template-columns: 38px 1fr;
+      gap: 10px;
+    }
+
+    .log-detail-hero {
+      padding-block: 48px;
+    }
+
+    .log-detail-title h1 {
+      font-size: 44px;
+    }
+
+    .log-detail-body {
+      padding-block: 56px;
+    }
+
+    .detail-section {
+      grid-template-columns: 1fr;
+      gap: 9px;
+      padding-bottom: 52px;
+    }
+
+    .detail-section + .detail-section {
+      padding-top: 52px;
+    }
+
+    .fact-list > div {
+      grid-template-columns: 1fr;
+      gap: 7px;
+    }
+
+    .detail-recordings {
+      grid-template-columns: 1fr;
+    }
+
+    .adjacent-logs a {
+      padding: 18px 10px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-meta {
+      justify-self: start;
+      text-align: left;
+    }
+
+    .audio-dock {
+      grid-template-columns: 40px minmax(0, 1fr) 36px 26px;
+    }
+
+    .dock-art {
+      width: 40px;
+      height: 40px;
+    }
+
+    .dock-copy strong {
+      font-size: 13px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  @media print {
+    .site-header,
+    .site-footer,
+    .mobile-nav,
+    .audio-dock,
+    .archive-toolbar {
+      display: none !important;
+    }
+
+    body,
+    .site-shell,
+    .archive-content,
+    .section,
+    .page-hero {
+      color: #111;
+      background: #fff;
+    }
+  }
+}

@@ -1,55 +1,28 @@
 <script setup lang="ts">
 const archive = useArchive()
-const activeLog = archive.logs.find(log => log.id === archive.currentFocus.latestLogId) || archive.logs[0]
-const activeSong = archive.songs.find(song => song.id === archive.currentFocus.songId) || null
-const previousRecording = archive.recordings.find(recording => recording.id === archive.currentFocus.latestRecordingId)
-  || archive.recordings.find(recording => recording.songId === activeSong?.id)
+const catalog = useArchiveCatalog()
+const activeLog = catalog.log(archive.currentFocus.latestLogId) || archive.logs[0]
+const activeSong = catalog.song(archive.currentFocus.songId)
+const previousRecording = catalog.recording(archive.currentFocus.latestRecordingId)
+  || (activeSong ? catalog.recordingsForSong(activeSong.id, 1)[0] : null)
   || null
 const referencePath = activeLog?.referencePaths[0] || activeSong?.referencePaths[0] || null
 const { play } = useAudioPlayer()
-
-type CompletionValue = 'completed' | 'completed_unstable' | 'blocked'
-
-const report = reactive({
-  completion: '' as '' | CompletionValue,
-  factOne: '',
-  factTwo: '',
-  issue: '',
-  passConfirmed: false,
-})
-const copyState = ref<'idle' | 'copied' | 'failed'>('idle')
-const lastSavedAt = ref<Date | null>(null)
-const storageKey = `tim-blues-practice-report:${activeLog?.id || 'current'}`
-const reportHasContent = (value: Partial<typeof report>) => Boolean(
-  value.completion
-  || value.factOne?.trim()
-  || value.factTwo?.trim()
-  || value.issue?.trim()
-  || value.passConfirmed,
-)
-
-const completionLabels: Record<CompletionValue, string> = {
-  completed: '完成',
-  completed_unstable: '完成，尚待稳定',
-  blocked: '卡住，需要调整',
-}
+const {
+  report,
+  completionLabels,
+  copyState,
+  lastSavedAt,
+  canCopy,
+  markdown: reportMarkdown,
+  copy: copyReport,
+  clear: clearReport,
+} = usePracticeReport(activeLog?.id || 'current')
 
 const materialWindow = computed(() => parsePracticeWindow(activeLog?.task.material))
 const windowLabel = computed(() => materialWindow.value
   ? `${formatSeconds(materialWindow.value.startSeconds)}–${formatSeconds(materialWindow.value.endSeconds)}`
   : '完整参考曲目')
-
-const canCopy = computed(() => Boolean(report.completion && report.factOne.trim()))
-const reportMarkdown = computed(() => {
-  const lines = [
-    `完成情况：${report.completion ? completionLabels[report.completion] : '尚未选择'}`,
-    `事实 1：${report.factOne.trim() || '待填写'}`,
-  ]
-  if (report.factTwo.trim()) lines.push(`事实 2：${report.factTwo.trim()}`)
-  if (report.issue.trim()) lines.push(`唯一问题：${report.issue.trim()}`)
-  lines.push(`过关标准：${report.passConfirmed ? '练完后已按标准确认' : '尚未确认'}`)
-  return lines.join('\n')
-})
 
 const playReference = () => {
   if (!referencePath) return
@@ -59,74 +32,6 @@ const playReference = () => {
 const playPrevious = () => {
   if (previousRecording) play(recordingPlayerTrack(previousRecording))
 }
-
-const copyReport = async () => {
-  if (!import.meta.client || !canCopy.value) return
-  try {
-    if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(reportMarkdown.value)
-    } else {
-      const textarea = document.createElement('textarea')
-      textarea.value = reportMarkdown.value
-      textarea.style.position = 'fixed'
-      textarea.style.opacity = '0'
-      document.body.appendChild(textarea)
-      textarea.select()
-      const copied = document.execCommand('copy')
-      textarea.remove()
-      if (!copied) throw new Error('copy command failed')
-    }
-    copyState.value = 'copied'
-  } catch {
-    copyState.value = 'failed'
-  }
-  window.setTimeout(() => { copyState.value = 'idle' }, 2000)
-}
-
-const clearReport = () => {
-  Object.assign(report, {
-    completion: '',
-    factOne: '',
-    factTwo: '',
-    issue: '',
-    passConfirmed: false,
-  })
-  lastSavedAt.value = null
-  if (import.meta.client) localStorage.removeItem(storageKey)
-}
-
-onMounted(() => {
-  const saved = localStorage.getItem(storageKey)
-  if (!saved) return
-  try {
-    const parsed = JSON.parse(saved)
-    const restoredReport = parsed?.report || parsed
-    if (!reportHasContent(restoredReport)) {
-      localStorage.removeItem(storageKey)
-      return
-    }
-    if (parsed?.report) {
-      Object.assign(report, parsed.report)
-      lastSavedAt.value = parsed.savedAt ? new Date(parsed.savedAt) : null
-    } else {
-      Object.assign(report, parsed)
-    }
-  } catch {
-    localStorage.removeItem(storageKey)
-  }
-})
-
-watch(report, (value) => {
-  if (!import.meta.client) return
-  if (!reportHasContent(value)) {
-    lastSavedAt.value = null
-    localStorage.removeItem(storageKey)
-    return
-  }
-  const savedAt = new Date()
-  lastSavedAt.value = savedAt
-  localStorage.setItem(storageKey, JSON.stringify({ report: value, savedAt: savedAt.toISOString() }))
-}, { deep: true })
 
 useSeoMeta({
   title: '今天的练习 · Tim / Blues',

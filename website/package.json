@@ -10,7 +10,9 @@
     "pregenerate": "node scripts/generate-content.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "typecheck": "node scripts/generate-content.mjs && nuxi typecheck"
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "node scripts/generate-content.mjs && nuxi typecheck",
+    "check": "npm run test && npm run typecheck && npm run generate"
   },
   "dependencies": {
     "nuxt": "4.4.8",
