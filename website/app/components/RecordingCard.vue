@@ -19,8 +19,18 @@ const emit = defineEmits<{
   comparePair: [recording: RecordingArchiveItem]
 }>()
 
-const { currentTrack, isPlaying, play, toggle } = useAudioPlayer()
+const {
+  currentTrack,
+  isPlaying,
+  timelinePosition,
+  timelineDuration,
+  playbackPercentage,
+  play,
+  toggle,
+  seekTo,
+} = useAudioPlayer()
 const isCurrent = computed(() => currentTrack.value?.id === props.recording.id)
+const waveformProgress = computed(() => isCurrent.value ? playbackPercentage.value : 0)
 
 const handlePlay = () => {
   if (isCurrent.value) toggle()
@@ -33,6 +43,13 @@ const waveform = computed(() => {
     ? props.recording.waveform
     : props.recording.waveform.filter((_, index) => index % 2 === 0)
 })
+
+const handleWaveformSeek = (event: Event) => {
+  const value = Number((event.target as HTMLInputElement).value)
+  if (!Number.isFinite(value)) return
+  if (!isCurrent.value) play(recordingPlayerTrack(props.recording))
+  seekTo(value / 100)
+}
 </script>
 
 <template>
@@ -62,8 +79,33 @@ const waveform = computed(() => {
       </div>
     </div>
 
-    <div v-if="waveform.length" class="waveform" :aria-label="`真实音频波形，录音时长 ${recording.durationLabel || '待确认'}`">
-      <i v-for="(height, index) in waveform" :key="index" :style="{ height: `${height}%` }" />
+    <div
+      v-if="waveform.length"
+      class="waveform"
+      :class="{ 'waveform-current': isCurrent }"
+      :style="{ '--wave-progress': `${waveformProgress}%` }"
+    >
+      <span class="waveform-bars waveform-base" aria-hidden="true">
+        <i v-for="(height, index) in waveform" :key="`base-${index}`" :style="{ height: `${height}%` }" />
+      </span>
+      <span class="waveform-bars waveform-played" aria-hidden="true">
+        <i v-for="(height, index) in waveform" :key="`played-${index}`" :style="{ height: `${height}%` }" />
+      </span>
+      <label class="sr-only" :for="`waveform-seek-${recording.id}`">
+        {{ isCurrent ? '播放进度，可拖动跳转' : '音频波形，拖动后开始播放' }}
+      </label>
+      <input
+        :id="`waveform-seek-${recording.id}`"
+        class="waveform-seek"
+        type="range"
+        min="0"
+        max="100"
+        step="0.1"
+        :value="waveformProgress"
+        :aria-valuetext="isCurrent ? `${formatSeconds(timelinePosition)} / ${formatSeconds(timelineDuration)}` : `录音时长 ${recording.durationLabel || '待确认'}`"
+        @input="handleWaveformSeek"
+      >
+      <span class="waveform-playhead" aria-hidden="true" />
     </div>
     <div v-else class="waveform waveform-unavailable" role="img" :aria-label="`音频波形暂不可用，录音时长 ${recording.durationLabel || '待确认'}`">
       <span>波形暂不可用</span>
@@ -111,7 +153,7 @@ const waveform = computed(() => {
       </div>
     </div>
 
-    <p v-if="featured && recording.nextChange" class="recording-next">
+    <p v-if="featured && recording.nextChange && !showDecision" class="recording-next">
       <span>下一遍只改</span>
       {{ recording.nextChange }}
     </p>

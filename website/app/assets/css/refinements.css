@@ -81,6 +81,88 @@
     transform: none;
   }
 
+  /* A recorded waveform is a timeline, not decoration: the played layer advances and the full surface seeks. */
+  .waveform:not(.waveform-unavailable) {
+    --wave-progress: 0%;
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .waveform-bars {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .waveform-bars i {
+    width: 2px;
+    min-height: 4px;
+    flex: 1 1 auto;
+    background: var(--line-strong);
+    background: color-mix(in srgb, var(--muted) 42%, transparent);
+    border-radius: 2px;
+  }
+
+  .waveform-played {
+    clip-path: inset(0 calc(100% - var(--wave-progress)) 0 0);
+    transition: clip-path 180ms linear;
+  }
+
+  .waveform-played i {
+    background: var(--cobalt);
+  }
+
+  .waveform-seek {
+    position: absolute;
+    z-index: 2;
+    inset: -8px 0;
+    width: 100%;
+    height: calc(100% + 16px);
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .waveform:has(.waveform-seek:focus-visible) {
+    outline: 2px solid var(--cobalt);
+    outline-offset: 5px;
+    border-radius: 4px;
+  }
+
+  .waveform-playhead {
+    position: absolute;
+    top: 50%;
+    left: clamp(1px, var(--wave-progress), calc(100% - 1px));
+    z-index: 1;
+    width: 2px;
+    height: calc(100% + 8px);
+    pointer-events: none;
+    background: var(--night);
+    border-radius: 999px;
+    box-shadow: 0 0 0 1px var(--panel);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 160ms ease;
+  }
+
+  .waveform-current .waveform-playhead {
+    opacity: .85;
+  }
+
+  .recording-group-head p {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
   /* Action-first home: capability is context, not a competing dashboard. */
   .practice-workbench {
     grid-template-columns: minmax(0, 1.65fr) minmax(250px, .45fr);
@@ -305,6 +387,24 @@
     color: var(--on-light-control);
   }
 
+  .audio-dock,
+  .mobile-nav,
+  .site-header {
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+  }
+
+  .brand {
+    min-height: var(--touch-target);
+  }
+
+  .dock-progress input::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 2px solid var(--cobalt);
+    border-radius: 50%;
+  }
+
   .theme-toggle,
   .dock-close {
     min-width: var(--touch-target);
@@ -475,6 +575,135 @@
 
     .completion-options span {
       min-height: var(--touch-target);
+    }
+  }
+
+  @media (max-width: 860px) {
+    body {
+      min-height: 100dvh;
+      padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .site-shell {
+      min-height: 100dvh;
+    }
+
+    .site-shell.player-open {
+      padding-bottom: 86px;
+    }
+
+    .mobile-nav {
+      height: calc(66px + env(safe-area-inset-bottom, 0px));
+      padding:
+        6px max(6px, env(safe-area-inset-right, 0px))
+        max(6px, env(safe-area-inset-bottom, 0px))
+        max(6px, env(safe-area-inset-left, 0px));
+    }
+
+    .mobile-nav a {
+      min-width: 0;
+      min-height: 44px;
+      padding: 3px 2px;
+      touch-action: manipulation;
+    }
+
+    .audio-dock {
+      right: max(10px, env(safe-area-inset-right, 0px));
+      bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+      left: max(10px, env(safe-area-inset-left, 0px));
+      min-height: 72px;
+      grid-template-columns: 40px minmax(0, 1fr) 44px 44px;
+      gap: 9px;
+      padding: 9px 9px 14px;
+      border-radius: 14px;
+    }
+
+    .dock-progress {
+      position: absolute;
+      right: 10px;
+      bottom: 1px;
+      left: 10px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      pointer-events: auto;
+    }
+
+    .dock-progress span {
+      display: none;
+    }
+
+    .dock-progress input {
+      height: 18px;
+      margin: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 3px;
+    }
+
+    .dock-play,
+    .dock-close {
+      width: var(--touch-target);
+      height: var(--touch-target);
+    }
+
+    .dock-close {
+      border-radius: 10px;
+    }
+
+    .dock-copy > span {
+      font-size: 9px;
+    }
+
+    .dock-copy strong {
+      font-size: 14px;
+    }
+
+    .dock-copy small {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .recording-card.condensed-actions .recording-footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .recording-card.condensed-actions .recording-links {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .recording-group-head {
+      gap: 14px;
+    }
+
+    .recording-group-head h2 {
+      font-size: 26px;
+      line-height: 1.15;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .audio-dock {
+      grid-template-columns: minmax(0, 1fr) 44px 44px;
+    }
+
+    .dock-art {
+      display: none;
+    }
+
+    .recording-card {
+      padding-inline: 16px;
+    }
+
+    .recording-main {
+      gap: 12px;
+    }
+
+    .waveform-bars {
+      gap: 2px;
     }
   }
 }

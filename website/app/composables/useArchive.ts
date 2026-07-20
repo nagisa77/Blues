@@ -12,6 +12,7 @@ export const recordingPlayerTrack = (recording: RecordingArchiveItem) => ({
     .filter(Boolean)
     .join(' · '),
   duration: recording.durationLabel || '—:—',
+  durationSeconds: recording.durationSeconds || undefined,
   source: githubRawUrl(recording.resourcePath),
 })
 

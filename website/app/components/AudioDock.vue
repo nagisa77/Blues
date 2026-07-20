@@ -1,24 +1,24 @@
 <script setup lang="ts">
 const audio = ref<HTMLAudioElement | null>(null)
-const currentSeconds = ref(0)
-const actualDuration = ref(0)
 const loadedSource = ref('')
 const loadedTrackSignature = ref('')
-const { currentTrack, isPlaying, playRequest, toggle, close } = useAudioPlayer()
-
-const trackStart = computed(() => currentTrack.value?.startSeconds || 0)
-const trackEnd = computed(() => {
-  const requestedEnd = currentTrack.value?.endSeconds
-  if (requestedEnd && actualDuration.value) return Math.min(requestedEnd, actualDuration.value)
-  return requestedEnd || actualDuration.value
-})
-const timelineDuration = computed(() => Math.max(0, trackEnd.value - trackStart.value))
-const timelinePosition = computed(() => Math.max(0, currentSeconds.value - trackStart.value))
-const percentage = computed(() =>
-  timelineDuration.value > 0
-    ? Math.min(100, (timelinePosition.value / timelineDuration.value) * 100)
-    : 0,
-)
+const appliedSeekRequest = ref(0)
+const {
+  currentTrack,
+  isPlaying,
+  playRequest,
+  currentSeconds,
+  mediaDuration,
+  requestedSeekRatio,
+  seekRequest,
+  trackStart,
+  timelineDuration,
+  timelinePosition,
+  playbackPercentage,
+  toggle,
+  close,
+  seekTo,
+} = useAudioPlayer()
 
 const formatClock = (seconds: number) => {
   if (!Number.isFinite(seconds)) return '0:00'
@@ -47,8 +47,8 @@ watch(playRequest, () => {
 
   if (loadedSource.value !== currentTrack.value.source) {
     loadedSource.value = currentTrack.value.source
-    currentSeconds.value = 0
-    actualDuration.value = 0
+    currentSeconds.value = currentTrack.value.startSeconds || 0
+    mediaDuration.value = 0
     audio.value.src = currentTrack.value.source
     audio.value.load()
   }
@@ -71,14 +71,28 @@ watch(playRequest, () => {
   }
 }, { flush: 'sync' })
 
+const applyRequestedSeek = () => {
+  if (!audio.value || audio.value.readyState < 1 || !timelineDuration.value) return false
+  const nextTime = trackStart.value + requestedSeekRatio.value * timelineDuration.value
+  audio.value.currentTime = nextTime
+  currentSeconds.value = nextTime
+  appliedSeekRequest.value = seekRequest.value
+  return true
+}
+
+watch(seekRequest, () => {
+  applyRequestedSeek()
+}, { flush: 'sync' })
+
 const handleLoadedMetadata = () => {
   if (!audio.value) return
-  actualDuration.value = audio.value.duration || 0
+  mediaDuration.value = audio.value.duration || 0
   const start = currentTrack.value?.startSeconds || 0
-  if (start > 0 && start < actualDuration.value) {
+  if (start > 0 && start < mediaDuration.value) {
     audio.value.currentTime = start
     currentSeconds.value = start
   }
+  if (appliedSeekRequest.value !== seekRequest.value) applyRequestedSeek()
 }
 
 const handleTimeUpdate = () => {
@@ -89,18 +103,19 @@ const handleTimeUpdate = () => {
 
   if (currentTrack.value?.loop) {
     audio.value.currentTime = currentTrack.value.startSeconds || 0
+    currentSeconds.value = audio.value.currentTime
     void audio.value.play().catch(() => {
       isPlaying.value = false
     })
   } else {
+    currentSeconds.value = end
     audio.value.pause()
   }
 }
 
 const seek = (event: Event) => {
   const value = Number((event.target as HTMLInputElement).value)
-  if (!audio.value || !timelineDuration.value) return
-  audio.value.currentTime = trackStart.value + (value / 100) * timelineDuration.value
+  seekTo(value / 100)
 }
 </script>
 
@@ -116,7 +131,11 @@ const seek = (event: Event) => {
   />
 
   <Transition name="player-rise">
-    <aside v-if="currentTrack" class="audio-dock" aria-label="全局录音播放器">
+    <aside
+      v-if="currentTrack"
+      class="audio-dock"
+      aria-label="全局录音播放器"
+    >
       <div class="dock-art" aria-hidden="true">
         <span class="record-groove" />
       </div>
@@ -140,8 +159,9 @@ const seek = (event: Event) => {
           min="0"
           max="100"
           step="0.1"
-          :value="percentage"
-          :style="{ '--progress': `${percentage}%` }"
+          :value="playbackPercentage"
+          :style="{ '--progress': `${playbackPercentage}%` }"
+          :aria-valuetext="`${formatClock(timelinePosition)} / ${timelineDuration ? formatClock(timelineDuration) : currentTrack.duration}`"
           @input="seek"
         >
         <span>{{ timelineDuration ? formatClock(timelineDuration) : currentTrack.duration }}</span>
