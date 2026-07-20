@@ -8,17 +8,27 @@ const previousRecording = archive.recordings.find(recording => recording.id === 
 const referencePath = activeLog?.referencePaths[0] || activeSong?.referencePaths[0] || null
 const { play } = useAudioPlayer()
 
+type CompletionValue = 'completed' | 'completed_unstable' | 'blocked'
+
 const report = reactive({
-  completion: 'completed',
+  completion: '' as '' | CompletionValue,
   factOne: '',
   factTwo: '',
   issue: '',
   passConfirmed: false,
 })
 const copyState = ref<'idle' | 'copied' | 'failed'>('idle')
+const lastSavedAt = ref<Date | null>(null)
 const storageKey = `tim-blues-practice-report:${activeLog?.id || 'current'}`
+const reportHasContent = (value: Partial<typeof report>) => Boolean(
+  value.completion
+  || value.factOne?.trim()
+  || value.factTwo?.trim()
+  || value.issue?.trim()
+  || value.passConfirmed,
+)
 
-const completionLabels: Record<string, string> = {
+const completionLabels: Record<CompletionValue, string> = {
   completed: '完成',
   completed_unstable: '完成，尚待稳定',
   blocked: '卡住，需要调整',
@@ -29,13 +39,17 @@ const windowLabel = computed(() => materialWindow.value
   ? `${formatSeconds(materialWindow.value.startSeconds)}–${formatSeconds(materialWindow.value.endSeconds)}`
   : '完整参考曲目')
 
-const reportMarkdown = computed(() => [
-  `完成情况：${completionLabels[report.completion]}`,
-  `事实 1：${report.factOne.trim() || '待填写'}`,
-  `事实 2：${report.factTwo.trim() || '待填写'}`,
-  `唯一问题：${report.issue.trim() || '无 / 待填写'}`,
-  `过关标准：${report.passConfirmed ? '已按标准确认' : '尚未确认'}`,
-].join('\n'))
+const canCopy = computed(() => Boolean(report.completion && report.factOne.trim()))
+const reportMarkdown = computed(() => {
+  const lines = [
+    `完成情况：${report.completion ? completionLabels[report.completion] : '尚未选择'}`,
+    `事实 1：${report.factOne.trim() || '待填写'}`,
+  ]
+  if (report.factTwo.trim()) lines.push(`事实 2：${report.factTwo.trim()}`)
+  if (report.issue.trim()) lines.push(`唯一问题：${report.issue.trim()}`)
+  lines.push(`过关标准：${report.passConfirmed ? '练完后已按标准确认' : '尚未确认'}`)
+  return lines.join('\n')
+})
 
 const playReference = () => {
   if (!referencePath) return
@@ -47,7 +61,7 @@ const playPrevious = () => {
 }
 
 const copyReport = async () => {
-  if (!import.meta.client) return
+  if (!import.meta.client || !canCopy.value) return
   try {
     if (navigator.clipboard?.writeText) {
       await navigator.clipboard.writeText(reportMarkdown.value)
@@ -69,18 +83,49 @@ const copyReport = async () => {
   window.setTimeout(() => { copyState.value = 'idle' }, 2000)
 }
 
+const clearReport = () => {
+  Object.assign(report, {
+    completion: '',
+    factOne: '',
+    factTwo: '',
+    issue: '',
+    passConfirmed: false,
+  })
+  lastSavedAt.value = null
+  if (import.meta.client) localStorage.removeItem(storageKey)
+}
+
 onMounted(() => {
   const saved = localStorage.getItem(storageKey)
   if (!saved) return
   try {
-    Object.assign(report, JSON.parse(saved))
+    const parsed = JSON.parse(saved)
+    const restoredReport = parsed?.report || parsed
+    if (!reportHasContent(restoredReport)) {
+      localStorage.removeItem(storageKey)
+      return
+    }
+    if (parsed?.report) {
+      Object.assign(report, parsed.report)
+      lastSavedAt.value = parsed.savedAt ? new Date(parsed.savedAt) : null
+    } else {
+      Object.assign(report, parsed)
+    }
   } catch {
     localStorage.removeItem(storageKey)
   }
 })
 
 watch(report, (value) => {
-  if (import.meta.client) localStorage.setItem(storageKey, JSON.stringify(value))
+  if (!import.meta.client) return
+  if (!reportHasContent(value)) {
+    lastSavedAt.value = null
+    localStorage.removeItem(storageKey)
+    return
+  }
+  const savedAt = new Date()
+  lastSavedAt.value = savedAt
+  localStorage.setItem(storageKey, JSON.stringify({ report: value, savedAt: savedAt.toISOString() }))
 }, { deep: true })
 
 useSeoMeta({
@@ -111,41 +156,21 @@ useSeoMeta({
           <p class="mini-label">唯一听感重点</p>
           <h2 id="practice-focus-title">{{ archive.currentFocus.focus || activeLog?.focus }}</h2>
         </div>
-        <div class="practice-pass">
-          <p class="mini-label">这一遍怎样算完成</p>
-          <p>{{ activeLog?.task.passCriteria }}</p>
-          <label class="practice-pass-check">
-            <input v-model="report.passConfirmed" type="checkbox">
-            <span>我已按这条标准确认</span>
-          </label>
-        </div>
-      </section>
-
-      <section class="practice-audio" aria-labelledby="practice-audio-title">
-        <div class="practice-section-title">
-          <div>
-            <p class="mini-label">听完就开始</p>
-            <h2 id="practice-audio-title">参考与上一版</h2>
-          </div>
-          <p>两个入口共用底部播放器，切换时立即开始，不增加页面转场。</p>
-        </div>
-        <div class="practice-audio-grid">
-          <article class="practice-audio-card reference-card">
-            <span>REFERENCE / 参考原曲</span>
-            <h3>{{ activeSong?.artist }} · {{ activeSong?.title || activeLog?.title }}</h3>
-            <p>{{ windowLabel }} 自动循环；只听本次需要进入的位置。</p>
+        <div class="practice-controls-panel">
+          <p class="mini-label">听完就开始</p>
+          <div class="practice-quick-actions">
             <button class="button button-primary" type="button" :disabled="!referencePath" @click="playReference">
-              <AppIcon name="play" :size="17" />播放参考段
+              <AppIcon name="play" :size="17" />参考段 {{ windowLabel }}
             </button>
-          </article>
-          <article class="practice-audio-card previous-card">
-            <span>PREVIOUS TAKE / 上一版</span>
-            <h3>{{ previousRecording?.title || '尚无上一版录音' }}</h3>
-            <p>{{ previousRecording?.nextChange || '完成本次练习后，再生成可比较的下一版。' }}</p>
             <button class="button button-ghost" type="button" :disabled="!previousRecording" @click="playPrevious">
-              <AppIcon name="play" :size="17" />播放上一版
+              <AppIcon name="play" :size="17" />上一版
             </button>
-          </article>
+          </div>
+          <p class="practice-audio-note">参考段自动循环；上一版用于确认本次只改的一件事。</p>
+          <details class="practice-pass-disclosure">
+            <summary>查看过关标准<AppIcon name="arrow" :size="15" /></summary>
+            <p>{{ activeLog?.task.passCriteria }}</p>
+          </details>
         </div>
       </section>
 
@@ -164,7 +189,7 @@ useSeoMeta({
             <p class="mini-label">结束练习</p>
             <h2 id="practice-report-title">留下 2–3 个事实</h2>
           </div>
-          <p>草稿自动保存在当前浏览器；复制后可直接发给老师或写入日志。</p>
+          <p>草稿只保存在当前浏览器，不会自动写入正式档案。</p>
         </div>
 
         <div class="completion-options" aria-label="完成情况">
@@ -175,16 +200,25 @@ useSeoMeta({
         </div>
 
         <div class="practice-report-grid">
-          <label><span>事实 1</span><textarea v-model="report.factOne" rows="3" placeholder="例如：第二段可以从头到尾完成" /></label>
-          <label><span>事实 2</span><textarea v-model="report.factTwo" rows="3" placeholder="例如：跨段进入没有停拍" /></label>
+          <label><span>事实 1 · 必填</span><textarea v-model="report.factOne" rows="3" placeholder="例如：第二段可以从头到尾完成" /></label>
+          <label><span>事实 2 · 可选</span><textarea v-model="report.factTwo" rows="3" placeholder="例如：跨段进入没有停拍" /></label>
           <label class="report-issue"><span>唯一问题</span><textarea v-model="report.issue" rows="3" placeholder="只写下一次最值得处理的一项" /></label>
         </div>
 
+        <label class="practice-pass-check practice-pass-check-final">
+          <input v-model="report.passConfirmed" type="checkbox">
+          <span>练完后，我已按本次过关标准确认</span>
+        </label>
+
         <div class="practice-report-output">
           <pre>{{ reportMarkdown }}</pre>
-          <button class="button button-primary" type="button" @click="copyReport">
+          <button class="button button-primary" type="button" :disabled="!canCopy" @click="copyReport">
             {{ copyState === 'copied' ? '已复制' : copyState === 'failed' ? '复制失败，请手动选择' : '复制汇报文本' }}
           </button>
+        </div>
+        <div class="practice-draft-meta">
+          <p>{{ lastSavedAt ? `草稿已保存于 ${lastSavedAt.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}` : '选择完成状态并填写事实 1 后即可复制。' }}</p>
+          <button type="button" @click="clearReport">清除本次草稿</button>
         </div>
       </section>
     </div>

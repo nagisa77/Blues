@@ -30,7 +30,7 @@ useSeoMeta({
           <h1>当前能力，<br><em>证据决定前进。</em></h1>
         </div>
         <div class="progress-stage-card">
-          <div class="stage-number"><span>当前能力阶段</span><strong>W{{ activeWeek.toString().padStart(2, '0') }}</strong></div>
+          <div class="stage-number"><span>当前能力阶段</span><strong>{{ activeWeek }} / {{ archive.weeks.length }}</strong></div>
           <div class="stage-evidence">
             <span>最近声音证据</span>
             <strong>{{ latestEvidence?.title || '待补录' }}</strong>
@@ -60,7 +60,7 @@ useSeoMeta({
           class="week-card"
           :class="[`status-${week.status}`, { active: week.number === activeWeek }]"
         >
-          <div class="week-number"><span>W</span>{{ week.number.toString().padStart(2, '0') }}</div>
+          <div class="week-number"><span>阶段</span>{{ week.number.toString().padStart(2, '0') }}</div>
           <div class="week-status"><i />{{ week.statusLabel }}</div>
           <h3>{{ capabilityTitle(week.number, week.deliverable) }}</h3>
           <p>{{ week.evidenceSummary || '尚无交付证据。' }}</p>
@@ -76,7 +76,7 @@ useSeoMeta({
             class="week-card"
             :class="`status-${week.status}`"
           >
-            <div class="week-number"><span>W</span>{{ week.number.toString().padStart(2, '0') }}</div>
+            <div class="week-number"><span>阶段</span>{{ week.number.toString().padStart(2, '0') }}</div>
             <div class="week-status"><i />{{ week.statusLabel }}</div>
             <h3>{{ capabilityTitle(week.number, week.deliverable) }}</h3>
             <p>{{ week.evidenceSummary || '尚无交付证据。' }}</p>

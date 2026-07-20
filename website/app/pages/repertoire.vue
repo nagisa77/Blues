@@ -25,6 +25,15 @@ const recordingsForSong = (songId: string) =>
 const latestRecordingForSong = (songId: string) =>
   archive.recordings.find(recording => recording.songId === songId)
 
+const compactCapability = (value: string) => {
+  const firstClause = value.split(/[；。]/)[0]?.trim() || value
+  const normalized = firstClause
+    .replace(/^已(?:学习|完成|留下|跟原曲完成)/, '')
+    .replace(/；.*$/, '')
+    .trim()
+  return normalized.length > 42 ? `${normalized.slice(0, 42)}…` : normalized
+}
+
 const toggleSong = (songId: string) => {
   expandedId.value = expandedId.value === songId ? null : songId
 }
@@ -97,7 +106,7 @@ useSeoMeta({
               <small>{{ song.artist || '曲目档案' }}</small>
               <strong>{{ song.title }}</strong>
             </span>
-            <span class="repertoire-capability">{{ song.currentCapability }}</span>
+            <span class="repertoire-capability">{{ compactCapability(song.currentCapability) }}</span>
             <span class="repertoire-last">
               <small>最后证据</small>
               {{ latestRecordingForSong(song.id)?.date ? formatArchiveDate(latestRecordingForSong(song.id)!.date) : '尚无录音' }}

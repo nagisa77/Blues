@@ -548,16 +548,8 @@
     transform-origin: center;
   }
 
-  .recording-card.playing .waveform i:nth-child(3n + 1) {
-    animation: wave-pulse 820ms ease-in-out infinite alternate;
-  }
-
-  .recording-card.playing .waveform i:nth-child(3n + 2) {
-    animation: wave-pulse 1040ms 80ms ease-in-out infinite alternate-reverse;
-  }
-
-  @keyframes wave-pulse {
-    to { transform: scaleY(0.58); opacity: 0.48; }
+  .recording-card.playing .waveform {
+    opacity: 1;
   }
 
   .recording-footer {
@@ -1167,7 +1159,7 @@
     --paper-soft: #e9e8e2;
     --section-muted: #ecebe5;
     --muted: #686d69;
-    --muted-dark: #8a8f8a;
+    --muted-dark: #686d69;
     --line: rgba(27, 30, 29, 0.12);
     --line-strong: rgba(27, 30, 29, 0.22);
     --cobalt: #416a7a;
@@ -1220,7 +1212,7 @@
     --paper-soft: #272c29;
     --section-muted: #161a18;
     --muted: #a7ada8;
-    --muted-dark: #747c76;
+    --muted-dark: #818983;
     --line: rgba(237, 240, 235, 0.11);
     --line-strong: rgba(237, 240, 235, 0.2);
     --cobalt: #76a7b8;
@@ -2111,7 +2103,7 @@
   .dock-play {
     width: 40px;
     height: 40px;
-    color: var(--night);
+    color: #151816;
     background: #fff;
     border-radius: 10px;
   }
@@ -3156,7 +3148,6 @@
 @layer pages {
 :root {
   --control-height: 46px;
-  --muted-dark: #686d69;
 }
 
 /* Readable metadata: meaningful content is never treated as decorative texture. */
@@ -5666,99 +5657,4 @@
     font-size: 31px;
   }
 }
-}
-
-@layer responsive {
-  @media (max-width: 760px) {
-    .compact-page-hero {
-      padding-block: 28px 30px;
-    }
-
-    .compact-page-hero h1 {
-      font-size: clamp(34px, 9.5vw, 42px);
-    }
-
-    .recording-page-hero .page-hero-grid,
-    .logs-page-hero .page-hero-grid {
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 16px;
-      align-items: end;
-    }
-
-    .recording-page-hero .recording-total,
-    .logs-page-hero .page-hero-aside {
-      align-self: end;
-      padding: 0 0 3px;
-    }
-
-    .recording-page-hero .recording-total p,
-    .logs-page-hero .page-hero-aside span,
-    .repertoire-page-hero .page-hero-statement {
-      display: none;
-    }
-
-    .recording-page-hero .recording-total strong,
-    .logs-page-hero .page-hero-aside strong {
-      font-size: 34px;
-    }
-
-    .recording-page-hero .recording-total > span,
-    .logs-page-hero .page-hero-aside p {
-      font-size: 10px;
-    }
-
-    .archive-context-line {
-      align-items: center;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-    }
-
-    .archive-context-line .evidence-legend {
-      display: none;
-    }
-
-    .archive-context-line .clear-filters {
-      min-height: 38px;
-      margin-left: auto;
-    }
-
-    .log-detail-hero {
-      padding-block: 24px 28px;
-    }
-
-    .log-detail-hero-grid,
-    .log-detail-body {
-      gap: 20px;
-    }
-
-    .log-detail-date {
-      padding-bottom: 12px;
-    }
-
-    .log-detail-title .eyebrow {
-      margin-top: 18px;
-    }
-
-    .log-detail-title h1 {
-      margin-top: 10px;
-      font-size: 38px;
-    }
-
-    .log-detail-title > p {
-      margin-top: 12px;
-    }
-
-    .log-detail-body {
-      padding-block: 26px 54px;
-    }
-
-    .log-detail-index {
-      gap: 8px 13px;
-    }
-
-    .detail-section {
-      padding-block: 36px;
-    }
-  }
 }

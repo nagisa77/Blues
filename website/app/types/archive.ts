@@ -50,6 +50,9 @@ export interface RecordingArchiveItem {
   tempoLabel: string | null
   evidenceSummary: string | null
   nextChange: string | null
+  comparisonGroup: string | null
+  comparisonLabel: string | null
+  comparisonStartSeconds: number | null
   waveform: number[] | null
   evidence: EvidenceBoundary
 }
@@ -203,7 +206,7 @@ export interface CurrentFocus {
 }
 
 export interface ArchiveData {
-  schemaVersion: 1
+  schemaVersion: 2
   sources: {
     recordings: string
     logs: string

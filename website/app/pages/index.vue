@@ -7,9 +7,9 @@ const nextTaskLog = archive.logs.find(log => log.id === archive.currentFocus.lat
 const latestRecording = archive.recordings.find(recording => recording.id === archive.currentFocus.latestRecordingId)
   || archive.recordings[0]
 const previousVersion = archive.recordings.find(recording =>
-  recording.songId
-  && recording.songId === latestRecording?.songId
-  && recording.id !== latestRecording.id,
+  latestRecording
+  && recording.id !== latestRecording.id
+  && recordingsShareComparisonGroup(recording, latestRecording),
 )
 const activeWeek = archive.stats.activeProgramWeek
 const activeWeekItem = archive.weeks.find(week => week.number === activeWeek)
@@ -25,18 +25,10 @@ const firstClause = (value: string | null | undefined, fallback: string) => {
 }
 
 const shortPassCriteria = firstClause(nextTaskLog?.task.passCriteria, '完成一次明确、可复现的音乐结果')
-const capabilitySummary = computed(() => ({
-  canDo: firstClause(archive.currentFocus.currentCapability, '等待下一条完成事实'),
-  stability: /挺难|尚待稳定|不稳/.test(archive.currentFocus.currentCapability || '')
-    ? '完成，尚待稳定'
-    : '以最近一次完成事实为准',
-}))
-const evidenceBoundaryText = computed(() => {
-  if (archive.currentFocus.evidence.performanceReview === 'reviewed') return '已实际回听，可用于演奏判断'
-  if (archive.currentFocus.evidence.selfReport === 'yes') return '来自用户自评；尚不评价音准、groove 与发音'
-  return '目前只有档案事实，等待演奏证据'
-})
-
+const capabilitySummary = computed(() => firstClause(
+  archive.currentFocus.currentCapability,
+  '等待下一条完成事实',
+))
 const comparisonTarget = computed(() => {
   if (!latestRecording?.songId) return '/recordings'
   const query: Record<string, string> = { song: latestRecording.songId }
@@ -93,15 +85,13 @@ useSeoMeta({
         </article>
 
         <aside class="practice-capability">
-          <p class="mini-label">当前能力</p>
-          <dl class="capability-summary">
-            <div><dt>能做到</dt><dd>{{ capabilitySummary.canDo }}</dd></div>
-            <div><dt>稳定性</dt><dd>{{ capabilitySummary.stability }}</dd></div>
-            <div><dt>证据边界</dt><dd>{{ evidenceBoundaryText }}</dd></div>
-          </dl>
-          <div class="capability-evidence">
-            <span>当前能力依据</span>
+          <div>
+            <p class="mini-label">当前能力</p>
+            <p class="capability-compact-copy">{{ capabilitySummary }}</p>
+          </div>
+          <div class="capability-evidence capability-evidence-compact">
             <EvidenceBadge :evidence="archive.currentFocus.evidence" />
+            <NuxtLink to="/progress">查看能力阶段<AppIcon name="arrow" :size="15" /></NuxtLink>
           </div>
         </aside>
       </div>
@@ -117,18 +107,8 @@ useSeoMeta({
           {{ previousVersion ? '直接打开 A/B 对比' : '打开该曲录音' }}<AppIcon name="arrow" :size="17" />
         </NuxtLink>
       </div>
-      <div class="container evidence-focus-grid home-evidence-grid">
-        <RecordingCard v-if="latestRecording" :recording="latestRecording" featured />
-        <article class="evidence-insight-card">
-          <div>
-            <p class="mini-label">训练决策</p>
-            <h3>{{ latestRecording?.nextChange || archive.currentFocus.nextStep || '由下一条声音证据决定训练内容' }}</h3>
-          </div>
-          <div>
-            <p class="mini-label">证据边界</p>
-            <p>{{ evidenceBoundaryText }}</p>
-          </div>
-        </article>
+      <div class="container home-evidence-single">
+        <RecordingCard v-if="latestRecording" :recording="latestRecording" featured wide show-decision />
       </div>
     </section>
 
@@ -152,7 +132,7 @@ useSeoMeta({
         </NuxtLink>
         <NuxtLink class="home-route-card" to="/progress">
           <span>当前能力</span>
-          <strong>{{ activeWeek ? `W${activeWeek.toString().padStart(2, '0')}` : '待确认' }}</strong>
+          <strong>{{ activeWeek ? `阶段 ${activeWeek} / ${archive.weeks.length}` : '待确认' }}</strong>
           <p>{{ activeWeekItem?.statusLabel || '查看课程决策' }}</p>
           <AppIcon name="arrow" :size="18" />
         </NuxtLink>

@@ -83,10 +83,10 @@ const waveform = computed(() => {
           type="button"
           :aria-pressed="compareSelected"
           :disabled="compareDisabled"
-          :title="compareDisabled ? compareDisabledLabel || 'A/B 对比需选择同一曲目的录音' : undefined"
+          :title="compareDisabled ? compareDisabledLabel || 'A/B 对比需选择同一音乐片段的录音' : undefined"
           @click="emit('toggleCompare', recording)"
         >
-          {{ compareSelected ? '已选 A/B' : compareDisabled ? compareDisabledLabel || '仅限同曲' : '选择 A/B' }}
+          {{ compareSelected ? '已选 A/B' : compareDisabled ? compareDisabledLabel || '仅限同段' : '选择 A/B' }}
         </button>
         <button
           v-if="compareMode && compareWithLabel && !compareSelected && !compareDisabled"

@@ -65,6 +65,15 @@ export const recordingLoopTrack = (
   }
 }
 
+export const recordingsShareComparisonGroup = (
+  left: RecordingArchiveItem,
+  right: RecordingArchiveItem,
+) => Boolean(
+  left.comparisonGroup
+  && right.comparisonGroup
+  && left.comparisonGroup === right.comparisonGroup,
+)
+
 export const formatArchiveDate = (date: string, withYear = false) => {
   const parsed = new Date(`${date}T00:00:00+08:00`)
   if (Number.isNaN(parsed.getTime())) return date

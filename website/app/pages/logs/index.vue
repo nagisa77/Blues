@@ -68,6 +68,7 @@ const resetFilters = () => {
 
 const hasFilters = computed(() => Boolean(search.value)
   || [selectedSong.value, selectedEvidence.value, selectedOutput.value, selectedWeek.value].some(value => value !== 'all'))
+const resultAnnouncement = computed(() => `显示 ${filteredLogs.value.length} / ${archive.stats.sessionLogCount} 份练习日志。`)
 
 let syncTimer: number | undefined
 watch([search, selectedSong, selectedEvidence, selectedOutput, selectedWeek], () => {
@@ -132,9 +133,10 @@ useSeoMeta({
         <p>显示 <strong>{{ filteredLogs.length }}</strong> / {{ archive.stats.sessionLogCount }}</p>
         <EvidenceLegend />
       </div>
+      <p class="sr-only" role="status" aria-live="polite">{{ resultAnnouncement }}</p>
 
       <div class="container compact-log-layout">
-        <div class="log-week-list" aria-live="polite">
+        <div class="log-week-list">
           <section v-for="group in groupedLogs" :key="group.week" class="log-week-group">
             <header class="log-week-heading">
               <strong>{{ group.week }}</strong>

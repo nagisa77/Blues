@@ -1,0 +1,480 @@
+@layer refinements {
+  :root {
+    --on-light-control: #151816;
+    --touch-target: 44px;
+    --serif: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', STSong, Iowan Old Style, Baskerville, serif;
+  }
+
+  /* The archive is a working tool. Internal pages start with content, not ceremony. */
+  .compact-page-hero {
+    padding-block: 30px 28px;
+  }
+
+  .compact-page-hero h1 {
+    margin-top: 12px;
+    font-size: clamp(38px, 4.2vw, 50px);
+  }
+
+  .compact-page-hero .page-hero-grid,
+  .progress-stage-grid {
+    gap: 40px;
+  }
+
+  .page-hero-aside,
+  .recording-total {
+    padding-block: 10px 4px;
+  }
+
+  .page-hero-aside strong,
+  .recording-total strong {
+    font-size: 44px;
+  }
+
+  .archive-content {
+    padding-block: 34px 88px;
+  }
+
+  .repertoire-board-section {
+    padding-block: 34px 88px;
+  }
+
+  /* Meaningful metadata stays readable. */
+  .recording-decision p,
+  .repertoire-capability,
+  .log-card-content > p,
+  .week-card > p {
+    font-size: 13px;
+  }
+
+  .recording-decision p span,
+  .recording-topline,
+  .recording-copy p,
+  .recording-next span,
+  .repertoire-title small,
+  .repertoire-last small,
+  .log-meta,
+  .log-date span {
+    font-size: 12px;
+  }
+
+  .recording-library {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recording-library.count-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .recording-card {
+    min-height: 320px;
+  }
+
+  .recording-card.wide {
+    min-height: 250px;
+  }
+
+  .recording-card.playing .waveform {
+    opacity: 1;
+  }
+
+  .waveform i {
+    transform: none;
+  }
+
+  /* Action-first home: capability is context, not a competing dashboard. */
+  .practice-workbench {
+    grid-template-columns: minmax(0, 1.65fr) minmax(250px, .45fr);
+  }
+
+  .practice-capability {
+    min-height: 0;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .capability-compact-copy {
+    margin-top: 18px;
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.45;
+  }
+
+  .capability-evidence-compact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 0;
+  }
+
+  .capability-evidence-compact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cobalt);
+    font-size: 12px;
+  }
+
+  .home-evidence-single .recording-card {
+    width: 100%;
+  }
+
+  /* Practice mode keeps reference audio in the first working surface. */
+  .practice-page-header {
+    padding-block: 30px 28px;
+  }
+
+  .practice-page-song {
+    margin-top: 14px;
+  }
+
+  .practice-page-heading h1 {
+    font-size: clamp(34px, 4vw, 48px);
+  }
+
+  .practice-session {
+    gap: 16px;
+    padding-block: 28px 72px;
+  }
+
+  .practice-core {
+    grid-template-columns: minmax(0, 1.05fr) minmax(330px, .95fr);
+  }
+
+  .practice-core-copy,
+  .practice-controls-panel {
+    padding: 26px;
+  }
+
+  .practice-controls-panel {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    background: var(--panel);
+  }
+
+  .practice-quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .practice-quick-actions .button {
+    min-width: 142px;
+  }
+
+  .practice-audio-note {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .practice-pass-disclosure {
+    margin-top: auto;
+    padding-top: 18px;
+  }
+
+  .practice-pass-disclosure > summary {
+    display: flex;
+    min-height: var(--touch-target);
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--cobalt);
+    border-top: 1px solid var(--line);
+    cursor: pointer;
+    font-size: 12px;
+    list-style: none;
+  }
+
+  .practice-pass-disclosure > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .practice-pass-disclosure[open] > summary svg {
+    transform: rotate(90deg);
+  }
+
+  .practice-pass-disclosure > p {
+    padding-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .practice-pass-check-final {
+    min-height: var(--touch-target);
+    width: fit-content;
+    margin-top: 18px;
+    padding: 9px 12px;
+    background: var(--soft-surface);
+    border-radius: 9px;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+
+  .practice-report-output pre {
+    font-size: 12px;
+  }
+
+  .practice-draft-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .practice-draft-meta button {
+    min-height: 36px;
+    padding-inline: 10px;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 160ms ease, border-color 160ms ease, transform 140ms var(--ease-out);
+  }
+
+  .practice-draft-meta button:active {
+    transform: scale(.97);
+  }
+
+  /* A/B compares matching phrases and keeps each recording's own offset. */
+  .comparison-tray {
+    position: static;
+    grid-template-columns: 130px 150px minmax(0, 1fr) auto;
+    scroll-margin-top: 84px;
+    box-shadow: 0 12px 36px rgba(20, 24, 23, .09);
+  }
+
+  .comparison-loop-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-slots article {
+    min-height: 88px;
+  }
+
+  .comparison-offset {
+    display: grid;
+    grid-template-columns: auto minmax(52px, 76px) auto;
+    gap: 6px;
+    align-items: center;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 10px;
+  }
+
+  .comparison-offset input {
+    width: 100%;
+    min-height: 30px;
+    padding-inline: 7px;
+    color: var(--night);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+  }
+
+  .comparison-slots article button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .recording-links a,
+  .recording-compare {
+    min-height: 40px;
+  }
+
+  /* Clear names distinguish course stages from calendar weeks. */
+  .week-number span {
+    margin-right: 5px;
+    font-size: 10px;
+  }
+
+  .stage-number strong {
+    font-size: 38px;
+  }
+
+  /* Fixed controls have real touch targets. */
+  .dock-play {
+    color: var(--on-light-control);
+  }
+
+  .theme-toggle,
+  .dock-close {
+    min-width: var(--touch-target);
+    min-height: var(--touch-target);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .practice-draft-meta button:hover {
+      color: var(--night);
+      border-color: var(--line-strong);
+    }
+  }
+
+  @media (max-width: 1050px) {
+    .recording-library,
+    .recording-library.count-2 {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-tray {
+      grid-template-columns: 120px 140px minmax(0, 1fr) auto;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .compact-page-hero {
+      padding-block: 20px 22px;
+    }
+
+    .compact-page-hero h1 {
+      font-size: clamp(32px, 9vw, 39px);
+    }
+
+    .archive-content,
+    .repertoire-board-section {
+      padding-block: 24px 58px;
+    }
+
+    .practice-workbench,
+    .practice-core {
+      grid-template-columns: 1fr;
+    }
+
+    .practice-capability {
+      gap: 18px;
+      padding: 20px 21px;
+    }
+
+    .capability-compact-copy {
+      margin-top: 10px;
+      font-size: 17px;
+    }
+
+    .home-practice-section {
+      padding-block: 30px 38px;
+    }
+
+    .practice-page-header {
+      padding-block: 22px;
+    }
+
+    .practice-page-heading {
+      gap: 14px;
+    }
+
+    .practice-page-heading h1 {
+      font-size: 30px;
+    }
+
+    .practice-session {
+      padding-block: 18px 54px;
+    }
+
+    .practice-core-copy,
+    .practice-controls-panel,
+    .practice-report {
+      padding: 20px;
+    }
+
+    .practice-core h2 {
+      font-size: 27px;
+    }
+
+    .practice-quick-actions {
+      flex-direction: column;
+    }
+
+    .practice-quick-actions .button {
+      width: 100%;
+    }
+
+    .practice-pass-disclosure {
+      margin-top: 12px;
+    }
+
+    .practice-draft-meta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .practice-draft-meta button,
+    .recording-compare,
+    .recording-links a,
+    .filter-pills button,
+    .comparison-clear,
+    .comparison-slots article button {
+      min-height: var(--touch-target);
+    }
+
+    .comparison-slots article button {
+      width: var(--touch-target);
+      height: var(--touch-target);
+    }
+
+    .comparison-tray {
+      grid-template-columns: 1fr auto;
+    }
+
+    .comparison-loop-controls,
+    .comparison-slots {
+      grid-column: 1 / -1;
+    }
+
+    .comparison-loop-controls {
+      grid-row: auto;
+    }
+
+    .comparison-slots {
+      grid-row: auto;
+    }
+
+    .recording-card {
+      min-height: 0;
+    }
+
+    .recording-decision p,
+    .repertoire-capability,
+    .log-card-content > p,
+    .week-card > p {
+      font-size: 13px;
+    }
+
+    .site-shell.player-open {
+      padding-bottom: 83px;
+    }
+
+    .audio-dock {
+      grid-template-columns: 40px minmax(0, 1fr) 44px 44px;
+    }
+
+    .dock-play,
+    .dock-close {
+      width: var(--touch-target);
+      height: var(--touch-target);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .recording-page-hero .recording-total strong,
+    .logs-page-hero .page-hero-aside strong {
+      font-size: 30px;
+    }
+
+    .recording-page-hero .recording-total > span,
+    .logs-page-hero .page-hero-aside p {
+      font-size: 11px;
+    }
+
+    .completion-options span {
+      min-height: var(--touch-target);
+    }
+  }
+}

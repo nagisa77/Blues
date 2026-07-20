@@ -351,6 +351,45 @@ function recordingFilenameMetadata(resourcePath) {
   }
 }
 
+function comparisonMetadata(song, title) {
+  if (!song) {
+    return {
+      comparisonGroup: null,
+      comparisonLabel: null,
+      comparisonStartSeconds: null,
+    }
+  }
+
+  if (
+    song.id === 'before-you-accuse-me'
+    && /90\s*BPM/i.test(title)
+    && /语气修正版|伴奏\s*3\s*chorus.*2\s*chorus\s*solo/i.test(title)
+  ) {
+    return {
+      comparisonGroup: 'before-you-accuse-me:solo-90bpm',
+      comparisonLabel: '90 BPM solo',
+      comparisonStartSeconds: 0,
+    }
+  }
+
+  if (
+    song.id === 'hide-away'
+    && /前\s*1\s*chorus|伴奏\s*3\s*chorus/i.test(title)
+  ) {
+    return {
+      comparisonGroup: 'hide-away:theme-first-chorus',
+      comparisonLabel: '主题第一轮',
+      comparisonStartSeconds: 0,
+    }
+  }
+
+  return {
+    comparisonGroup: null,
+    comparisonLabel: null,
+    comparisonStartSeconds: null,
+  }
+}
+
 function normalizeSessionCompletion(value) {
   if (!value) return 'unknown'
   if (/取消/.test(value)) return 'cancelled'
@@ -550,6 +589,7 @@ function parseRecordings(markdown, progressMarkdown) {
         ...recordingFilenameMetadata(resourcePath),
         evidenceSummary: progress?.evidenceSummary ?? null,
         nextChange: progress?.nextChange ?? null,
+        ...comparisonMetadata(song, title),
         waveform: null,
         evidence: evidenceBoundary(evidenceText, { fileFact: true }),
       }
@@ -870,7 +910,7 @@ async function main() {
   )
 
   const archive = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     sources: SOURCE_PATHS,
     recordings,
     logs,

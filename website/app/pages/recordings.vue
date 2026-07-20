@@ -12,8 +12,8 @@ const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
 const selectedType = ref(typeof route.query.type === 'string' ? route.query.type : 'all')
 const selectedSong = ref(initialSong)
 const comparisonIds = ref<string[]>([])
-const compareStart = ref(0)
 const compareLength = ref(20)
+const comparisonOffsets = reactive<Record<string, number>>({})
 const { play } = useAudioPlayer()
 
 const typeOptions = computed(() => {
@@ -56,33 +56,45 @@ const comparisonRecordings = computed(() => comparisonIds.value
   .filter((recording): recording is RecordingArchiveItem => Boolean(recording)))
 
 const comparisonScope = computed(() => comparisonRecordings.value.length
-  ? comparisonRecordings.value[0]?.songId || 'other'
+  ? comparisonRecordings.value[0]?.comparisonGroup || null
   : null)
 
-const hasComparisonPeer = (recording: RecordingArchiveItem) => archive.recordings.some(other =>
-  other.id !== recording.id
-  && (other.songId || 'other') === (recording.songId || 'other'),
+const comparisonGroupItems = (recording: RecordingArchiveItem) => archive.recordings.filter(other =>
+  other.comparisonGroup
+  && other.comparisonGroup === recording.comparisonGroup,
 )
 
+const hasComparisonPeer = (recording: RecordingArchiveItem) => comparisonGroupItems(recording).length > 1
+
 const comparisonPeer = (recording: RecordingArchiveItem) => {
-  const peers = archive.recordings.filter(other =>
-    other.id !== recording.id
-    && (other.songId || 'other') === (recording.songId || 'other'),
-  )
-  if (!peers.length) return null
-  const older = peers.find(other => other.date <= recording.date)
-  return older || peers[0] || null
+  const group = comparisonGroupItems(recording)
+  const index = group.findIndex(other => other.id === recording.id)
+  if (index < 0) return null
+  return group[index + 1] || group[index - 1] || null
 }
 
 const compareDisabledReason = (recording: RecordingArchiveItem) => {
-  if (!hasComparisonPeer(recording)) return '暂无版本'
-  if (comparisonScope.value !== null && (recording.songId || 'other') !== comparisonScope.value) {
-    return '仅限同曲'
+  if (!hasComparisonPeer(recording)) return '暂无同段版本'
+  if (comparisonScope.value !== null && recording.comparisonGroup !== comparisonScope.value) {
+    return '仅限同一片段'
   }
   return null
 }
 
 const compareDisabled = (recording: RecordingArchiveItem) => Boolean(compareDisabledReason(recording))
+
+const seedComparisonOffset = (recording: RecordingArchiveItem) => {
+  if (!(recording.id in comparisonOffsets)) {
+    comparisonOffsets[recording.id] = recording.comparisonStartSeconds || 0
+  }
+}
+
+const revealComparison = async () => {
+  await nextTick()
+  if (import.meta.client) {
+    document.querySelector('.comparison-tray')?.scrollIntoView({ block: 'nearest' })
+  }
+}
 
 const toggleCompare = (recording: RecordingArchiveItem) => {
   if (compareDisabled(recording)) return
@@ -90,18 +102,52 @@ const toggleCompare = (recording: RecordingArchiveItem) => {
     comparisonIds.value = comparisonIds.value.filter(id => id !== recording.id)
     return
   }
+  seedComparisonOffset(recording)
   comparisonIds.value = [...comparisonIds.value.slice(-1), recording.id]
+  void revealComparison()
 }
 
 const comparePair = (recording: RecordingArchiveItem) => {
   const peer = comparisonPeer(recording)
   if (!peer) return
+  seedComparisonOffset(recording)
+  seedComparisonOffset(peer)
   comparisonIds.value = [recording.id, peer.id]
+  void revealComparison()
 }
 
+const comparisonStart = (recording: RecordingArchiveItem) => comparisonOffsets[recording.id]
+  ?? recording.comparisonStartSeconds
+  ?? 0
+
+const comparisonMaximumLength = computed(() => {
+  if (!comparisonRecordings.value.length) return 90
+  const available = comparisonRecordings.value.map(recording => Math.max(
+    1,
+    (recording.durationSeconds || 90) - comparisonStart(recording),
+  ))
+  return Math.max(1, Math.floor(Math.min(90, ...available)))
+})
+
 const playComparison = (recording: RecordingArchiveItem) => play(
-  recordingLoopTrack(recording, compareStart.value, compareLength.value),
+  recordingLoopTrack(recording, comparisonStart(recording), Math.min(compareLength.value, comparisonMaximumLength.value)),
 )
+
+const comparableSongCount = computed(() => new Set(
+  archive.recordings
+    .filter(recording => hasComparisonPeer(recording) && recording.songId)
+    .map(recording => recording.songId),
+).size)
+const pendingReviewCount = computed(() => archive.recordings.filter(
+  recording => recording.evidence.performanceReview !== 'reviewed',
+).length)
+const selectedSongName = computed(() => archive.songs.find(song => song.id === selectedSong.value)?.title || null)
+const resultContext = computed(() => selectedSongName.value
+  ? `已筛选：${selectedSongName.value}`
+  : selectedType.value !== 'all' || search.value
+    ? '已按当前条件筛选'
+    : '默认先看当前主攻')
+const resultAnnouncement = computed(() => `显示 ${filteredRecordings.value.length} / ${archive.stats.recordingCount} 条录音。${resultContext.value}`)
 
 const applyRouteState = async () => {
   const songId = route.query.song
@@ -116,8 +162,9 @@ const applyRouteState = async () => {
     .map(id => archive.recordings.find(recording => recording.id === id))
     .filter((recording): recording is RecordingArchiveItem => Boolean(recording))
   if (candidates.length !== 2) return
-  const scope = candidates[0]?.songId || 'other'
-  if (candidates.every(recording => (recording.songId || 'other') === scope)) {
+  const scope = candidates[0]?.comparisonGroup
+  if (scope && candidates.every(recording => recording.comparisonGroup === scope)) {
+    candidates.forEach(seedComparisonOffset)
     comparisonIds.value = candidates.map(recording => recording.id)
   }
 }
@@ -127,6 +174,7 @@ const groupShouldOpen = (songId: string) => selectedSong.value !== 'all'
 
 watch(selectedSong, () => {
   comparisonIds.value = []
+  Object.keys(comparisonOffsets).forEach(key => delete comparisonOffsets[key])
 })
 
 let syncTimer: number | undefined
@@ -162,9 +210,9 @@ useSeoMeta({
           <h1>录音版本，<br><em>直接比较。</em></h1>
         </div>
         <div class="recording-total">
-          <span>总播放时长</span>
-          <strong>{{ archive.stats.recordingDurationLabel }}</strong>
-          <p>{{ archive.stats.recordingCount }} 条个人录音 · 更新于 {{ archive.recordings[0]?.date ? formatArchiveDate(archive.recordings[0].date, true) : '待确认' }}</p>
+          <span>可直接 A/B</span>
+          <strong>{{ comparableSongCount }} 首</strong>
+          <p>{{ pendingReviewCount }} 条待实际回听 · 更新于 {{ archive.recordings[0]?.date ? formatArchiveDate(archive.recordings[0].date, true) : '待确认' }}</p>
         </div>
       </div>
     </section>
@@ -181,10 +229,11 @@ useSeoMeta({
       </div>
 
       <div class="container archive-context-line">
-        <p>显示 <strong>{{ filteredRecordings.length }}</strong> / {{ archive.stats.recordingCount }} · 默认先看当前主攻</p>
+        <p>显示 <strong>{{ filteredRecordings.length }}</strong> / {{ archive.stats.recordingCount }} · {{ resultContext }}</p>
         <button v-if="selectedSong !== 'all' || selectedType !== 'all' || search" class="clear-filters" type="button" @click="selectedSong = 'all'; selectedType = 'all'; search = ''">查看全部录音</button>
         <EvidenceLegend />
       </div>
+      <p class="sr-only" role="status" aria-live="polite">{{ resultAnnouncement }}</p>
 
       <aside v-if="comparisonRecordings.length" class="container comparison-tray" aria-label="A/B 录音对比">
         <div class="comparison-title">
@@ -192,13 +241,16 @@ useSeoMeta({
           <p>{{ comparisonRecordings.length === 2 ? '同一片段循环播放；切换 A / B 直接听差异。' : '再选择一条同曲录音。' }}</p>
         </div>
         <div class="comparison-loop-controls">
-          <label><span>循环起点</span><input v-model.number="compareStart" type="number" min="0" step="1"><small>秒</small></label>
-          <label><span>片段长度</span><input v-model.number="compareLength" type="number" min="5" max="90" step="5"><small>秒</small></label>
+          <label><span>片段长度</span><input v-model.number="compareLength" type="number" min="1" :max="comparisonMaximumLength" step="1"><small>秒</small></label>
         </div>
         <div class="comparison-slots">
           <article v-for="(recording, index) in comparisonRecordings" :key="recording.id">
             <span>{{ index === 0 ? 'A' : 'B' }}</span>
-            <div><strong>{{ recording.title }}</strong><small>{{ recording.date }} · {{ recording.keyLabel }} · {{ recording.tempoLabel }} · {{ recording.durationLabel }}</small></div>
+            <div>
+              <strong>{{ recording.title }}</strong>
+              <small>{{ recording.comparisonLabel }} · {{ recording.date }} · {{ recording.tempoLabel }} · {{ recording.durationLabel }}</small>
+              <label class="comparison-offset"><span>起点</span><input v-model.number="comparisonOffsets[recording.id]" type="number" min="0" :max="Math.max(0, (recording.durationSeconds || 1) - 1)" step="0.5"><small>秒</small></label>
+            </div>
             <button type="button" :aria-label="`播放对比版本 ${index === 0 ? 'A' : 'B'}`" @click="playComparison(recording)"><AppIcon name="play" :size="17" /></button>
           </article>
           <div v-if="comparisonRecordings.length < 2" class="comparison-empty">选择另一条版本</div>
@@ -206,7 +258,7 @@ useSeoMeta({
         <button class="comparison-clear" type="button" @click="comparisonIds = []">清除</button>
       </aside>
 
-      <div class="container recording-groups" aria-live="polite">
+      <div class="container recording-groups">
         <details v-for="group in groupedRecordings" :key="group.songId" class="recording-group" :open="groupShouldOpen(group.songId)">
           <summary class="recording-group-head">
             <div><span>{{ group.roleLabel }}</span><h2>{{ group.title }}</h2></div>
@@ -221,7 +273,7 @@ useSeoMeta({
               :compare-selected="comparisonIds.includes(recording.id)"
               :compare-disabled="compareDisabled(recording)"
               :compare-disabled-label="compareDisabledReason(recording) || undefined"
-              :compare-with-label="comparisonPeer(recording) ? '与相邻版本比较' : undefined"
+              :compare-with-label="comparisonPeer(recording) ? '与上一版比较' : undefined"
               :wide="group.recordings.length === 1"
               show-decision
               hide-song-link
