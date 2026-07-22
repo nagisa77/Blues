@@ -17,7 +17,7 @@
 - 第 1 周 A 调完整表演已于 6 月 22 日过关：从头到尾一次录完、未剪辑，五轮不丢位置，ending（收尾）符合预期（用户自评）。演奏听感尚未实际回听，不因此重录。
 - 当前可复用伴奏工程：[A 调 `65 BPM` shuffle](./工程/A调_65BPM_shuffle.band)，内含 shuffle（摇摆节奏）背景和 3 条 solo（主音独奏）。
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus（三轮 12 小节）`限制任务每周最多一次。
-- 当前日历周为 [2026-W29 第五周](./日志/2026-W29.md)，第五周交付已完成；第 6 周能力层级的《Born Under a Bad Sign》跟原曲 cover 也已按用户自评基本过关。课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo（主音独奏）。
+- 当前日历周为 [2026-W30 第六周](./日志/2026-W30.md)；本周先完成《Key to the Highway》solo（主音独奏）第二段与跨段连接，不另加新曲或新段落。课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo。
 - 6 月 29 日已归档《Before You Accuse Me》前奏与 E 回答 1-3 练习录音；三个快速句子基本跟原曲一致来自用户自评，尚未实际回听演奏质量。
 - 6 月 29 日已归档《Before You Accuse Me》E7 / A7 / B7 回答变化练习成品；用户自评个人觉得还行，尚未实际回听演奏质量，是否一次录完待确认。
 - 新增可复用工程：[BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，含 E 伴奏和两条 solo（主音独奏），可作为后续 E 调 solo 资源。
@@ -45,7 +45,7 @@
 - 7 月 17 日用户明确反馈《Call It Stormy Monday》当前太难；该任务已取消，不降速补考，也不形成作业债务。
 - 已改用 [Derek and the Dominos《Key to the Highway》1970 年录音室版](./曲目/参考素材/Derek_And_The_Dominos-Key_To_The_Highway-1970_yt_nlhzajhLVY8.mp3)：A 调 `8-bar Blues（8 小节布鲁斯）`，先练形式与 rhythm（节奏/伴奏）/ lead（主音）交接，不抄长 solo（主音独奏）。
 - 7 月 17 日已归档 [《Key to the Highway》solo 第一段跟原曲练习](./录音/2026-07-17_W29_D6_KeyToTheHighwaySolo第一段_A_原速.mp3)；用户自评已经学会、但挺难，记录为“完成，尚待稳定”。尚未实际回听演奏质量。
-- 今日入口：[2026-07-17 D7 练习日志](./日志/2026-07-17_D7.md)。
+- 今日入口：[2026-07-22 D1 练习日志](./日志/2026-07-22_D1.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
@@ -70,7 +70,7 @@
 | 目的 | 文件 |
 |---|---|
 | 看 8 周方向 | [8 周 Blues 大师课](./计划/8周高效路线.md) |
-| 看当前周主任务 | [2026-W29 第五周周记](./日志/2026-W29.md) |
+| 看当前周主任务 | [2026-W30 第六周周记](./日志/2026-W30.md) |
 | 理解当周乐理与句法 | [Blues 乐理与句法](./学习/Blues乐理与句法.md) |
 | 了解高密度训练方式 | [练习系统](./学习/练习系统.md) |
 | 让我继续带练 | [老师带练协议](./学习/老师带练协议.md) |
