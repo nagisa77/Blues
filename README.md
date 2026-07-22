@@ -46,7 +46,7 @@
 - 已改用 [Derek and the Dominos《Key to the Highway》1970 年录音室版](./曲目/参考素材/Derek_And_The_Dominos-Key_To_The_Highway-1970_yt_nlhzajhLVY8.mp3)：A 调 `8-bar Blues（8 小节布鲁斯）`，先练形式与 rhythm（节奏/伴奏）/ lead（主音）交接，不抄长 solo（主音独奏）。
 - 7 月 17 日已归档 [《Key to the Highway》solo 第一段跟原曲练习](./录音/2026-07-17_W29_D6_KeyToTheHighwaySolo第一段_A_原速.mp3)；用户自评已经学会、但挺难，记录为“完成，尚待稳定”。尚未实际回听演奏质量。
 - 7 月 22 日已归档 [《Key to the Highway》solo 第二段与跨段连接](./录音/2026-07-22_W30_D1_KeyToTheHighway第二段与跨段连接_A_原速.mp3)；用户自评“很完美”，按自评过关，尚未实际回听演奏质量。下一步只把第一、二段连续演奏成完整单元，不先进入第三段。
-- 今日入口：[2026-07-22 D1 练习日志](./日志/2026-07-22_D1.md)。
+- 今日入口：[2026-07-22 D2 练习日志](./日志/2026-07-22_D2.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
