@@ -17,7 +17,7 @@
 - 第 1 周 A 调完整表演已于 6 月 22 日过关：从头到尾一次录完、未剪辑，五轮不丢位置，ending（收尾）符合预期（用户自评）。演奏听感尚未实际回听，不因此重录。
 - 当前可复用伴奏工程：[A 调 `65 BPM` shuffle](./工程/A调_65BPM_shuffle.band)，内含 shuffle（摇摆节奏）背景和 3 条 solo（主音独奏）。
 - 课程已升级为“真实曲目 + 名句扒谱 + 乐理顿悟 + 手法入句 + 不剪辑表演”；同类 `3 chorus（三轮 12 小节）`限制任务每周最多一次。
-- 当前日历周为 [2026-W30 第六周](./日志/2026-W30.md)；《Key to the Highway》solo（主音独奏）第二段与跨段连接已按用户自评过关，下一步只把第一、二段连续演奏成完整单元。课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进，不再连续堆同类 backing（伴奏）solo。
+- 当前日历周为 [2026-W30 第六周](./日志/2026-W30.md)；《Key to the Highway》solo（主音独奏）第一、二段完整连续演奏已按用户自评过关。原 D2 重复任务已取消，下一步进入 rhythm（节奏/伴奏）-> 两段 lead（主音）-> rhythm 的角色切换。课程继续按“经典曲目 / 乐句扒谱 -> 乐理解释 -> 曲目应用”推进。
 - 6 月 29 日已归档《Before You Accuse Me》前奏与 E 回答 1-3 练习录音；三个快速句子基本跟原曲一致来自用户自评，尚未实际回听演奏质量。
 - 6 月 29 日已归档《Before You Accuse Me》E7 / A7 / B7 回答变化练习成品；用户自评个人觉得还行，尚未实际回听演奏质量，是否一次录完待确认。
 - 新增可复用工程：[BeforeYouAccuseMe_E调回答变化](./工程/BeforeYouAccuseMe_E调回答变化.band)，含 E 伴奏和两条 solo（主音独奏），可作为后续 E 调 solo 资源。
@@ -45,8 +45,9 @@
 - 7 月 17 日用户明确反馈《Call It Stormy Monday》当前太难；该任务已取消，不降速补考，也不形成作业债务。
 - 已改用 [Derek and the Dominos《Key to the Highway》1970 年录音室版](./曲目/参考素材/Derek_And_The_Dominos-Key_To_The_Highway-1970_yt_nlhzajhLVY8.mp3)：A 调 `8-bar Blues（8 小节布鲁斯）`，先练形式与 rhythm（节奏/伴奏）/ lead（主音）交接，不抄长 solo（主音独奏）。
 - 7 月 17 日已归档 [《Key to the Highway》solo 第一段跟原曲练习](./录音/2026-07-17_W29_D6_KeyToTheHighwaySolo第一段_A_原速.mp3)；用户自评已经学会、但挺难，记录为“完成，尚待稳定”。尚未实际回听演奏质量。
-- 7 月 22 日已归档 [《Key to the Highway》solo 第二段与跨段连接](./录音/2026-07-22_W30_D1_KeyToTheHighway第二段与跨段连接_A_原速.mp3)；用户自评“很完美”，按自评过关，尚未实际回听演奏质量。下一步只把第一、二段连续演奏成完整单元，不先进入第三段。
-- 今日入口：[2026-07-22 D2 练习日志](./日志/2026-07-22_D2.md)。
+- 7 月 22 日已归档 [《Key to the Highway》solo 第一、二段连续演奏](./录音/2026-07-22_W30_D1_KeyToTheHighway第一二段连续演奏_A_原速.mp3)；用户明确说明录音已包含第一、二段连在一起，并自评“很完美”，按自评过关，尚未实际回听演奏质量。
+- 7 月 22 日原 D2“两段连续演奏”任务因与已完成录音重复而取消，不形成作业债务。
+- 今日入口：[2026-07-22 D3 练习日志](./日志/2026-07-22_D3.md)。
 
 本地参考：[B.B. King - How Blue Can You Get?（Live At The Regal）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_The_Regal.mp3)
 新增参考：[B.B. King - How Blue Can You Get?（Live at Farm Aid 1985）](./曲目/参考素材/BB_King-How_Blue_Can_You_Get-Live_At_Farm_Aid_1985_yt_P27tTNP7SFc.mp3)，来源：[YouTube](https://www.youtube.com/watch?v=P27tTNP7SFc)
@@ -64,9 +65,9 @@
 
 已完成：跟随原曲完成《Born Under a Bad Sign》的整首吉他 cover；用户自评大部分准确，少部分不在拍上，整体基本 OK。尚未实际回听演奏质量。本曲已转为维护。
 
-已完成：Derek and the Dominos《Key to the Highway》约 `3:14–3:55` 的 solo（主音独奏）第二段，以及第一段末轮到第二段首轮的跨段连接；用户自评“很完美”，尚未实际回听演奏质量。
+已完成：Derek and the Dominos《Key to the Highway》solo（主音独奏）第一、二段完整连续演奏；用户自评“很完美”，尚未实际回听演奏质量。
 
-下一步：把第一、二段连续演奏成一个完整单元；完成后再决定是否进入第三段。
+下一步：在完整歌曲语境中完成 rhythm（节奏/伴奏）一轮 -> 第一、二段 lead（主音）-> rhythm 一轮；不进入第三段。
 
 ## 常用入口
 

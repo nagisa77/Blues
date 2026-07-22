@@ -49,7 +49,7 @@ YYYY-MM-DD_W周数_D天数_内容_调性_速度.ext
 | 2026-07-14 | 《The Thrill Is Gone》B 小调 `88 BPM` 三轮变化与自编 solo | 练习成品 | `1:45.48` | [录音](./2026-07-14_W29_D1_TheThrillIsGone三轮变化与自Solo_Bm_88BPM.mp3) | [W29 D1 日志](../日志/2026-07-14_D1.md) |
 | 2026-07-16 | 《Born Under a Bad Sign》C# 调原速跟原曲吉他 cover | 练习成品 | `2:49.48` | [录音](./2026-07-16_W29_D4_BornUnderABadSign跟原曲Cover_CSharp_原速.mp3) | [W29 D4 日志](../日志/2026-07-16_D4.md) |
 | 2026-07-17 | 《Key to the Highway》A 调原速 solo 第一段跟原曲 | 练习记录 | `0:43.15` | [录音](./2026-07-17_W29_D6_KeyToTheHighwaySolo第一段_A_原速.mp3) | [W29 D6 日志](../日志/2026-07-17_D6.md) |
-| 2026-07-22 | 《Key to the Highway》A 调原速 solo 第二段与跨段连接 | 练习成品 | `0:56.53` | [录音](./2026-07-22_W30_D1_KeyToTheHighway第二段与跨段连接_A_原速.mp3) | [W30 D1 日志](../日志/2026-07-22_D1.md) |
+| 2026-07-22 | 《Key to the Highway》A 调原速 solo 第一、二段连续演奏 | 练习成品 | `0:56.53` | [录音](./2026-07-22_W30_D1_KeyToTheHighway第一二段连续演奏_A_原速.mp3) | [W30 D1 日志](../日志/2026-07-22_D1.md) |
 
 ## 现有工程
 
